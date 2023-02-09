@@ -1,13 +1,14 @@
-import { useState } from "react";
 import "./tailwind.css";
-
+import Map from "./components/map/map";
+import TabBar from "./layouts/tabBar";
+import Header from "./layouts/header";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App text-3xl underline ">
-      <button className="btn btn-primary">Pulttaegi</button>
-    </div>
+    <>
+      <Header />
+      <Map />
+      <TabBar />
+    </>
   );
 }
 
