@@ -1,12 +1,14 @@
 import { useState } from "react";
+import MyPage from "./pages/MyPage";
+import Review from "./pages/Review";
+
 import "./tailwind.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App text-3xl underline ">
-      <button className="btn btn-primary">Pulttaegi</button>
+    <div className="App h-screen">
+      {/* <MyPage /> */}
+      <Review />
     </div>
   );
 }
