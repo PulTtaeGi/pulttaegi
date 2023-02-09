@@ -1,7 +1,9 @@
+import "./tailwind.css";
+
 import { useState } from "react";
 import MyPage from "./pages/MyPage";
 import Review from "./pages/Review";
-
+import Main from "./pages/Main";
 import "./tailwind.css";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -12,13 +14,12 @@ import Detail from "./pages/Detail";
 
 function App() {
   return (
-
     <>
-      {/* <div className="App text-3xl underline ">
-        <button className="btn btn-primary">Pulttaegi</button>
-      </div> */}
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/review" element={<Review />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/search" element={<Search />}></Route>
@@ -26,7 +27,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-
   );
 }
 
