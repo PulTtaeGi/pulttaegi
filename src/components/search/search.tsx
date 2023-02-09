@@ -43,11 +43,13 @@ const Search = () => {
   );
 
   return (
-    <BrowserRouter>
+    <>
+      {/* <BrowserRouter> */}
       {search ? resultBar : searchBar}
       {search && <FoodResult />}
       {!search && <Category />}
-    </BrowserRouter>
+      {/* </BrowserRouter> */}
+    </>
   );
 };
 

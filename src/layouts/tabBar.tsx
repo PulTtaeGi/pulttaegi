@@ -7,60 +7,56 @@ import userIco from "../assets/icons/user_ico.png";
 
 const TabBar = () => {
   return (
-    <BrowserRouter>
-      <div
-        id="tabBar"
-        className="h-28 shadow-2xl bg-white flex justify-center items-center z-20 fixed w-screen bottom-0 left-0 text-center border-t-2 border-stone-300 text-gray-500"
-      >
-        <ul className="flex w-screen justify-center items-center">
-          <li className="flex-1">
-            <Link to="/" className="font-bold text-lg ">
-              <img
-                src={mapIco}
-                className="w-7/12 m-auto opacity-30"
-                alt=""
-              ></img>
-              <span>지도</span>
-            </Link>
-          </li>
-          <li className="flex-1">
-            <Link to="/" className="font-bold text-lg ">
-              <img
-                src={reviewIco}
-                className="w-7/12 m-auto opacity-30"
-                alt=""
-              ></img>
-              <span>리뷰보기</span>
-            </Link>
-          </li>
-          <li className="flex-1 items-center">
-            <Link to="/" className="font-bold text-lg ">
-              <img src={homeIco} className="w-7/12 m-auto " alt=""></img>
-            </Link>
-          </li>
-          <li className="flex-1">
-            <Link to="/" className="font-bold text-lg ">
-              <img
-                src={favoritewIco}
-                className="w-7/12 m-auto opacity-30"
-                alt=""
-              ></img>
-              <span>즐겨찾기</span>
-            </Link>
-          </li>
-          <li className="flex-1">
-            <Link to="/" className="font-bold text-lg ">
-              <img
-                src={userIco}
-                className="w-7/12 m-auto opacity-30"
-                alt=""
-              ></img>
-              <span>My</span>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </BrowserRouter>
+    // <BrowserRouter>
+    <div
+      id="tabBar"
+      className="h-28 shadow-2xl bg-white flex justify-center items-center z-20 fixed w-screen bottom-0 left-0 text-center border-t-2 border-stone-300 text-gray-500"
+    >
+      <ul className="flex w-screen justify-center items-center">
+        <li className="flex-1">
+          <Link to="/" className="font-bold text-lg ">
+            <img src={mapIco} className="w-7/12 m-auto opacity-30" alt=""></img>
+            <span>지도</span>
+          </Link>
+        </li>
+        <li className="flex-1">
+          <Link to="/" className="font-bold text-lg ">
+            <img
+              src={reviewIco}
+              className="w-7/12 m-auto opacity-30"
+              alt=""
+            ></img>
+            <span>리뷰보기</span>
+          </Link>
+        </li>
+        <li className="flex-1 items-center">
+          <Link to="/" className="font-bold text-lg ">
+            <img src={homeIco} className="w-7/12 m-auto " alt=""></img>
+          </Link>
+        </li>
+        <li className="flex-1">
+          <Link to="/" className="font-bold text-lg ">
+            <img
+              src={favoritewIco}
+              className="w-7/12 m-auto opacity-30"
+              alt=""
+            ></img>
+            <span>즐겨찾기</span>
+          </Link>
+        </li>
+        <li className="flex-1">
+          <Link to="/" className="font-bold text-lg ">
+            <img
+              src={userIco}
+              className="w-7/12 m-auto opacity-30"
+              alt=""
+            ></img>
+            <span>My</span>
+          </Link>
+        </li>
+      </ul>
+    </div>
+    // </BrowserRouter>
   );
 };
 
