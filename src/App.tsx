@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App text-3xl underline ">
       <button className="btn btn-primary">Pulttaegi</button>
+      <div>포크푸시</div>
     </div>
   );
 }
