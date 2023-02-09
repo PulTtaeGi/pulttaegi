@@ -1,16 +1,18 @@
 import { useState } from "react";
+import MyPage from "./pages/MyPage";
+import Review from "./pages/Review";
+
 import "./tailwind.css";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Search from "./pages/Search";
-import Detail from "./pages/Detail"
+import Detail from "./pages/Detail";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
+
     <>
       {/* <div className="App text-3xl underline ">
         <button className="btn btn-primary">Pulttaegi</button>
