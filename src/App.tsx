@@ -12,6 +12,7 @@ import Detail from "./pages/Detail";
 
 function App() {
   return (
+
     <>
       {/* <div className="App text-3xl underline ">
         <button className="btn btn-primary">Pulttaegi</button>
@@ -25,6 +26,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
+
   );
 }
 
