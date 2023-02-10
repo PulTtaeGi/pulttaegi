@@ -12,7 +12,6 @@ import Detail from "./pages/Detail";
 
 function App() {
   return (
-
     <>
       <BrowserRouter>
         <Routes>
