@@ -12,11 +12,7 @@ import Detail from "./pages/Detail";
 
 function App() {
   return (
-
     <>
-      {/* <div className="App text-3xl underline ">
-        <button className="btn btn-primary">Pulttaegi</button>
-      </div> */}
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />}></Route>
