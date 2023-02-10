@@ -1,0 +1,9 @@
+.active {
+    color: #285943;
+    text-decoration: underline;
+    font-weight: 800;
+}
+
+/*.hashTagBar::-webkit-scrollbar {
+    display: none;
+}*/
