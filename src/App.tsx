@@ -23,10 +23,11 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/detail" element={<Detail />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/review" element={<Review />}></Route>
         </Routes>
       </BrowserRouter>
     </>
-
   );
 }
 
