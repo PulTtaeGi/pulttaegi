@@ -9,12 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-
+    "boxicons": "^2.1.4",
     "daisyui": "^2.50.0",
     "dotenv": "^16.0.3",
-
-    "boxicons": "^2.1.4",
-
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.3",

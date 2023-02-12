@@ -3,9 +3,6 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {},
-<<<<<<< HEAD
-    extend: {},
-=======
     extend: {
       colors: {
         "green-1": "#D7FFF1",
@@ -17,7 +14,6 @@ module.exports = {
     placeholderColor: {
       "primary": "#77AF9C"
     },
->>>>>>> af42c51de34ab7927b584489329e170f296057a4
   },
   plugins: [require("daisyui")],
   daisyui: {
