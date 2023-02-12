@@ -24,7 +24,7 @@ const Rating = ({ title }: { title: string }) => {
   };
 
   return (
-    <div className="flex flex-row mt-2">
+    <div className="flex flex-row pl-4 ">
       <div className="font-bold ">{title}</div>
       <div className="ml-3 leading-8">
         <i className={ratingOnOff[0]} onClick={() => mouseOverRating(0)} />

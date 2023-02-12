@@ -16,7 +16,10 @@ export default function PrimaryButton({ children, color, link }: PrimaryButtonPr
                 {children}
             </button>
             :
-            <Link to={link} className={`w-full p-3 text-white bg-${color} text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap`}>
+            <Link 
+                to={link} 
+                className={`w-full p-3 text-white bg-${color} text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap`}
+            >
                     {children}
             </Link>   
     )
