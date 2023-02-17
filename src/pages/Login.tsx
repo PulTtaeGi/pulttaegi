@@ -1,8 +1,8 @@
 import React from "react";
 import "../tailwind.css"
 import Wrapper from "../layouts/Wrapper";
-import PrimaryButton from "../components/PrimaryButton";
-import PrimaryInput from "../components/PrimaryInput";
+import PrimaryButton from "../components/common/PrimaryButton";
+import PrimaryInput from "../components/common/PrimaryInput";
 
 export default function Login () {
     const LOGO_URL = "../../src/assets/icons/logo-icon.png"

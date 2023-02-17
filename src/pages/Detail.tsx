@@ -1,8 +1,8 @@
 import React from "react"
 import { useState } from "react"
 import Wrapper from "../layouts/Wrapper"
-import HashTagBar from "../components/HashTagBar"
-import PrimaryButton from "../components/PrimaryButton"
+import HashTagBar from "../components/common/HashTagBar"
+import PrimaryButton from "../components/common/PrimaryButton"
 
 export default function Datail () {
     interface menuListProps {
