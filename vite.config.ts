@@ -7,4 +7,5 @@ export default defineConfig({
   plugins: [react(),
     VitePluginHtmlEnv(),
     VitePluginHtmlEnv({compiler: true})],
-  })
+})
+
