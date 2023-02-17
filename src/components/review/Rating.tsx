@@ -1,37 +1,62 @@
-import { useEffect, useState } from "react";
+import {MouseEvent, useEffect } from "react";
+import { useState } from "react";
 
-const Rating = ({ title }: { title: string }) => {
-  const ratingState: Array<string> = [];
-  const [ratingOnOff, setRatingOnOff] = useState(ratingState);
+interface RatingProps {
+  title: string,
+  color: string
+  getRating: (currentdata : string[]) => void;
+  category: string
+}
+
+const Rating = ({ title, color, getRating, category }: RatingProps) => {
+  interface ratingDataProps {
+    index: string
+    ratings: any
+    class: string
+  }
+
+  const [ ratingData, setRatingData ] = useState<ratingDataProps>()
+  
+  function getIndex (e : MouseEvent<HTMLElement>) {
+    const event = e.target as HTMLElement
+    const totalRating : any = event.parentElement?.childNodes
+    const currentIndex = event.id
+
+    setRatingData((prevState : any) => {
+      return {...prevState, index: currentIndex, ratings: totalRating}
+    }) 
+  }
 
   useEffect(() => {
-    for (let i = 0; i < 5; i++) {
-      ratingState.push("bx bx-checkbox pointer");
-    }
-    setRatingOnOff(ratingState);
-  }, []);
+    setRatingData((prevState : any) => {
+      return {...prevState, class : category }
+    })
+  }, [])
+  
+  useEffect(() => {
+    if(ratingData !== undefined) {
+      for(let i = 0; i < Number(ratingData.index); i++) {
+        ratingData.ratings[i].classList.remove("bg-gray-300")
+        ratingData.ratings[i].classList.add(`bg-${color}`)
+      } 
 
-  const mouseOverRating = (index: number) => {
-    const tempRating: Array<string> = [];
-    for (let i = 0; i < 5; i += 1) {
-      if (i <= index) {
-        tempRating.push("bx bxs-checkbox pointer");
-      } else {
-        tempRating.push("bx bx-checkbox pointer");
+      for(let i = Number(ratingData.index); i < 5; i++) {
+        ratingData.ratings[i].classList.add("bg-gray-300")
+        ratingData.ratings[i].classList.remove(`bg-${color}`)
       }
-      setRatingOnOff(tempRating);
-    }
-  };
+    } 
+    getRating(ratingData ? [ratingData.index, ratingData?.class] : [] )
+  }, [ratingData])
 
   return (
-    <div className="flex flex-row pl-4 ">
-      <div className="font-bold ">{title}</div>
-      <div className="ml-3 leading-8">
-        <i className={ratingOnOff[0]} onClick={() => mouseOverRating(0)} />
-        <i className={ratingOnOff[1]} onClick={() => mouseOverRating(1)} />
-        <i className={ratingOnOff[2]} onClick={() => mouseOverRating(2)} />
-        <i className={ratingOnOff[3]} onClick={() => mouseOverRating(3)} />
-        <i className={ratingOnOff[4]} onClick={() => mouseOverRating(4)} />
+    <div className="flex flex-row items-center gap-4 pl-4 ">
+      <div className="block w-[36px] font-bold">{title}</div>
+      <div className="flex gap-2 h-[24px]">
+        <button onClick={getIndex} id="1" className={`block w-[36px] h-[24px] bg-gray-300 rounded-lg shadow`}></button>
+        <button onClick={getIndex} id="2" className={`block w-[36px] h-[24px] bg-gray-300 rounded-lg shadow`}></button>
+        <button onClick={getIndex} id="3" className={`block w-[36px] h-[24px] bg-gray-300 rounded-lg shadow`}></button>
+        <button onClick={getIndex} id="4" className={`block w-[36px] h-[24px] bg-gray-300 rounded-lg shadow`}></button>
+        <button onClick={getIndex} id="5" className={`block w-[36px] h-[24px] bg-gray-300 rounded-lg shadow`}></button>
       </div>
     </div>
   );

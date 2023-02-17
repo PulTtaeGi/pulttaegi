@@ -36,7 +36,7 @@ const ImgUpload = ({getUrl}: ImgUploadProps): JSX.Element => {
     if(imageFile?.thumbnail) {
       getUrl(imageFile.thumbnail)
     } else {
-      getUrl("")
+      return
     }
   }, [imageFile])
 

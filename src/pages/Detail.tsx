@@ -1,7 +1,7 @@
 import React from "react"
 import { useState } from "react"
 import Wrapper from "../layouts/Wrapper"
-import HashTagBar from "../components/HashTagBar"
+import HashTagBar from "../components/common/HashTagBar"
 import PrimaryButton from "../components/PrimaryButton"
 
 export default function Datail () {

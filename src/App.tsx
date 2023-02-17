@@ -10,9 +10,11 @@ import Signup from "./pages/Signup";
 import Search from "./pages/Search";
 import Detail from "./pages/Detail";
 import ErrorPage from "./pages/ErrorPage";
-import First from "./components/First";
-import Second from "./pages/Second";
+// import First from "./components/First";
+// import Second from "./pages/Second";
 import Total from "./pages/Total"
+import MyReview from "./pages/MyReview";
+import TotalReview from "./pages/TotalReview";
 
 function App() {
   return (
@@ -21,15 +23,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/review" element={<Review />}></Route>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/detail" element={<Detail />}></Route>
           <Route path="/errorPage" element={<ErrorPage />}></Route>
-          <Route path="/first" element={<First />}></Route>
-          <Route path="/second" element={<Second />}></Route>
+          <Route path="/review/my" element={<MyReview />}></Route>
+          <Route path="/review/total" element={<TotalReview />}></Route>
           <Route path="/total" element={<Total />}></Route>
-          <Route path="/review/:title" element={<Review />}></Route>
         </Routes>
       </BrowserRouter>
     </>
