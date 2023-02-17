@@ -21,7 +21,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
-          <Route path="/review" element={<Review />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/search" element={<Search />}></Route>
@@ -30,10 +29,10 @@ function App() {
           <Route path="/first" element={<First />}></Route>
           <Route path="/second" element={<Second />}></Route>
           <Route path="/total" element={<Total />}></Route>
+          <Route path="/review/:title" element={<Review />}></Route>
         </Routes>
       </BrowserRouter>
     </>
-
   );
 }
 

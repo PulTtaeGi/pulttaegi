@@ -12,11 +12,10 @@
 
     "daisyui": "^2.50.0",
     "dotenv": "^16.0.3",
-
     "boxicons": "^2.1.4",
-
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "firebase": "^9.17.1",
     "prettier": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
