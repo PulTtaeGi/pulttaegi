@@ -1,6 +1,6 @@
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
-import db from "../api/firebase";
+import { firestore} from "../api/firebase";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
@@ -13,7 +13,7 @@ export default function Signup() {
   const pwCheckRef = useRef<HTMLInputElement>(null);
 
   const handleIdCheck = useCallback(async () => {
-    const usersCollectionRef = collection(db, "login");
+    const usersCollectionRef = collection(firestore, "login");
     const data = await getDocs(usersCollectionRef);
 
     if (idRef.current?.value === null) {
@@ -40,7 +40,7 @@ export default function Signup() {
       return;
     }
 
-    const usersCollectionRef = collection(db, "login");
+    const usersCollectionRef = collection(firestore, "login");
     try {
       await addDoc(usersCollectionRef, {
         id: idRef.current?.value,
