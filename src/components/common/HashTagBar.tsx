@@ -1,9 +1,9 @@
 import React from "react"
-import "../tailwind.css"
-import styles from "../styles/ActiveClass.module.css"
+import "../../tailwind.css"
+import styles from "../../styles/ActiveClass.module.css"
 
 interface HashTagBarProps  {
-    list: string[]
+    list: string[] 
 }
 
 export default function HashTagBar ({list}: HashTagBarProps) {
