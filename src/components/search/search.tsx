@@ -16,7 +16,7 @@ const Search = () => {
 
   const searchBar = (
     <Link
-      to="/"
+      to="/search"
       className="fixed z-10 bg-slate-50 top-5 w-5/6 rounded-xl border-stone-300 border-2 shadow-2xl"
       style={{
         left: "50%",
@@ -32,14 +32,6 @@ const Search = () => {
         <img src={SearchIcon} className="w-10"></img>
       </div>
     </Link>
-  );
-  const resultBar = (
-    <div className="fixed z-10 bg-slate-50 top-0 w-screen h-20 flex items-center border-stone-300 border-2 shadow-2xl font-bold text-2xl">
-      <button onClick={setTrue}>
-        <img className="w-8 my-auto m-5" src={backIcon}></img>
-      </button>
-      <span>강남역</span>
-    </div>
   );
 
   return (

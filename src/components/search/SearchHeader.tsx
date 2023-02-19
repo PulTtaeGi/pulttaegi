@@ -1,25 +1,23 @@
 import { useState } from "react";
+import { useAppDispatch } from "../../store/hooks/configureStore.hook";
+import { setData } from "../../store/modules/search";
 
 import styles from "../../styles/ActiveClass.module.css";
+import SearchBar from "./SearchBar";
 
 const SearchHeader = (): JSX.Element => {
   const [isRegion, setIsRegion] = useState<boolean>(true);
+  const useDispatcher = useAppDispatch();
 
   function handleCategory(e: React.MouseEvent<HTMLButtonElement>) {
-    e.currentTarget.value === "지역 검색" ? setIsRegion(true) : null;
-
-    e.currentTarget.value === "음식 검색" ? setIsRegion(false) : null;
+    e.currentTarget.value === "지역 검색"
+      ? setIsRegion(true)
+      : setIsRegion(false);
+    useDispatcher(setData({ keyword: "" }));
   }
   return (
     <>
-      <div className="flex items-center w-full justify-start">
-        <img
-          src="../../src/assets/images/back.png"
-          alt="backButton"
-          className="w-[22px] h-[22px]"
-        ></img>
-      </div>
-      <div className="flex gap-6 justify-start w-full mt-8">
+      <div className=" bg-white h-[50px] z-10 flex gap-6 justify-start w-screen mt-20 pl-8 fixed top-0 ">
         <button
           onClick={handleCategory}
           value="지역 검색"
@@ -39,6 +37,7 @@ const SearchHeader = (): JSX.Element => {
           음식 검색
         </button>
       </div>
+      <SearchBar isRegion={isRegion} />
     </>
   );
 };

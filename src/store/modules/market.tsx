@@ -6,8 +6,7 @@ interface MenuType {
   menuName: string;
   price: string;
 }
-
-interface MarketType {
+export interface MarketType {
   id: number;
   title: string;
   img: string;
@@ -43,7 +42,8 @@ export const marketSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchMarkets.fulfilled, (state, action) => {
-      state.push(action.payload);
+      // state.push(action.payload);
+      return { ...state, ...action.payload };
     });
   },
 });

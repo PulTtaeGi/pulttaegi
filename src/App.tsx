@@ -1,5 +1,5 @@
 import "./tailwind.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MyPage from "./pages/MyPage";
 import Review from "./pages/Review";
 import Main from "./pages/Main";
@@ -12,10 +12,9 @@ import Detail from "./pages/Detail";
 import ErrorPage from "./pages/ErrorPage";
 // import First from "./components/First";
 // import Second from "./pages/Second";
-import Total from "./pages/Total"
+import Total from "./pages/Total";
 import MyReview from "./pages/MyReview";
 import TotalReview from "./pages/TotalReview";
-import { useEffect } from "react";
 import { useAppDispatch } from "./store/hooks/configureStore.hook";
 import { fetchMarkets } from "./store/modules/market";
 import { firestore } from "./api/firebase";
@@ -35,35 +34,32 @@ function App() {
     dispatchFun();
   }, []);
 
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
-  const [getReviews, setGetReviews] = useState<Array<any>>()
-
-  useEffect(() => {
-      const reviewList = firestore.collection("review")
-      const totalData : any = [];
-      reviewList.get().then((docs) => {
-          docs.forEach((doc) => {
-              if(doc.exists) {
-                  totalData.push(doc.data())
-              }
-          })
-          totalData !== getReviews 
-              ? setGetReviews(totalData)
-              : null
-      })
-  }, [])
+  const [getReviews, setGetReviews] = useState<Array<any>>();
 
   useEffect(() => {
-    getReviews !== undefined 
-        ? dispatch(setData(getReviews)) 
-        : null
-  }, getReviews)
+    const reviewList = firestore.collection("review");
+    const totalData: any = [];
+    reviewList.get().then((docs) => {
+      docs.forEach((doc) => {
+        if (doc.exists) {
+          totalData.push(doc.data());
+        }
+      });
+      totalData !== getReviews ? setGetReviews(totalData) : null;
+    });
+  }, []);
+
+  useEffect(() => {
+    getReviews !== undefined ? dispatch(setData(getReviews)) : null;
+  }, getReviews);
 
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/*" element={<ErrorPage />}></Route>
           <Route path="/" element={<Main />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/review" element={<Review />}></Route>
