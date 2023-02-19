@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import TabBar from "../layouts/tabBar";
-import db from "../api/firebase";
+import {firestore} from "../api/firebase";
 import reviewimage from "../assets/icons/1-6.png";
 import starimage from "../assets/icons/pngwing.com.png";
 import FavoriteButton from "../components/common/FavoriteButton";
@@ -18,7 +18,7 @@ function First() {
 export default First;
 
 const Component = ({ title }: { title: string }) => {
-  const favoritesCollectionRef = collection(db, "favorites");
+  const favoritesCollectionRef = collection(firestore, "favorites");
   const data = getDocs(favoritesCollectionRef);
 
   data.then((data) =>

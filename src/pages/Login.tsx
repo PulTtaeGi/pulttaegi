@@ -1,7 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
-import db from "../api/firebase";
+import{ firestore} from "../api/firebase";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
@@ -14,7 +14,7 @@ export default function Login() {
   const pwRef = useRef<HTMLInputElement>(null);
 
   const handleLogin = useCallback(async () => {
-    const usersCollectionRef = collection(db, "login");
+    const usersCollectionRef = collection(firestore, "login");
     const data = await getDocs(usersCollectionRef);
     
 
