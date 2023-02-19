@@ -3,7 +3,7 @@ import SearchIcon from "../../assets/icons/search_icon.png";
 import backIcon from "../../assets/icons/back.png";
 import { useState } from "react";
 import SearchResultBtn from "../common/SearchResultBtn";
-import { Category } from "../category/Category";
+import { Category } from "../category/category";
 const Search = () => {
   // 검색 전, 후 보여줄 내용을 search라는 state 값 활용(true, false)
   const [search, setSearch] = useState<boolean>(false);
@@ -36,7 +36,7 @@ const Search = () => {
 
   return (
     <>
-      {search ? resultBar : searchBar}
+      {searchBar}
       {search && <SearchResultBtn />}
       {!search && <Category />}
     </>
