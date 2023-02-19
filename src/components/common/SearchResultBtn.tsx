@@ -2,7 +2,7 @@ import { Result } from "postcss";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import hamberIco from "../../assets/icons/hamburger_icon.png";
-import resultMapIco from "../../assets/icons/resultMap_ico.png";
+import resultMapIco from "../../assets/icons/map_ico.png";
 const FoodResult = () => {
   const [height, setHeight] = useState<number>();
   useEffect(() => {
