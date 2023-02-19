@@ -1,17 +1,22 @@
 import React from "react";
 import { useState } from "react";
-import SearchBar from "../components/search/SearchBar";
+import BackArrow from "../components/common/BackArrow";
+import ResultBox from "../components/common/ResultBox";
+import FoodSearch from "../components/search/FoodSearch";
+import RegionSearch from "../components/search/RegionSearch";
 import SearchHeader from "../components/search/SearchHeader";
-import Wrapper from "../layouts/Wrapper";
+import { useAppSelector } from "../store/hooks/configureStore.hook";
 
 export default function Search() {
   return (
-    <Wrapper>
-      <div className="flex flex-col items-center w-full h-full mx-8 mt-12">
-        <SearchHeader />
-        <SearchBar />
-        {/* 검색하기 전 화면 */}
-        {/* <div className="flex flex-col gap-6 mt-8 w-full">
+    <div className="wrapper flex-col flex items-center justify-center h-full w-full mt-10">
+      <div className="fixed top-0 bg-white w-[414px] h-[80px] z-10">
+        <BackArrow />
+      </div>
+      <SearchHeader />
+      {/* <ResultBox text="강남역" /> */}
+      {/* 검색하기 전 화면 */}
+      {/* <div className="flex flex-col gap-6 mt-8 w-full">
           <span className="block pb-2 text-2xl tracking-tight font-bold border-b-gray-300 border-b-2">
             최근 검색어
           </span>
@@ -30,24 +35,10 @@ export default function Search() {
             </li>
           </ul>
         </div> */}
-        {/* 검색했을 때의 화면 */}
-        <div className="flex flex-col gap-6 mt-8 w-full">
-          <span className="block pb-2 text-2xl tracking-tight font-bold border-b-gray-300 border-b-2">
-            검색 결과
-          </span>
-          <ul className="flex flex-col">
-            <li className="flex justify-between p-3 pr-4 text-[22px] font-extrabold">
-              <span className="text-green-4">강남역</span>
-            </li>
-            <li className="flex justify-between p-3 pr-4 text-[22px] font-extrabold">
-              <span className="text-green-4">강남구청</span>
-            </li>
-            <li className="flex justify-between p-3 pr-4 text-[22px] font-extrabold">
-              <span className="text-green-4">강남구</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </Wrapper>
+      {/* 검색했을 때의 화면 */}
+
+      {/* <FoodSearch /> */}
+      {/* <RegionSearch /> */}
+    </div>
   );
 }

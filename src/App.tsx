@@ -1,5 +1,5 @@
 import "./tailwind.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MyPage from "./pages/MyPage";
 import Review from "./pages/Review";
 import Main from "./pages/Main";
@@ -11,14 +11,22 @@ import Search from "./pages/Search";
 import Detail from "./pages/Detail";
 import ErrorPage from "./pages/ErrorPage";
 import First from "./components/First";
-import Second from "./pages/Second";
-import Total from "./pages/Total"
+import Second from "./pages/SearchResult";
+import Total from "./pages/Total";
+import useMarket from "./hooks/useMarket";
+import { useAppDispatch } from "./store/hooks/configureStore.hook";
 
 function App() {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    useMarket(dispatch);
+  }, []);
+
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/*" element={<ErrorPage />}></Route>
           <Route path="/" element={<Main />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/review" element={<Review />}></Route>
@@ -33,7 +41,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-
   );
 }
 
