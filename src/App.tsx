@@ -23,18 +23,17 @@ import { setData } from "./store/modules/review";
 import EditReview from "./pages/EditReview";
 
 function App() {
-  // const dispatch = useAppDispatch();
-  // const dispatchFun = async () => {
-  //   try {
-  //     const markets = await dispatch(fetchMarkets()).unwrap();
-  //     console.log(markets);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  // useEffect(() => {
-  //   dispatchFun();
-  // }, []);
+  const dispatchFun = async () => {
+    try {
+      const markets = await dispatch(fetchMarkets()).unwrap();
+      // console.log(markets);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    dispatchFun();
+  }, []);
 
   const dispatch = useAppDispatch()
 
@@ -77,10 +76,11 @@ function App() {
           <Route path="/errorPage" element={<ErrorPage />}></Route>
           <Route path="/review/my" element={<MyReview />}></Route>
           {/* <Route path="/second" element={<Second />}></Route> */}
-          <Route path="/total" element={<Total />}></Route>
+          {/* <Route path="/total" element={<Total />}></Route> */}
           <Route path="/review/:title" element={<Review />}></Route>
           <Route path="review/total" element={<TotalReview />}></Route>
           <Route path="review/edit/:title" element={<EditReview />}></Route>
+          <Route path="/detail/:title" element={<Detail />}></Route>
         </Routes>
       </BrowserRouter>
     </>

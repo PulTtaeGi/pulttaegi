@@ -3,9 +3,22 @@ import { useState } from "react"
 import Wrapper from "../layouts/Wrapper"
 import HashTagBar from "../components/common/HashTagBar"
 import PrimaryButton from "../components/PrimaryButton"
+import { useAppSelector } from "../store/hooks/configureStore.hook"
+import { useParams } from "react-router"
 
-export default function Datail () {
+export default function Detail () {
+    interface paramTitle {
+        title: string
+    }
+    
+    const params = useParams
+
+    const markets = useAppSelector((state) => state.market)
+    const reviews = useAppSelector((state) => state.review)
     const [like, setLike] = useState<boolean>(false)
+
+    console.log(markets)
+    console.log(reviews)
 
     interface menuListProps {
         name: string,
