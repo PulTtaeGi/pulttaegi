@@ -5,9 +5,9 @@ import App from "./App";
 import store from "./store/configureStore";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  // <React.StrictMode>
   <Provider store={store}>
+    {/* <React.StrictMode> */}
     <App />
+    {/* </React.StrictMode> */}
   </Provider>
-  // </React.StrictMode>
 );

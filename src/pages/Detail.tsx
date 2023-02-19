@@ -3,8 +3,23 @@ import { useState } from "react"
 import Wrapper from "../layouts/Wrapper"
 import HashTagBar from "../components/common/HashTagBar"
 import PrimaryButton from "../components/PrimaryButton"
+import { useAppSelector } from "../store/hooks/configureStore.hook"
+import { useParams } from "react-router"
 
-export default function Datail () {
+export default function Detail () {
+    interface paramTitle {
+        title: string
+    }
+    
+    const params = useParams
+
+    const markets = useAppSelector((state) => state.market)
+    const reviews = useAppSelector((state) => state.review)
+    const [like, setLike] = useState<boolean>(false)
+
+    console.log(markets)
+    console.log(reviews)
+
     interface menuListProps {
         name: string,
         price: string,
@@ -13,6 +28,12 @@ export default function Datail () {
     interface reviewListProps {
         nickname: string,
         content: string,
+    }
+    
+    interface currentItemProps {
+        id : number,
+        title : string,
+        address : string,
     }
 
     const hashTagList : string[] = ["샐러드맛집", "샌드위치맛집", "다이어트식", "다이어트"]
@@ -46,7 +67,11 @@ export default function Datail () {
         },
     ]
 
-    const [like, setLike] = useState<boolean>(false)
+    const currentItem : currentItemProps = {
+        id : 1,
+        title : "나우잇 샐러드카페 부산대점",
+        address : "부산 금정구",
+    }
 
     function handleLike () {
         like === false ? setLike(true) : setLike(false)
@@ -56,7 +81,7 @@ export default function Datail () {
         <Wrapper>
             <div className="flex flex-col items-center w-full h-full mx-8 mt-12">
                 <div className="flex items-center w-full items-centern justify-between mb-2">
-                    <span className="text-xl font-bold tracking-tight text-green-4">
+                    <span className="text-xl font-bold tracking-tight text-green-4 whitespace-nowrap">
                         나우잇 샐러드카페 부산대점
                     </span>
                     <button type="button" onClick={handleLike}>
@@ -122,7 +147,7 @@ export default function Datail () {
                 </div>
                 <div className="relative flex w-full items-center justify-center pb-12">
                     <div className="flex flex-col gap-2">
-                        <PrimaryButton color="green-3" link="/login">리뷰 작성하기</PrimaryButton>
+                        <PrimaryButton color="green-3" link={`/review/${currentItem.title}`}>리뷰 작성하기</PrimaryButton>
                         <span className="w-full tracking-tight text-lg" >리뷰 작성은 로그인 후 이용 가능합니다.</span>
                     </div>
                 </div>

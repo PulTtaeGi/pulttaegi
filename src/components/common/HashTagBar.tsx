@@ -1,4 +1,5 @@
 import React from "react";
+import "../../tailwind.css";
 import styles from "../../styles/ActiveClass.module.css";
 
 interface HashTagBarProps {
