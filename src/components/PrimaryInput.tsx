@@ -1,13 +1,23 @@
 import React from "react";
-import "../tailwind.css"
+import "../tailwind.css";
 
 type PrimaryButtonProps = {
-    children: string,
-    type: string,
-}
+  placeholder: string;
+  type: string;
+  ref: React.RefObject<HTMLInputElement>;
+};
 
-export default function PrimaryInput ({ children, type }: PrimaryButtonProps) {
-    return (
-        <input type={type} placeholder={children} className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"></input>
-    )
+export default function PrimaryInput({
+  placeholder,
+  type,
+  ref,
+}: PrimaryButtonProps) {
+  return (
+    <input
+      ref={ref}
+      type={type}
+      placeholder={placeholder}
+      className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
+    />
+  );
 }
