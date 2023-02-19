@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
-    "boxicons": "^2.1.4",    "boxicons": "^2.1.4",
+    "boxicons": "^2.1.4",
     "daisyui": "^2.50.0",
     "dotenv": "^16.0.3",
     "eslint-config-prettier": "^8.6.0",

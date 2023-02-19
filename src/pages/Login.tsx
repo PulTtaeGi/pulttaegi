@@ -33,7 +33,7 @@ export default function Login() {
         doc.data().pw === pwRef.current?.value
       ) {
         
-        navigate("/main");
+        navigate("/");
         return;
       }
     });

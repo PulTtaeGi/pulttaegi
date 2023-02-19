@@ -1,15 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit"
-import market, { marketSlice} from "./modules/market";
+import { configureStore } from "@reduxjs/toolkit";
+import market, { marketSlice } from "./modules/market";
+import { searchSlice } from "./modules/search";
+
+import review from "./modules/review";
 
 const store = configureStore({
-    reducer: {
-       market : marketSlice.reducer,
-    },
+  reducer: {
+    market: marketSlice.reducer,
+    review,
+    search: searchSlice.reducer,
+  },
 });
 
-// state의 기본 타입
-export type RootState = ReturnType<typeof store.getState>; 
-// dispatch의 기본타입
-export type AppDispatch = typeof store.dispatch; 
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;
