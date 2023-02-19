@@ -2,7 +2,7 @@ import { Link, BrowserRouter } from "react-router-dom";
 import SearchIcon from "../../assets/icons/search_icon.png";
 import backIcon from "../../assets/icons/back.png";
 import { useState } from "react";
-import FoodResult from "../result/foodResult";
+import FoodResult from "../common/FoodResult";
 import { Category } from "../category/category";
 const Search = () => {
   // 검색 전, 후 보여줄 내용을 search라는 state 값 활용(true, false)
@@ -44,11 +44,9 @@ const Search = () => {
 
   return (
     <>
-      {/* <BrowserRouter> */}
       {search ? resultBar : searchBar}
       {search && <FoodResult />}
       {!search && <Category />}
-      {/* </BrowserRouter> */}
     </>
   );
 };

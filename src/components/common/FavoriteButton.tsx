@@ -1,6 +1,6 @@
 import { useState } from "react";
-import star from "../assets/icons/starActive.png";
-import unStar from "../assets/images/star.png";
+import star from "../../assets/images/starActive.png";
+import unStar from "../../assets/images/star.png";
 
 const FavoriteButton = () => {
   const [flag, setFlag] = useState(false);

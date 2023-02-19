@@ -9,10 +9,10 @@ module.exports = {
         "green-2": "#8CD790",
         "green-3": "#77AF9C",
         "green-4": "#285943",
-      }
+      },
     },
     placeholderColor: {
-      "primary": "#77AF9C"
+      primary: "#77AF9C",
     },
   },
   plugins: [require("daisyui")],

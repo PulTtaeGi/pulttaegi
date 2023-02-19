@@ -33,7 +33,7 @@ useEffect(() => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />}></Route>
+          <Route path="/main" element={<Main />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
           <Route path="/review" element={<Review />}></Route>
           <Route path="/login" element={<Login />}></Route>
