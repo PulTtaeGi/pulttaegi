@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
+import RecordList, { RecordProps } from "./RecordList";
 import SearchedList from "./SearchedList";
 
 interface RegionType {
@@ -11,7 +12,10 @@ interface RegionType {
   lng: number;
 }
 
-export const RegionSearch = () => {
+export const RegionSearch = ({
+  onClearKeywords,
+  onRemoveKeyword,
+}: RecordProps) => {
   const [regionArray, setRegionArray] = useState(Array<RegionType>);
   const tempArray: Array<RegionType> = [];
 
@@ -34,30 +38,37 @@ export const RegionSearch = () => {
     setRegionArray(tempArray);
   };
 
-  const storedSearch = useAppSelector((state) => state.search.keyword);
+  const searchKeyword = useAppSelector((state) => state.search.keyword);
   useEffect(() => {
     setRegionArray([]);
-    console.log(storedSearch);
+    console.log(searchKeyword);
     const places = new window.kakao.maps.services.Places();
 
     // 키워드로 장소 검색
-    places.keywordSearch(storedSearch, placesSearchCB, {
+    places.keywordSearch(searchKeyword, placesSearchCB, {
       useMapBounds: true,
     });
     console.log(regionArray);
-  }, [storedSearch]);
+  }, [searchKeyword]);
 
   return (
     <>
       <div className="flex flex-col mt-36 pl-4 w-screen">
         <ul className="flex flex-col">
-          {regionArray.map((region, i) => (
-            <SearchedList
-              key={i}
-              address={region.address_name}
-              place={region.place_name}
+          {regionArray.length > 0 ? (
+            regionArray.map((region, i) => (
+              <SearchedList
+                key={i}
+                address={region.address_name}
+                place={region.place_name}
+              />
+            ))
+          ) : (
+            <RecordList
+              onClearKeywords={onClearKeywords}
+              onRemoveKeyword={onRemoveKeyword}
             />
-          ))}
+          )}
         </ul>
       </div>
     </>

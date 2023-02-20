@@ -1,32 +1,38 @@
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import { MarketType } from "../../store/modules/market";
 import FoodResult from "./FoodResult";
-import SearchedList from "./SearchedList";
+import RecordList, { RecordProps } from "./RecordList";
 
-const FoodSearch = () => {
+const FoodSearch = ({ onClearKeywords, onRemoveKeyword }: RecordProps) => {
   const foodArray = useAppSelector((state) => state.market);
   const foodKeyword = useAppSelector((state) => state.search);
   let searchedArray: MarketType[] = [];
 
-  Object.entries(foodArray).map((food, idx) => {
+  console.log(Object.values(foodArray));
+
+  Object.values(foodArray).map((food) => {
     searchedArray = [];
-    console.log(food[idx]);
+    // console.log("test :", food);
     if (
-      food[idx].category === foodKeyword.keyword ||
-      food[idx].title === foodKeyword.keyword
+      food.category === foodKeyword.keyword ||
+      food.title === foodKeyword.keyword
     ) {
-      searchedArray.push(food[idx]);
-      console.log(searchedArray);
+      searchedArray.push(food);
+      console.log("검색된 결과값 : ", searchedArray);
     }
   });
   return (
     <>
       <div className="flex flex-col mt-36 pl-4 w-screen">
         <ul className="flex flex-col">
-          {searchedArray &&
-            searchedArray.map((food, i) => (
-              <FoodResult key={i} market={food} />
-            ))}
+          {searchedArray.length > 0 ? (
+            searchedArray.map((food, i) => <FoodResult key={i} market={food} />)
+          ) : (
+            <RecordList
+              onClearKeywords={onClearKeywords}
+              onRemoveKeyword={onRemoveKeyword}
+            />
+          )}
         </ul>
       </div>
     </>
