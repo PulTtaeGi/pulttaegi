@@ -4,10 +4,14 @@ export const Location = () => {
   const [location, setLocation] = useState<
     { latitude: number; longitude: number } | string
   >("");
-
+  const options = {
+    enableHighAccuracy: true,
+    maximumAge: 0,
+    timeout: Infinity,
+  };
   useMemo(() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(success, error, options);
     }
 
     function success(position: any) {

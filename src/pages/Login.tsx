@@ -1,7 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
-import{ firestore} from "../api/firebase";
+import { firestore } from "../api/firebase";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
@@ -16,7 +16,6 @@ export default function Login() {
   const handleLogin = useCallback(async () => {
     const usersCollectionRef = collection(firestore, "login");
     const data = await getDocs(usersCollectionRef);
-    
 
     if (idRef.current?.value === null) {
       alert("아이디를 입력해 주세요");
@@ -32,7 +31,6 @@ export default function Login() {
         doc.data().id === idRef.current?.value &&
         doc.data().pw === pwRef.current?.value
       ) {
-        
         navigate("/");
         return;
       }
