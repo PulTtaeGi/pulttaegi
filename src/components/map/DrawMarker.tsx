@@ -1,11 +1,18 @@
 import { useEffect } from "react";
 import markerdata from "../../data/markerData";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // 마커 기능
 const DrawMarker = () => {
   const market = useAppSelector((state) => state.market);
   const kakaomaps = useAppSelector((state) => state.kakaomap);
+  const location = useLocation();
+  const marketTitle = location.state?.marketTitle;
+  const marketAddress = location.state?.marketAddress;
+  console.log(marketTitle, marketAddress);
+  const navigate = useNavigate();
+
+  console.log(marketTitle);
 
   useEffect(() => {
     if (market == [] || kakaomaps.map == undefined) {
@@ -45,6 +52,7 @@ const DrawMarker = () => {
 
           const content =
             `<div class='wrap info p-4 border-0'>` +
+            `<a href="/detail/${marketTitle}">` +
             `<div class="title text-xl font-bold text-black mb-1">` +
             `${el.title}` +
             `<div class="close" onclick="closeOverlay()" title="닫기"></div>` +
@@ -58,6 +66,7 @@ const DrawMarker = () => {
             }%"></div>` +
             `<p>${el.calorie} kal` +
             `</p>` +
+            `</a>` +
             `</div>`;
           // 마커 클릭 시 보여줄 내용 생성
           window.kakao.maps.event.addListener(
