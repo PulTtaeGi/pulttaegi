@@ -20,21 +20,14 @@ import { fetchMarkets } from "./store/modules/market";
 import { firestore } from "./api/firebase";
 import { setData } from "./store/modules/review";
 import EditReview from "./pages/EditReview";
+import useMarket from "./hooks/useMarket";
+import SearchResult from "./pages/SearchResult";
 
 function App() {
-  const dispatchFun = async () => {
-    try {
-      const markets = await dispatch(fetchMarkets()).unwrap();
-      // console.log(markets);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    dispatchFun();
-  }, []);
-
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    useMarket(dispatch);
+  }, []);
 
   const [getReviews, setGetReviews] = useState<Array<any>>();
 
@@ -69,6 +62,7 @@ function App() {
           <Route path="/detail" element={<Detail />}></Route>
           <Route path="/errorPage" element={<ErrorPage />}></Route>
           <Route path="/review/my" element={<MyReview />}></Route>
+          <Route path="/searchResult" element={<SearchResult />}></Route>
           {/* <Route path="/second" element={<Second />}></Route> */}
           {/* <Route path="/total" element={<Total />}></Route> */}
           <Route path="/review/:title" element={<Review />}></Route>
@@ -82,4 +76,3 @@ function App() {
 }
 
 export default App;
-
