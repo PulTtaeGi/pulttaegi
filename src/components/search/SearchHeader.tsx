@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../store/hooks/configureStore.hook";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../store/hooks/configureStore.hook";
 import { setData } from "../../store/modules/search";
 
 import styles from "../../styles/ActiveClass.module.css";
 import SearchBar from "./SearchBar";
 
 const SearchHeader = (): JSX.Element => {
+  const kakaomaps = useAppSelector((state) => state.kakaomap);
+  console.log(kakaomaps);
   const [isRegion, setIsRegion] = useState<boolean>(true);
   const useDispatcher = useAppDispatch();
 
