@@ -13,6 +13,7 @@ interface RegionType {
 }
 
 export const RegionSearch = ({
+  keywords,
   onClearKeywords,
   onRemoveKeyword,
 }: RecordProps) => {
@@ -65,6 +66,7 @@ export const RegionSearch = ({
             ))
           ) : (
             <RecordList
+              keywords={keywords}
               onClearKeywords={onClearKeywords}
               onRemoveKeyword={onRemoveKeyword}
             />
