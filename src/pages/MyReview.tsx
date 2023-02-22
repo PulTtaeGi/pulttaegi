@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import BreadCrumb from "../components/common/BreadCrumb";
 import ReviewList from "../components/myReview/ReviewList";
-import TabBar from "../layouts/tabBar";
+import TabBar from "../layouts/TabBar";
 import Wrapper from "../layouts/Wrapper";
 import { useAppSelector } from "../store/hooks/configureStore.hook";
 
 
 export default function MyReview() {
     const reviews = useAppSelector((state) => state.review)
-    const currentId = "admin"
+    const user = useAppSelector((state) => state.signup)
+    const currentId = user.signupUserInfo.id
     const myReviews : any[] = []
   
     reviews.map((item) => {
@@ -16,8 +17,6 @@ export default function MyReview() {
             myReviews.push(item)
         }
     })
-
-    console.log(myReviews)
 
     return ( 
         <Wrapper>
