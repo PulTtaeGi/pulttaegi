@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import TabBar from "../layouts/tabBar";
+import TabBar from "../layouts/TabBar";
 import {firestore} from "../api/firebase";
 import reviewimage from "../assets/icons/1-6.png";
 import starimage from "../assets/icons/pngwing.com.png";

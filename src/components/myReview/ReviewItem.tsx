@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import eggimage from "../../assets/icons/pngegg.png"
 import { Link } from "react-router-dom";
-import HashTagBar from "../common/HashTagBar";
+import HashTag from "../myReview/HashTag"
+import { firestore } from "../../api/firebase";
+import { useAppDispatch, useAppSelector } from "../../store/hooks/configureStore.hook";
+import { deleteData } from "../../store/modules/review";
 
 interface ReviewItemProps {
     title: string,
@@ -11,18 +14,47 @@ interface ReviewItemProps {
     userid: string,
 }
 
+interface ratingProps {
+    taste : number,
+    sanitation : number,
+    welbeing : number,
+  }
+
+interface reviewsProps {
+    content : string,
+    hashtag : string[],
+    img : any,
+    rating : ratingProps,
+    title : string,
+    userid : string,
+    id: number,
+  }
+
 export default function ReviewItem ({title, img, content, hashtag, userid} : ReviewItemProps) {
-    const currentId = "admin"
-    const [hashtags, setHashtags] = useState<string[]>()
+    const users = useAppSelector((state) => state.signup)
+    const reviews = useAppSelector((state) => state.review)
+
+    const currentId = users.signupUserInfo.id
+    const [target, setTarget] = useState<reviewsProps>()
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
-        const array : string[] = []
-        hashtag !== undefined &&
-            hashtag.map((item) => {
-                array.push(item.slice(1, item.length))
-            }) 
-        setHashtags(array)
-    }, [])
+        reviews.map((review) => {
+          if(review.title === title && review.userid === currentId) {
+            setTarget(review)
+            return
+          }
+        })
+      }, [reviews])
+
+    function deleteReview () {
+        const reviewCollection = firestore.collection("review")
+        console.log(target)
+        target ? reviewCollection.doc(`${target.id}`).delete() : null
+        
+        dispatch(deleteData(target))
+
+    }
 
     return (
         <div className="flex flex-col w-full">
@@ -41,20 +73,20 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
                         >
                             수정
                         </Link> 
-                        <Link 
-                            to=""
+                        <button 
+                            onClick={deleteReview}
                             className={`p-1 px-3 text-white bg-gray-400 text-base font-bold tracking-tight rounded-xl text-center whitespace-nowrap`}
                         >
                             삭제
-                        </Link>
+                        </button>
                     </div>
                 }
             </div>
             <img src={img} className="w-[350px] h-[260px] mt-4 "/>
             <p className="mt-3 text-lg text-bold">{content}</p>
             {
-                hashtags !== undefined &&
-                    <HashTagBar list={hashtags}></HashTagBar>
+                hashtag !== undefined &&
+                    <HashTag list={hashtag}></HashTag>
             }
         </div>
     )

@@ -7,14 +7,27 @@ import BreadCrumb from "../common/BreadCrumb";
 import { firestore } from "../../api/firebase";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { useAppSelector } from "../../store/hooks/configureStore.hook";
 
-interface writeReviewProps {
+interface EditingReviewProps {
   title: string | undefined
 }
 
-const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
-  const [reviews, setReviews] = useState<reviewsProps>()
+const EditingReview = ({ title }: EditingReviewProps ): JSX.Element => {
+  const user = useAppSelector((state) => state.signup)
+  const currentId = user.signupUserInfo.id
+  const reviews = useAppSelector((state) => state.review)
+  const [target, setTarget] = useState<reviewsProps>()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    reviews.map((review) => {
+      if(review.title === title && review.userid === currentId) {
+        setTarget(review)
+        return
+      }
+    })
+  }, [reviews])
 
   interface ratingProps {
     taste : number,
@@ -29,15 +42,22 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
     rating : ratingProps,
     title : string,
     userid : string,
+    id: number,
   }
+
+  const [currentReview, setCurrentReview] = useState<reviewsProps>()
 
   useEffect(() => {
     setCurrentReview((prevState : any) => {
-      return {...prevState, userid: "admin", title: title}
+      return {...prevState, userid: currentId, title: title}
     })
   }, [])
 
-  const [currentReview, setCurrentReview] = useState<object>()
+  useEffect(() => {
+    setCurrentReview((prevState : any) => {
+      return {...prevState, id: target ? target.id : 0}
+    })
+  }, [target])
 
   const getUrl = (currentUrl : string) =>  {
     setCurrentReview((prevState : any) => {
@@ -73,23 +93,24 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
     })
   }
 
-  // console.log(currentReview)
-
   const submitReview = () => {
     const reviews = firestore.collection("review")
-    currentReview ? reviews.add(currentReview) : null
+    const item = currentReview !== undefined ? reviews.doc(`${currentReview.id}`) : null
+    currentReview && item ? item.set(currentReview) : null
 
-    navigate("/detail")
+    navigate("/review/total")
   }
 
   const backPage = () => {
-    navigate("/detail")
+    navigate("/")
   }
+
+  console.log(currentReview)
 
   return (
     <Wrapper>
-      <div className="flex flex-col w-full h-full mx-8 mt-12">
-        <BreadCrumb count="no">리뷰 작성하기</BreadCrumb>
+      <div className="flex flex-col w-full h-full mx-8 my-12">
+        <BreadCrumb count="no">리뷰 수정하기</BreadCrumb>
         <div className="flex flex-col">
           <span className="mt-8 mb-3 font-bold text-xl text-green-4 tracking-tight">
             {title}
@@ -98,32 +119,35 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
             <ImgUpload getUrl={getUrl}/>
             <div className="flex flex-col w-full justify-start gap-4 mt-8 text-lg font-bold bg-gray-100 rounded-lg py-6">
               <Rating 
+                defaulted={target !== undefined ? target.rating.welbeing : undefined}
                 getRating={getRating} 
                 title="웰빙" 
                 color="green-2" 
                 category="welbeing"
               />
               <Rating 
+                defaulted={target !== undefined ? target.rating.taste : undefined}
                 getRating={getRating} 
                 title="맛" 
                 color="green-4" 
                 category="taste"
               />
               <Rating 
+                defaulted={target !== undefined ? target.rating.sanitation : undefined}
                 getRating={getRating} 
                 title="위생" 
                 color="green-3" 
                 category="sanitation"
               />
             </div>
-            <PostUpload getPost={getPost}/>
-            <HashTagUpload getHashTag={getHashTag}/>
+            <PostUpload getPost={getPost} defaulted={target !== undefined ? target.content : undefined}/>
+            <HashTagUpload getHashTag={getHashTag} defaulted={target !== undefined ? target.hashtag : undefined}/>
             <div className="flex flex-row justify-around mt-8">
               <button onClick={backPage} className="btn w-20 bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4">
                 취소
               </button>
               <button onClick={submitReview} className="btn w-20 bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4">
-                등록
+                수정
               </button>
             </div>
           {/* </form> */}
@@ -133,5 +157,5 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
   );
 };
 
-export default WriteReview;
+export default EditingReview;
 

@@ -15,7 +15,7 @@ const MarketDes = ({ market }: { market: MarketType }) => {
         </span>
         <button type="button" onClick={handleLike}>
           <img
-            src={`../../src/assets/images/${like ? "starActive" : "star"}.png`}
+            src={`../../src/assets/icons/${like ? "starActive" : "star"}.png`}
             alt="backButton"
             className="w-[28px] h-[28px]"
           ></img>
