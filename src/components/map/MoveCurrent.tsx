@@ -1,6 +1,7 @@
 import currentIco from "../../assets/icons/current_ico.png";
 import CurrentMarker from "./CurrentMarker";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
+import { addMarker } from "./DrawMarker";
 // 현재위치로 이동
 const MoveCurrent = () => {
   const kakaomaps = useAppSelector((state) => state.kakaomap);
@@ -13,6 +14,8 @@ const MoveCurrent = () => {
 
     // 지도 중심을 이동 시킵니다
     kakaomaps.map.setCenter(moveLatLon);
+    // 마커 추가
+    addMarker(kakaomaps.map);
   }
 
   return (
