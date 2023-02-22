@@ -4,7 +4,6 @@ import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import kakaomap from "../../store/modules/kakaomap";
 import { useEffect } from "react";
 import { DrawMarker, removeMarker } from "../map/DrawMarker";
-import { Category } from "../category/Category";
 const coodsMarker: any = [];
 
 import { useLocation } from "react-router";

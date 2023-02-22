@@ -4,7 +4,6 @@ import {
   useAppSelector,
 } from "../../store/hooks/configureStore.hook";
 import { setData } from "../../store/modules/search";
-
 import styles from "../../styles/ActiveClass.module.css";
 import SearchBar from "./SearchBar";
 

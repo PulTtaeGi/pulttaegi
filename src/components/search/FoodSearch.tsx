@@ -10,26 +10,21 @@ const FoodSearch = ({
 }: RecordProps) => {
   const foodArray = useAppSelector((state) => state.market);
   const foodKeyword = useAppSelector((state) => state.search);
-  let searchedArray: MarketType[] = [];
-
-  // console.log(Object.values(foodArray));
+  const searchedArray: MarketType[] = [];
 
   Object.values(foodArray).map((food) => {
-    searchedArray = [];
-    // console.log("test :", food);
     if (
       food.category === foodKeyword.keyword ||
       food.title === foodKeyword.keyword
     ) {
       searchedArray.push(food);
-      console.log("검색된 결과값 : ", searchedArray.length);
     }
   });
   return (
     <>
       <div className="flex flex-col mt-36 pl-4 w-screen">
-        <ul className="flex flex-col">
-          {searchedArray.length >= 1 ? (
+        <ul className="flex flex-col ">
+          {searchedArray.length > 0 ? (
             searchedArray.map((food, i) => <FoodResult key={i} market={food} />)
           ) : (
             <RecordList

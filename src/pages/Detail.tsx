@@ -1,5 +1,5 @@
 import HashTagBar from "../components/common/HashTagBar";
-import ReviewWrite from "../components/detail/reviewWrite";
+import ReviewWrite from "../components/detail/ReviewWrite";
 import ReviewList from "../components/detail/ReviewList";
 import MenuList from "../components/detail/MenuList";
 import MarketDes from "../components/detail/MarketDes";
@@ -18,11 +18,11 @@ export default function Detail() {
   const param = useParams();
   console.log(param.title);
   const markets = useAppSelector((state) => state.market);
-  console.log(markets);
+  const marketTemp = Object.entries(markets);
   const ratingList: RatingProps = {
-    taste: markets[1].taste,
-    clean: markets[1].clean,
-    calorie: markets[1].calorie,
+    taste: marketTemp[0][1].taste,
+    clean: marketTemp[0][1].clean,
+    calorie: marketTemp[0][1].calorie,
   };
 
   const hashTagList: string[] = [

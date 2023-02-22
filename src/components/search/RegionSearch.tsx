@@ -4,9 +4,7 @@ import RecordList, { RecordProps } from "./RecordList";
 import SearchedList from "./SearchedList";
 
 interface RegionType {
-  //주소
   address_name: string;
-  //장소이름
   place_name: string;
   lat: number;
   lng: number;
@@ -42,14 +40,12 @@ export const RegionSearch = ({
   const searchKeyword = useAppSelector((state) => state.search.keyword);
   useEffect(() => {
     setRegionArray([]);
-    console.log(searchKeyword);
     const places = new window.kakao.maps.services.Places();
 
     // 키워드로 장소 검색
     places.keywordSearch(searchKeyword, placesSearchCB, {
       useMapBounds: true,
     });
-    console.log(regionArray);
   }, [searchKeyword]);
 
   return (
