@@ -24,6 +24,7 @@ export interface targetReviewsType {
   }
 
 export default function Detail() {
+
     //URL 내 파라미터값 가져오기
     const param = useParams();
 

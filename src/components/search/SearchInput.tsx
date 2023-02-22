@@ -34,6 +34,7 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
     <div className="fixed top-0 left-0 ml-4 flex justify-between w-[90%] mt-32 p-3 bg-gray-100 rounded-3xl">
       <input
         type="text"
+        value={keyword}
         placeholder={placehoderText}
         className="bg-gray-100 ml-3 text-[17px] text-black placeholder-gray-600 font-bold outline-0"
         onChange={handleKeyword}
