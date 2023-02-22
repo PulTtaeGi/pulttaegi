@@ -3,12 +3,16 @@ import { MarketType } from "../../store/modules/market";
 import FoodResult from "./FoodResult";
 import RecordList, { RecordProps } from "./RecordList";
 
-const FoodSearch = ({ onClearKeywords, onRemoveKeyword }: RecordProps) => {
+const FoodSearch = ({
+  keywords,
+  onClearKeywords,
+  onRemoveKeyword,
+}: RecordProps) => {
   const foodArray = useAppSelector((state) => state.market);
   const foodKeyword = useAppSelector((state) => state.search);
   let searchedArray: MarketType[] = [];
 
-  console.log(Object.values(foodArray));
+  // console.log(Object.values(foodArray));
 
   Object.values(foodArray).map((food) => {
     searchedArray = [];
@@ -18,17 +22,18 @@ const FoodSearch = ({ onClearKeywords, onRemoveKeyword }: RecordProps) => {
       food.title === foodKeyword.keyword
     ) {
       searchedArray.push(food);
-      console.log("검색된 결과값 : ", searchedArray);
+      console.log("검색된 결과값 : ", searchedArray.length);
     }
   });
   return (
     <>
       <div className="flex flex-col mt-36 pl-4 w-screen">
         <ul className="flex flex-col">
-          {searchedArray.length > 0 ? (
+          {searchedArray.length >= 1 ? (
             searchedArray.map((food, i) => <FoodResult key={i} market={food} />)
           ) : (
             <RecordList
+              keywords={keywords}
               onClearKeywords={onClearKeywords}
               onRemoveKeyword={onRemoveKeyword}
             />

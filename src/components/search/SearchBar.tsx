@@ -40,6 +40,7 @@ const SearchBar = ({ isRegion }: { isRegion: boolean }): JSX.Element => {
             onAddKeyword={handleAddKeyword}
           />
           <RegionSearch
+            keywords={keywords}
             onClearKeywords={hanldeAllClear}
             onRemoveKeyword={handleRemoveKeyword}
           />
@@ -51,6 +52,7 @@ const SearchBar = ({ isRegion }: { isRegion: boolean }): JSX.Element => {
             onAddKeyword={handleAddKeyword}
           />
           <FoodSearch
+            keywords={keywords}
             onClearKeywords={hanldeAllClear}
             onRemoveKeyword={handleRemoveKeyword}
           />
