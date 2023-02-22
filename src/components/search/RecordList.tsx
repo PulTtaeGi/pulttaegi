@@ -7,14 +7,15 @@ export interface KeywordType {
   id: number;
 }
 export interface RecordProps {
-  keywords?: string[];
+  keywords: KeywordType[];
   onRemoveKeyword: (id: number) => void;
   onClearKeywords: () => void;
 }
-const RecordList = ({ onRemoveKeyword, onClearKeywords }: RecordProps) => {
-  const [keywords, setKeywords] = useState(
-    JSON.parse(localStorage.getItem(SEARCH_COOKIE) || "[]")
-  );
+const RecordList = ({
+  keywords,
+  onRemoveKeyword,
+  onClearKeywords,
+}: RecordProps) => {
   useEffect(() => {
     console.log(keywords);
   }, [keywords]);
@@ -35,7 +36,7 @@ const RecordList = ({ onRemoveKeyword, onClearKeywords }: RecordProps) => {
         </div>
       ) : (
         <ul className="flex flex-col">
-          {keywords.map((keyword: KeywordType, idx: number) => (
+          {keywords.map((keyword, idx: number) => (
             <RecordItem
               key={idx}
               keyword={keyword}

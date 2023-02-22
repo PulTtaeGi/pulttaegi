@@ -17,6 +17,7 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
   };
   const onClickSearch = () => {
     console.log(keyword);
+    if (keyword === "") return;
     onAddKeyword(keyword);
     useDispatcher(setData({ keyword }));
     setKeyword("");
