@@ -21,7 +21,7 @@ declare global {
     kakao: any;
   }
 } // kakao 전역객체
-const Map: React.FC = () => {
+const Map = () => {
   const adrlocation = useLocation();
   const marketTitle = adrlocation.state?.marketTitle;
   const marketAddress = adrlocation.state?.marketAddress;
@@ -61,10 +61,9 @@ const Map: React.FC = () => {
   });
   CurrentMarker();
   DrawMarker();
-  if (marketAddress != undefined) {
-    console.log(marketAddress);
-    SearchMap();
-  }
+  if (marketAddress == undefined) {
+    return;
+  } else SearchMap(map);
   return (
     <>
       {/* 초기 맵 */}
