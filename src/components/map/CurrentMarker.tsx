@@ -1,9 +1,8 @@
-import DrawMarker from "./DrawMarker";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import { useEffect } from "react";
+import { addMarker } from "./DrawMarker";
 const CurrentMarker = () => {
   const kakaomaps = useAppSelector((state) => state.kakaomap);
-
   useEffect(() => {
     if (kakaomaps.map == undefined || kakaomaps.location == undefined) {
       return;
@@ -37,6 +36,7 @@ const CurrentMarker = () => {
       marker.setMap(kakaomaps.map);
     }
   }, [kakaomaps]);
+  // addMarker(kakaomaps.map);
 
   return;
 };
