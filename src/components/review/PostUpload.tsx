@@ -3,14 +3,21 @@ import { useState } from "react";
 
 interface PostUploadProps {
   getPost: (currentPost: string) => void;
+  defaulted: string | undefined
 }
 
-const PostUpload = ({getPost}: PostUploadProps): JSX.Element => {
+const PostUpload = ({getPost, defaulted}: PostUploadProps): JSX.Element => {
   const [content, setContent] = useState<string>()
 
   const sendPost = (e : ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.currentTarget.value)
   }
+
+  useEffect(() => {
+    setContent(defaulted)
+    const textarea : any = document.querySelector(".content-box")
+    textarea.innerHTML = defaulted !== undefined ? defaulted : ""
+  }, [defaulted])
 
   useEffect(() => {
     content !== undefined ? getPost(content) : getPost("")
@@ -26,11 +33,11 @@ const PostUpload = ({getPost}: PostUploadProps): JSX.Element => {
       </label>
       <textarea
         id="reviewText"
-        className="block p-4 py-6 w-full h-44 font-semibold text-sm text-gray-900 rounded-lg bg-gray-100 outline-0"
+        className="content-box block p-4 py-6 w-full h-44 font-semibold text-sm text-gray-900 rounded-lg bg-gray-100 outline-0"
         placeholder="음식의 맛, 양, 포장 상태 등 음식에 대한 솔직한 리뷰를 남겨주세요."
         required
         onChange={sendPost}
-      />
+      >{defaulted}</textarea>
     </div>
   );
 };

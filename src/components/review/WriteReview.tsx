@@ -7,14 +7,19 @@ import BreadCrumb from "../common/BreadCrumb";
 import { firestore } from "../../api/firebase";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { useAppSelector, useAppDispatch } from "../../store/hooks/configureStore.hook";
+import { addData } from "../../store/modules/review";
 
 interface writeReviewProps {
   title: string | undefined
 }
 
 const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
-  const [reviews, setReviews] = useState<reviewsProps>()
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const reviews = useAppSelector((state) => state.review)
+  const user = useAppSelector((state) => state.signup)
+  const currentId = user.signupUserInfo.id
 
   interface ratingProps {
     taste : number,
@@ -33,12 +38,15 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
 
   useEffect(() => {
     setCurrentReview((prevState : any) => {
-      return {...prevState, userid: "admin", title: title}
+      return {...prevState, userid: currentId, title: title, id: reviews.length + 1}
     })
   }, [])
 
   const [currentReview, setCurrentReview] = useState<object>()
 
+  console.log(reviews)
+  console.log(currentReview)
+  
   const getUrl = (currentUrl : string) =>  {
     setCurrentReview((prevState : any) => {
       return {...prevState, img: currentUrl}
@@ -76,8 +84,11 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
   // console.log(currentReview)
 
   const submitReview = () => {
-    const reviews = firestore.collection("review")
-    currentReview ? reviews.add(currentReview) : null
+    const reviewCollection = firestore.collection("review")
+    const length = reviews.length + 1
+    currentReview ? reviewCollection.doc(`${length}`).set(currentReview) : null
+
+    dispatch(addData(currentReview))
 
     navigate("/detail")
   }
@@ -88,7 +99,7 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
 
   return (
     <Wrapper>
-      <div className="flex flex-col w-full h-full mx-8 mt-12">
+      <div className="flex flex-col w-full h-full mx-8 my-12">
         <BreadCrumb count="no">리뷰 작성하기</BreadCrumb>
         <div className="flex flex-col">
           <span className="mt-8 mb-3 font-bold text-xl text-green-4 tracking-tight">
@@ -98,26 +109,29 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
             <ImgUpload getUrl={getUrl}/>
             <div className="flex flex-col w-full justify-start gap-4 mt-8 text-lg font-bold bg-gray-100 rounded-lg py-6">
               <Rating 
+                defaulted={undefined}
                 getRating={getRating} 
                 title="웰빙" 
                 color="green-2" 
                 category="welbeing"
               />
               <Rating 
+                defaulted={undefined}
                 getRating={getRating} 
                 title="맛" 
                 color="green-4" 
                 category="taste"
               />
               <Rating 
+                defaulted={undefined}
                 getRating={getRating} 
                 title="위생" 
                 color="green-3" 
                 category="sanitation"
               />
             </div>
-            <PostUpload getPost={getPost}/>
-            <HashTagUpload getHashTag={getHashTag}/>
+            <PostUpload getPost={getPost} defaulted={undefined}/>
+            <HashTagUpload getHashTag={getHashTag} defaulted={undefined}/>
             <div className="flex flex-row justify-around mt-8">
               <button onClick={backPage} className="btn w-20 bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4">
                 취소

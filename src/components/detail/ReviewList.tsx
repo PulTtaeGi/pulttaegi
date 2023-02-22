@@ -1,25 +1,11 @@
-import { useAppSelector } from "../../store/hooks/configureStore.hook";
+import React from "react"
+import { targetReviewsType } from "../../pages/Detail";
 
 interface reviewListProps {
-  nickname: string;
-  content: string;
+  reviewList: Array<targetReviewsType>
 }
-const ReviewList = () => {
-  const reviewList: Array<reviewListProps> = [
-    {
-      nickname: "랑구",
-      content: "재료가 신선하네요",
-    },
-    {
-      nickname: "1234",
-      content: "가성비가 좋아요",
-    },
-    {
-      nickname: "5678",
-      content: "샐러드맛집 답게 건강하고 맛있어요~",
-    },
-  ];
-  const reviews = useAppSelector((state) => state.review);
+
+const ReviewList = ({reviewList} : reviewListProps ) => {
 
   return (
     <div className="flex flex-col w-full rounded-xl overflow-hidden mb-16 shadow-lg">
@@ -27,15 +13,16 @@ const ReviewList = () => {
         <span className="block text-xl font-extrabold text-green-4">
           REVIEW
         </span>
-        {reviewList.map((item: reviewListProps, index: number) => {
-          return (
-            <div className="flex gap-2 font-semibold" key={index}>
-              <span className="whitespace-nowrap">{item.nickname}님</span>
-              <li className="block max-w-[250px] text-gray-500 tracking-tight whitespace-nowrap text-ellipsis overflow-hidden">
-                {item.content}
-              </li>
-            </div>
-          );
+        { reviewList &&
+          reviewList.map((item: targetReviewsType, index: number) => {
+            return (
+              <div className="flex gap-2 font-semibold" key={index}>
+                <span className="whitespace-nowrap">{item.userid}님</span>
+                <li className="block max-w-[250px] text-gray-500 tracking-tight whitespace-nowrap text-ellipsis overflow-hidden">
+                  {item.content}
+                </li>
+              </div>
+            );
         })}
       </ul>
     </div>

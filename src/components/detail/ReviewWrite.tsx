@@ -1,22 +1,14 @@
 import PrimaryButton from "../PrimaryButton";
 
-interface currentItemProps {
-  id: number;
+interface ReviewWriteProps {
   title: string;
-  address: string;
 }
 
-const ReviewWrite = () => {
-  const currentItem: currentItemProps = {
-    id: 1,
-    title: "나우잇 샐러드카페 부산대점",
-    address: "부산 금정구",
-  };
-
+const ReviewWrite = ({title} : ReviewWriteProps) => {
   return (
     <div className="relative flex w-full items-center justify-center pb-12">
       <div className="flex flex-col gap-2">
-        <PrimaryButton color="green-3" link={`/review/${currentItem.title}`}>
+        <PrimaryButton color="green-3" link={`/review/${title}`}>
           리뷰 작성하기
         </PrimaryButton>
         <span className="w-full tracking-tight text-lg">

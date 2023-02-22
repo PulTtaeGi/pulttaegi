@@ -3,14 +3,22 @@ import { ChangeEvent } from "react";
 
 interface HashTagUploadProps {
   getHashTag: (currentHashTag: string) => void;
+  defaulted: string[] | undefined
 }
 
-const HashTagUpload = ({getHashTag} : HashTagUploadProps): JSX.Element => {
+const HashTagUpload = ({getHashTag, defaulted} : HashTagUploadProps): JSX.Element => {
   const [hashTag, setHashTag] = useState<string>()
 
   const sendHashTag = (e : ChangeEvent<HTMLInputElement>) => {
     setHashTag(e.currentTarget.value)
   }
+
+  useEffect(() => {
+    const input : any = document.querySelector(".hashtag-box")
+    const value = defaulted?.join(" ")
+    input.value = defaulted !== undefined ? value : ""
+    setHashTag(value)
+  }, [defaulted])
 
   useEffect(() => {
     hashTag !== undefined ? getHashTag(hashTag) : null
@@ -27,7 +35,7 @@ const HashTagUpload = ({getHashTag} : HashTagUploadProps): JSX.Element => {
       <input
         type="text"
         id="hashTag"
-        className="block h-12 w-full p-4 text-sm font-semibold text-gray-900 rounded-lg bg-gray-100 outline-0"
+        className="hashtag-box block h-12 w-full p-4 text-sm font-semibold text-gray-900 rounded-lg bg-gray-100 outline-0"
         placeholder="태그를 입력하세요. 예시) #강남맛집 #샐러드맛집"
         required
         onChange={sendHashTag}

@@ -1,5 +1,5 @@
 const Rating = ({ title, number }: { title: string; number: number }) => {
-  console.log(title, number[1]);
+  // console.log(title, number[1]);
   return (
     <div className="flex items-center gap-2">
       <span className="block w-[50px] text-center">{title}</span>
