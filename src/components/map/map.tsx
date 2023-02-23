@@ -43,8 +43,8 @@ const Map = () => {
         ),
         level: 5,
       };
-
-      setMap(new window.kakao.maps.Map(container, options));
+      const kakaomap = new window.kakao.maps.Map(container, options);
+      setMap(kakaomap);
     }
 
     // DrawMarker(location, map);
@@ -61,9 +61,10 @@ const Map = () => {
   });
   CurrentMarker();
   DrawMarker();
-  if (marketAddress == undefined) {
-    return;
-  } else SearchMap(map);
+  // if (marketAddress == undefined) {
+  //   return;
+  // } else
+  SearchMap(map);
   return (
     <>
       {/* 초기 맵 */}
