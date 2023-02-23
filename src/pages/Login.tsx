@@ -1,10 +1,12 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
-import{ firestore} from "../api/firebase";
+import { firestore } from "../api/firebase";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
+import GoogleLoginButton from "../components/common/GoogleButton";
+
 
 const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 
@@ -16,27 +18,26 @@ export default function Login() {
   const handleLogin = useCallback(async () => {
     const usersCollectionRef = collection(firestore, "login");
     const data = await getDocs(usersCollectionRef);
-    
 
-    if (idRef.current?.value === null) {
+    if (idRef.current?.value === "") {
       alert("아이디를 입력해 주세요");
       return;
     }
-    if (pwRef.current?.value === null) {
+    if (pwRef.current?.value === "") {
       alert("비밀번호를 입력해 주세요");
       return;
     }
 
-    data.docs.map((doc) => {
+    for (const doc of data.docs) {
       if (
         doc.data().id === idRef.current?.value &&
         doc.data().pw === pwRef.current?.value
       ) {
-        
+        alert("로그인에 성공했어요");
         navigate("/");
         return;
       }
-    });
+    }
   }, []);
 
   return (
@@ -67,9 +68,9 @@ export default function Login() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <PrimaryButton link="no" color="green-3">
-            Google로 로그인
-          </PrimaryButton>
+          
+    
+          <GoogleLoginButton/>
           <button
             onClick={handleLogin}
             type="submit"
@@ -84,5 +85,6 @@ export default function Login() {
         </div>
       </div>
     </Wrapper>
+    
   );
 }

@@ -70,7 +70,7 @@ function App() {
           <Route path="/errorPage" element={<ErrorPage />}></Route>
           <Route path="/review/my" element={<MyReview />}></Route>
           {/* <Route path="/second" element={<Second />}></Route> */}
-          {/* <Route path="/total" element={<Total />}></Route> */}
+          <Route path="/total" element={<Total />}></Route>
           <Route path="/review/:title" element={<Review />}></Route>
           <Route path="review/total" element={<TotalReview />}></Route>
           <Route path="review/edit/:title" element={<EditReview />}></Route>
@@ -82,4 +82,3 @@ function App() {
 }
 
 export default App;
-
