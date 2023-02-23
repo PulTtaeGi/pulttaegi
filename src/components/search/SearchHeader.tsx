@@ -7,6 +7,8 @@ import { setData } from "../../store/modules/search";
 import styles from "../../styles/ActiveClass.module.css";
 import SearchBar from "./SearchBar";
 
+export const SearchType = { region: "지역 검색", food: "음식 검색" } as const;
+
 const SearchHeader = (): JSX.Element => {
   const kakaomaps = useAppSelector((state) => state.kakaomap);
   console.log(kakaomaps);
@@ -14,7 +16,7 @@ const SearchHeader = (): JSX.Element => {
   const useDispatcher = useAppDispatch();
 
   function handleCategory(e: React.MouseEvent<HTMLButtonElement>) {
-    e.currentTarget.value === "지역 검색"
+    e.currentTarget.value === SearchType.region
       ? setIsRegion(true)
       : setIsRegion(false);
     useDispatcher(setData({ keyword: "" }));
@@ -29,7 +31,7 @@ const SearchHeader = (): JSX.Element => {
             isRegion ? styles.active : ""
           }`}
         >
-          지역 검색
+          {SearchType.region}
         </button>
         <button
           onClick={handleCategory}
@@ -38,7 +40,7 @@ const SearchHeader = (): JSX.Element => {
             isRegion ? "" : styles.active
           }`}
         >
-          음식 검색
+          {SearchType.food}
         </button>
       </div>
       <SearchBar isRegion={isRegion} />
