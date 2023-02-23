@@ -12,7 +12,7 @@ const FoodResult = () => {
     console.log(height);
   }, [height]);
 
-  const [searchResult, setSearchResult] = useState(false);
+  const [searchResult, setSearchResult] = useState(true);
 
   const btn = (
     <button className="btn shadow-lg relative bottom-3">

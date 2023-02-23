@@ -2,6 +2,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
 import { firestore } from "../api/firebase";
+import { firestore } from "../api/firebase";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
@@ -33,7 +34,6 @@ export default function Login() {
         doc.data().id === idRef.current?.value &&
         doc.data().pw === pwRef.current?.value
       ) {
-        alert("로그인에 성공했어요");
         navigate("/");
         return;
       }

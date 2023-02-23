@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import searchMap from "../search/SearchMap";
 
 interface props {
   address: string;
@@ -8,7 +9,7 @@ interface props {
 const SearchedList = ({ address, place }: props) => {
   return (
     <li className="flex justify-between p-4 font-extrabold flex-col">
-      <Link to="/result" className="flex flex-col">
+      <Link to="/" className="flex flex-col" state={{ marketAddress: address }}>
         <span className="text-green-4 text-2xl">{place}</span>
         <span className="text-green-3 text-xl">{address}</span>
       </Link>

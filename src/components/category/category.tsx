@@ -4,11 +4,21 @@ import ko from "../../assets/icons/food_ko_ico.png";
 import cn from "../../assets/icons/food_cn_ico.png";
 import us from "../../assets/icons/food_us_ico.png";
 import jp from "../../assets/icons/food_jp_ico.png";
+import { useAppSelector } from "../../store/hooks/configureStore.hook";
 
 // Import Swiper styles
 import "swiper/css";
-
-export const Category = () => {
+import { filterMarker } from "../map/DrawMarker";
+import { searchfilterMarker } from "../search/SearchMap";
+export const Category = (coodsMarker: any) => {
+  const kakaomaps = useAppSelector((state) => state.kakaomap);
+  const cateFilter = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    const eventTarget = e.target as HTMLElement;
+    const categoryName = eventTarget.innerText;
+    filterMarker(categoryName, kakaomaps.map);
+    searchfilterMarker(categoryName, kakaomaps.map);
+  };
   return (
     <Swiper
       style={{
@@ -24,6 +34,7 @@ export const Category = () => {
       slidesPerView={2.5}
     >
       <SwiperSlide
+        onClick={cateFilter}
         style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
         className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
       >
@@ -32,6 +43,7 @@ export const Category = () => {
         <span>한식</span>
       </SwiperSlide>
       <SwiperSlide
+        onClick={cateFilter}
         style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
         className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
       >
@@ -40,6 +52,7 @@ export const Category = () => {
         <span>일식</span>
       </SwiperSlide>
       <SwiperSlide
+        onClick={cateFilter}
         style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
         className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
       >
@@ -48,6 +61,7 @@ export const Category = () => {
         <span>양식</span>
       </SwiperSlide>
       <SwiperSlide
+        onClick={cateFilter}
         style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
         className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
       >

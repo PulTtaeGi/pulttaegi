@@ -1,17 +1,25 @@
 import React from "react";
 import "../../tailwind.css";
 import styles from "../../styles/ActiveClass.module.css";
+import { targetReviewsType } from "../../pages/Detail";
 
 interface HashTagBarProps {
-  list: string[];
+  reviewList: Array<targetReviewsType>
 }
 
-export default function HashTagBar({ list }: HashTagBarProps) {
+export default function HashTagBar({ reviewList }: HashTagBarProps) {
+  const hashtagList : Array<string> = []
+  reviewList.map((review) => {
+    review.hashtag.map((item) => {
+      hashtagList.push(item)
+    })
+  }, [reviewList])
+
   return (
     <ul
       className={`${styles.hashTagBar} flex gap-3 w-[350px] mt-3 overflow-auto whitespace-nowrap text-lg`}
     >
-      {list.map((item: string, index: number) => {
+      {hashtagList.map((item: string, index: number) => {
         return (
           <li
             key={index}

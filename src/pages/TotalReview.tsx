@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "../layouts/Wrapper";
 import BreadCrumb from "../components/common/BreadCrumb";
 import ReviewList from "../components/myReview/ReviewList";
-import TabBar from "../layouts/tabBar";
+import TabBar from "../layouts/TabBar";
 import { useAppSelector, useAppDispatch } from "../store/hooks/configureStore.hook";
 import { setData } from "../store/modules/review";
 import { useEffect, useState } from "react";

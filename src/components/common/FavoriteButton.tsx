@@ -1,8 +1,10 @@
 import { useState } from "react";
-import star from "../../assets/images/starActive.png";
-import unStar from "../../assets/images/star.png";
+import unstar from "../../assets/icons/star.png"
+import star from "../../assets/icons/starActvie.png"
 
 const FavoriteButton = () => {
+  const UNSTAR_URL = "../../assets/icons/star.png"
+  const STAR_URL = "../../assets/icons/starActvie.png"
   const [flag, setFlag] = useState(false);
 
   const handleFlag = () => {
@@ -11,7 +13,7 @@ const FavoriteButton = () => {
 
   return (
     <button onClick={handleFlag}>
-      <img className="rounded-full" src={flag ? star : unStar} width="60" />
+      <img className="rounded-full" src={flag ? STAR_URL : UNSTAR_URL} width="60" />
     </button>
   );
 };

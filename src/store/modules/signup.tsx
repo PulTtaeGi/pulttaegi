@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { SignupUserInfo } from "../../data/types/reduxTypes";
+import { SignupUserInfo } from "../../data/reduxTypes";
 
 interface SignupInterface {
   signupUserInfo: SignupUserInfo;

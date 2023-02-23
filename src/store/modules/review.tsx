@@ -1,20 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface ratingProps {
-    taste : number,
-    sanitation : number,
-    welbeing : number,
-}
-
-interface ReviewType {
-    content : string,
-    hashtag : string[],
-    img : string,
-    rating : ratingProps,
-    title : string,
-    userid : string,
-}
-
 const initialState: Array<any> = []
 
 export const reviewSlice = createSlice({
@@ -23,9 +8,17 @@ export const reviewSlice = createSlice({
     reducers: {
         setData : (state, action) => {
             return [...state, ...action.payload]
+        },
+
+        deleteData : (state, action) => {
+            return state.filter((item) => item.id !== action.payload.id)
+        },
+
+        addData : (state, action) => {
+            return [...state, action.payload]
         }
     }
 })
 
 export default reviewSlice.reducer
-export const { setData } = reviewSlice.actions
+export const { setData, deleteData, addData } = reviewSlice.actions

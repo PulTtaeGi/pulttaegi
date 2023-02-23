@@ -36,7 +36,7 @@ const Search = () => {
 
   return (
     <>
-      {search ? resultBar : searchBar}
+      {searchBar}
       {search && <SearchResultBtn />}
       {!search && <Category />}
     </>

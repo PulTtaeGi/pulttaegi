@@ -20,24 +20,21 @@ import { fetchMarkets } from "./store/modules/market";
 import { firestore } from "./api/firebase";
 import { setData } from "./store/modules/review";
 import EditReview from "./pages/EditReview";
+import useMarket from "./hooks/useMarket";
+import SearchResult from "./pages/SearchResult";
+import { getUserInfo } from "./store/modules/signup";
 
 function App() {
-  const dispatchFun = async () => {
-    try {
-      const markets = await dispatch(fetchMarkets()).unwrap();
-      // console.log(markets);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const dispatch = useAppDispatch();
+  const [getReviews, setGetReviews] = useState<Array<any>>()
+  const [getUsers, setGetUsers] = useState<Array<any>>()
+  
   useEffect(() => {
-    dispatchFun();
+    useMarket(dispatch);
   }, []);
 
-  const dispatch = useAppDispatch();
 
-  const [getReviews, setGetReviews] = useState<Array<any>>();
-
+  //firestore 내의 리뷰 데이터베이스를 불러와 전역상태관리
   useEffect(() => {
     const reviewList = firestore.collection("review");
     const totalData: any = [];
@@ -52,8 +49,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getReviews !== undefined ? dispatch(setData(getReviews)) : null;
-  }, getReviews);
+    getReviews !== undefined 
+        ? dispatch(setData(getReviews)) 
+        : null
+  }, [getReviews])
+
+  //id: admin password: 12345인 user데이터 임의로 dispatch
+  dispatch(getUserInfo({signupUserInfo: {id: "admin", password: "12345" }}))
 
   return (
     <>
@@ -69,6 +71,7 @@ function App() {
           <Route path="/detail" element={<Detail />}></Route>
           <Route path="/errorPage" element={<ErrorPage />}></Route>
           <Route path="/review/my" element={<MyReview />}></Route>
+          <Route path="/searchResult" element={<SearchResult />}></Route>
           {/* <Route path="/second" element={<Second />}></Route> */}
           <Route path="/total" element={<Total />}></Route>
           <Route path="/review/:title" element={<Review />}></Route>
