@@ -54,8 +54,8 @@ function App() {
         : null
   }, [getReviews])
 
-  //id: admin password: 12345인 user데이터 임의로 dispatch
-  dispatch(getUserInfo({signupUserInfo: {id: "admin", password: "12345" }}))
+  // //id: admin password: 12345인 user데이터 임의로 dispatch
+  // dispatch(getUserInfo({signupUserInfo: {id: "admin", password: "12345" }}))
 
   return (
     <>

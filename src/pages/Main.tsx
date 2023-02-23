@@ -1,9 +1,13 @@
 import Map from "../components/map/Map";
 import TabBar from "../layouts/TabBar";
 import Header from "../layouts/header";
+import { useAppSelector } from "../state/store/hooks/configureStore.hook";
 const Main = () => {
+  const user = useAppSelector((state) => state.signup)
+    console.log(user)
   return (
     <>
+      
       <Header />
       <Map />
       <TabBar />
