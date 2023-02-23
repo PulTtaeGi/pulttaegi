@@ -1,6 +1,5 @@
-import { collection, getDocs } from "firebase/firestore";
-import TabBar from "../layouts/TabBar";
-import {firestore} from "../api/firebase";
+
+import TabBar from "../layouts/tabBar";
 import { collection, getDocs, deleteDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { firestore } from "../api/firebase";
@@ -8,7 +7,7 @@ import reviewimage from "../assets/icons/1-6.png";
 import BackArrow from "../components/common/BackArrow";
 // import BreadCrumb from "../components/common/BreadCrumb";
 import FavoriteButton from "../components/common/FavoriteButton";
-import TabBar from "../layouts/tabBar";
+
 
 function Second() {
   const favoritesCollectionRef = collection(firestore, "favorites");

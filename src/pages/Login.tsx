@@ -2,7 +2,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
 import { firestore } from "../api/firebase";
-import { firestore } from "../api/firebase";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
