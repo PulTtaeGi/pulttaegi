@@ -4,7 +4,6 @@ import ResultItem from "./ResultItem";
 const ResultList = () => {
   const marketList = useAppSelector((state) => state.market);
   const listTemp = Object.entries(marketList);
-  if (marketList.length === 0) return;
   console.log(Object.entries(marketList));
 
   return (
