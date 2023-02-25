@@ -91,7 +91,7 @@ export const removeMarker = () => {
   }
 };
 
-export const filterMarker = (categoryName: string, kakaomaps: any) => {
+export const filterMarker = (categoryName: string, kakaomaps: object) => {
   console.log(categoryName);
   const removeInfo = document.querySelectorAll(
     ".customoverlay"

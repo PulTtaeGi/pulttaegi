@@ -13,22 +13,28 @@ const SearchMap = (kakaomap: any) => {
 
   const kakaomaps = useAppSelector((state) => state.kakaomap);
   const geocoder = new window.kakao.maps.services.Geocoder();
-  const marketTitle = location.state?.marketTitle;
   const marketAddress = location.state?.marketAddress;
+  const marketTitle = location.state?.marketTitle;
 
   if (Object.keys(kakaomap).length != 0) {
-    search();
+    if (marketAddress != undefined) {
+      reigionSearch();
+      return;
+    }
+    if (marketTitle != undefined) {
+      foodSearch();
+      return;
+    }
   } else {
     return;
   }
-  // 주소-좌표 변환 객체를 생성
-  function search() {
-    console.log(kakaomap);
 
+  // 지역검색 시
+  function reigionSearch() {
     removeMarker();
 
     const marketArr = Object.keys(market).map((item) => market[item]);
-    // 주소로 좌표를 검색
+    // 지역 검색 시 마커 배열
     marketArr.forEach((el) => {
       geocoder.addressSearch(el.address, function (result: any, status: any) {
         // 정상적으로 검색이 완료됐으면
@@ -95,23 +101,25 @@ const SearchMap = (kakaomap: any) => {
           // 인포윈도우로 장소에 대한 설명을 표시
           const infowindow = new window.kakao.maps.InfoWindow({
             content:
-              '<div style="width:150px;text-align:center;padding:6px 0;">검색  위치</div>',
+              '<div style="width:150px;text-align:center;padding:6px 0;">위치</div>',
           });
 
           infowindow.open(kakaomap, marker);
+
           // 지도의 중심을 결과값으로 받은 위치로 이동
           kakaomap.setCenter(coords);
 
+          // 반경 표시
           const circle = new window.kakao.maps.Circle({
             map: kakaomap,
             center: coords,
-            radius: 500, // m단위
+            radius: 3000, // m 단위, 반경 3km 설정
             strokeWeight: 2,
-            strokeColor: "#FF00FF",
-            strokeOpacity: 0.8,
-            strokeStyle: "dashed",
-            fillColor: "orange",
-            fillOpacity: 0.5,
+            strokeColor: "transparent",
+            strokeOpacity: 0,
+            strokeStyle: "none",
+            fillColor: "transparent",
+            fillOpacity: 0,
           });
           const radius = circle.getRadius();
 
@@ -135,33 +143,81 @@ const SearchMap = (kakaomap: any) => {
         }
       }
     );
-
-    // 기존 마커 삭제
   }
 
-  return (
-    <></>
-    // <button
-    //   onClick={search}
-    //   className="fixed z-20 bg-slate-50 border-stone-300 border-2 shadow-2xl p-3 rounded-xl"
-    //   style={{ left: "20px", bottom: "160px" }}
-    // >
-    //   지역검색
-    // </button>
-  );
+  // 음식검색 시
+  function foodSearch() {
+    removeMarker();
+
+    // 검색 된 음식점 주소로 좌표를 검색
+    geocoder.addressSearch(
+      `${marketTitle.address}`,
+      function (result: any, status: any) {
+        // 정상적으로 검색이 완료됐으면
+        if (status === window.kakao.maps.services.Status.OK) {
+          const coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
+          // 지도의 중심을 결과값으로 받은 위치로 이동
+
+          kakaomap.setCenter(coords);
+
+          // 결과값으로 받은 위치를 마커로 표시
+          const marker = new window.kakao.maps.Marker({
+            map: kakaomap,
+            position: coords,
+          });
+          // 인포윈도우로 장소에 대한 설명을 표시
+
+          const content =
+            `<div class='wrap customoverlay info bg-white p-4 border-0'>` +
+            `<a href="/detail/${marketTitle.title}">` +
+            `<div class="title text-xl font-bold text-black mb-1">` +
+            `${marketTitle.title}` +
+            `</div>` +
+            `<div class="desc">` +
+            `<div class="h-2 bg-lime-700 mb-1" style="width:${
+              marketTitle.taste * 10
+            }%"></div>` +
+            `<div class="h-2 bg-amber-500 mb-1" style="width:${
+              marketTitle.clean * 10
+            }%"></div>` +
+            `<p>${marketTitle.calorie} kal` +
+            `</p>` +
+            `</a>` +
+            `</div>`;
+          // 마커 클릭 시 인포
+          const infowindow = new window.kakao.maps.CustomOverlay({
+            content: content, // 인포윈도우에 표시할 내용
+            removable: true,
+            yAnchor: 1.4,
+            position: marker.getPosition(),
+          });
+
+          // 마커 클릭 시 보여줄 내용 생성
+          window.kakao.maps.event.addListener(marker, "click", function () {
+            // 마커 위에 인포윈도우를 표시
+            if (infowindow.getMap()) {
+              infowindow.setMap(null);
+            } else {
+              infowindow.setMap(kakaomaps.map);
+            }
+          });
+        }
+      }
+    );
+  }
+
+  return;
 };
 
-export const searchfilterMarker = (categoryName: string, kakaomaps: any) => {
+export const searchfilterMarker = (categoryName: string, kakaomaps: object) => {
   console.log(categoryName);
   const removeInfo = document.querySelectorAll(
     ".customoverlay"
   ) as NodeListOf<Element>;
-
-  // console.log(removeInfo);
-
+  console.log(coodsMarker);
   for (let i = 0; i < coodsMarker.length; i++) {
     coodsMarker[i].setMap(null);
-    if (coodsMarker[i].Gb == categoryName) {
+    if (coodsMarker[i].Gb === categoryName) {
       coodsMarker[i].setMap(kakaomaps);
     }
   }

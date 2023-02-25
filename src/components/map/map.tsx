@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Location } from "../../data/location";
-import markerdata from "../../data/markerData";
-import currentIco from "../../assets/icons/current_ico.png";
 import {
   useAppDispatch,
   useAppSelector,
@@ -13,8 +11,7 @@ import kakaomap, { kakaomapSlice, setMap } from "../../store/modules/kakaomap";
 import { useDispatch } from "react-redux";
 import CurrentMarker from "./CurrentMarker";
 import SearchMap from "../search/SearchMap";
-import { addMarker } from "./DrawMarker";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 declare global {
   interface Window {
@@ -49,7 +46,6 @@ const Map = () => {
 
     // DrawMarker(location, map);
   }, [location]);
-
   useEffect(() => {
     if (!location) {
       return;
@@ -61,14 +57,13 @@ const Map = () => {
   });
   CurrentMarker();
   DrawMarker();
-  // if (marketAddress == undefined) {
-  //   return;
-  // } else
   SearchMap(map);
+
   return (
     <>
       {/* 초기 맵 */}
-      <div id="map" className="w-screen h-screen" />;{/* 현재위치 이동 버튼 */}
+      <div id="map" className="w-screen h-screen" />
+      {/* 현재위치 이동 버튼 */}
       <MoveCurrent></MoveCurrent>
     </>
   );
