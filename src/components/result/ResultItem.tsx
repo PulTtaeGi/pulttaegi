@@ -20,13 +20,13 @@ const ResultItem = ({ market }: { market: MarketType }) => {
       {star ? (
         <img
           className="rounded-full w-[30px] h-[30px]"
-          src={"src/assets/images/starActive.png"}
+          src={"src/assets/icons/starActive.png"}
           onClick={onClickStar}
         />
       ) : (
         <img
           className="rounded-full w-[30px] h-[30px]"
-          src={"src/assets/images/star.png"}
+          src={"src/assets/icons/star.png"}
           onClick={onClickStar}
         />
       )}

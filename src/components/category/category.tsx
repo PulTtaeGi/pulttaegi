@@ -19,6 +19,14 @@ export const Category = (coodsMarker: any) => {
     filterMarker(categoryName, kakaomaps.map);
     searchfilterMarker(categoryName, kakaomaps.map);
   };
+
+  const cateArr = [
+    { title: "한식", img: ko },
+    { title: "일식", img: jp },
+    { title: "양식", img: us },
+    { title: "중식", img: cn },
+  ];
+
   return (
     <Swiper
       style={{
@@ -33,42 +41,18 @@ export const Category = (coodsMarker: any) => {
       spaceBetween={30}
       slidesPerView={2.5}
     >
-      <SwiperSlide
-        onClick={cateFilter}
-        style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
-        className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
-      >
-        <img src={ko} style={{ width: "20px" }}></img>
-
-        <span>한식</span>
-      </SwiperSlide>
-      <SwiperSlide
-        onClick={cateFilter}
-        style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
-        className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
-      >
-        <img src={cn} style={{ width: "20px" }}></img>
-
-        <span>일식</span>
-      </SwiperSlide>
-      <SwiperSlide
-        onClick={cateFilter}
-        style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
-        className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
-      >
-        <img src={us} style={{ width: "20px" }}></img>
-
-        <span>양식</span>
-      </SwiperSlide>
-      <SwiperSlide
-        onClick={cateFilter}
-        style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
-        className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
-      >
-        <img src={jp} style={{ width: "20px" }}></img>
-
-        <span>중식</span>
-      </SwiperSlide>
+      {cateArr.map((cate, i) => (
+        <SwiperSlide
+          key={i}
+          title={cate.title}
+          onClick={cateFilter}
+          style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
+          className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
+        >
+          <img src={cate.img} style={{ width: "20px" }}></img>
+          <span>{cate.title}</span>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

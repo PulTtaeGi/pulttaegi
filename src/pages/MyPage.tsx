@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import IsLoginMyPage from "../components/myPage/IsLoginMyPage";
 import IsNotLoginMyPage from "../components/myPage/IsNotLoginMyPage";
+import { useAppSelector } from "../store/hooks/configureStore.hook";
 
 const MyPage = () => {
   const [isLogin, setisLogin] = useState(false);
+  const user = useAppSelector((state) => state.signup)
+
+  useEffect(() => {
+    user.signupUserInfo.id ? setisLogin(true) : null
+  }, [isLogin])
+
   return (
     <div className="text-center text-2xl">
       {isLogin ? (
