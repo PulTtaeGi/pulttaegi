@@ -1,22 +1,16 @@
 import PrimaryButton from "../PrimaryButton";
-import { useAppSelector } from "../../store/hooks/configureStore.hook";
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 interface ReviewWriteProps {
   title: string;
 }
 
 const ReviewWrite = ({title} : ReviewWriteProps) => {
-  const user = useAppSelector((state) => state.signup)
-  const [isLogin, setIsLogin] = useState(false)
   const [isActive, setIsActive] = useState("hidden")
-
-  useEffect(() => {
-    user.signupUserInfo.id ? setIsLogin(true) : null
-  }, [])
+  const isLogin = localStorage.getItem("isLogin")
 
   function handleWrite() {
-    if(isLogin === false) {
+    if(!isLogin) {
       setIsActive("block")
     } return
   }
@@ -24,7 +18,7 @@ const ReviewWrite = ({title} : ReviewWriteProps) => {
   return (
     <div className="relative flex w-full items-center justify-center pb-12">
       <div className="flex flex-col gap-2">
-        <PrimaryButton color="green-3" link={isLogin ? `/review/${title}` : "no"}>
+        <PrimaryButton color="green-3" link={isLogin === "true" ? `/review/${title}` : "no"}>
           <div style={{width: "300px"}} onClick={handleWrite}>리뷰 작성하기</div>
         </PrimaryButton>
         <span className={`${isActive} w-full tracking-tight text-lg`}>
