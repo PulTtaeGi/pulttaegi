@@ -5,7 +5,7 @@ import MenuList from "../components/detail/MenuList";
 import MarketDes from "../components/detail/MarketDes";
 import RatingList from "../components/detail/RatingList";
 import ResultBox from "../components/common/ResultBox";
-import { MarketType } from "../store/modules/market";
+import { MarketType, MenuType } from "../store/modules/market";
 import { useAppSelector } from "../store/hooks/configureStore.hook";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
@@ -23,6 +23,10 @@ export interface targetReviewsType {
   hashtag: string[];
 }
 
+// export interface MenuProps{
+
+// }
+
 export default function Detail() {
   //URL 내 파라미터값 가져오기
   const param = useParams();
@@ -31,6 +35,7 @@ export default function Detail() {
   const markets = useAppSelector((state) => state.market);
   const [market, setMarket] = useState<MarketType>();
   const [rating, setRating] = useState<RatingProps>();
+  const [menus, setMenus] = useState<MenuType[]>();
 
   //리뷰 데이터 관련 변수
   const reviews = useAppSelector((state) => state.review);
@@ -51,6 +56,8 @@ export default function Detail() {
           taste: market.taste,
           calorie: (market.calorie % 4) + 1,
         });
+        setMenus(market.menu);
+        console.log(market.menu);
       }
     });
   }, [markets]);
@@ -67,7 +74,7 @@ export default function Detail() {
           </>
         )}
         {rating && <RatingList ratingList={rating} />}
-        <MenuList />
+        {menus && <MenuList menuList={menus} />}
         {targetReviews && <ReviewList reviewList={targetReviews} />}
         {param.title && <ReviewWrite title={param.title} />}
       </div>
