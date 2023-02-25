@@ -48,7 +48,7 @@ const Component = ({ doc }: { doc: any }) => {
             </div>
           </div>
           <div onClick={() => deleteDoc(doc)}>
-            <FavoriteButton />
+            {/* <FavoriteButton /> */}
           </div>
         </div>
       </div>
