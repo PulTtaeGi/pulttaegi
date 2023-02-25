@@ -9,13 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.7.1",
     "@reduxjs/toolkit": "^1.9.2",
+    "@types/react-router-dom": "^5.3.3",
     "boxicons": "^2.1.4",
     "daisyui": "^2.50.0",
     "dotenv": "^16.0.3",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.3",
+    "firebase": "^9.17.1",
+    "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -25,6 +29,7 @@
     "redux-toolkit": "^1.1.2",
     "styled-components": "^5.3.6",
     "swiper": "^9.0.3",
+    "typesafe-actions": "^5.1.0",
     "vite-plugin-env-compatible": "^1.1.1"
   },
   "devDependencies": {
