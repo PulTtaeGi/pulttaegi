@@ -38,6 +38,9 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
     const [target, setTarget] = useState<reviewsProps>()
     const dispatch = useAppDispatch()
 
+    console.log(userid)
+    console.log(currentId)
+
     useEffect(() => {
         reviews.map((review) => {
           if(review.title === title && review.userid === currentId) {
@@ -65,7 +68,8 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
                     </div>
                     <img src={eggimage} width="20"/>
                 </div>
-                {userid === currentId &&
+                { currentId.length > 0 && 
+                    userid === currentId &&
                     <div className="flex gap-3">
                         <Link 
                             to={`/review/edit/${title}`}
