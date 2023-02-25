@@ -33,7 +33,6 @@ function App() {
     useMarket(dispatch);
   }, []);
 
-
   //firestore 내의 리뷰 데이터베이스를 불러와 전역상태관리
   useEffect(() => {
     const reviewList = firestore.collection("review");

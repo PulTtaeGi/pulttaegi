@@ -10,6 +10,10 @@ const IsLoginMyPage = (): any => {
 
   function goToLogout () {
     dispatch(deleteInfo())
+    localStorage.setItem("id", "")
+    localStorage.setItem("password", "")
+    localStorage.setItem("isLogin", "false")
+
     navigate("/")
   }
 

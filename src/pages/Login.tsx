@@ -30,6 +30,13 @@ export default function Login() {
       return;
     }
 
+    if(idRef.current?.value !== undefined && pwRef.current?.value !== undefined) {
+      dispatch(getUserInfo({signupUserInfo: {id: idRef.current?.value, password: pwRef.current?.value }}))
+      localStorage.setItem("id", idRef.current?.value);
+      localStorage.setItem("password", pwRef.current?.value);
+      localStorage.setItem("isLogin", "true")
+    }
+    
     for (const doc of data.docs) {
       if (
         doc.data().id === idRef.current?.value &&
@@ -40,12 +47,6 @@ export default function Login() {
       }
     }
     
-    if(idRef.current?.value !== undefined && pwRef.current?.value !== undefined) {
-      dispatch(getUserInfo({signupUserInfo: {id: idRef.current?.value, password: pwRef.current?.value }}))
-      localStorage.setItem("id", idRef.current?.value);
-      localStorage.setItem("password", pwRef.current?.value);
-      localStorage.setItem("isLogin", "true")
-    }
   }, []);
 
   return (
