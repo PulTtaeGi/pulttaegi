@@ -8,11 +8,12 @@ import "../tailwind.css";
 import { useAppDispatch } from "../state/store/hooks/configureStore.hook";
 import { getUserInfo } from "../store/modules/signup";
 import GoogleLoginButton from "../components/common/GoogleButton";
+import BackArrow from "../components/common/BackArrow";
 
 const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 
 export default function Login() {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
@@ -30,13 +31,23 @@ export default function Login() {
       return;
     }
 
-    if(idRef.current?.value !== undefined && pwRef.current?.value !== undefined) {
-      dispatch(getUserInfo({signupUserInfo: {id: idRef.current?.value, password: pwRef.current?.value }}))
+    if (
+      idRef.current?.value !== undefined &&
+      pwRef.current?.value !== undefined
+    ) {
+      dispatch(
+        getUserInfo({
+          signupUserInfo: {
+            id: idRef.current?.value,
+            password: pwRef.current?.value,
+          },
+        })
+      );
       localStorage.setItem("id", idRef.current?.value);
       localStorage.setItem("password", pwRef.current?.value);
-      localStorage.setItem("isLogin", "true")
+      localStorage.setItem("isLogin", "true");
     }
-    
+
     for (const doc of data.docs) {
       if (
         doc.data().id === idRef.current?.value &&
@@ -46,12 +57,12 @@ export default function Login() {
         return;
       }
     }
-    
   }, []);
 
   return (
     <Wrapper>
       <div className="flex flex-col items-center h-full mt-28">
+        <BackArrow />
         <div className="relative w-[180px]">
           <img
             src={LOGO_URL}
@@ -77,9 +88,7 @@ export default function Login() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          
-    
-          <GoogleLoginButton/>
+          <GoogleLoginButton />
           <button
             onClick={handleLogin}
             type="submit"
@@ -94,6 +103,5 @@ export default function Login() {
         </div>
       </div>
     </Wrapper>
-    
   );
 }
