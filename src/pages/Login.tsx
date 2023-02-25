@@ -41,6 +41,9 @@ export default function Login() {
     
     if(idRef.current?.value !== undefined && pwRef.current?.value !== undefined) {
       dispatch(getUserInfo({signupUserInfo: {id: idRef.current?.value, password: pwRef.current?.value }}))
+      localStorage.setItem("id", idRef.current?.value);
+      localStorage.setItem("password", pwRef.current?.value);
+      localStorage.setItem("isLogin", "true")
     }
   }, []);
 
