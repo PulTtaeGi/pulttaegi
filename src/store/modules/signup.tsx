@@ -19,7 +19,10 @@ export const SignupSlice = createSlice({
     getUserInfo: (state, action: PayloadAction<SignupInterface>) => {
       return { ...state, ...action.payload };
     },
+
+    deleteInfo: () => initialState
   },
 });
 
 export const { getUserInfo } = SignupSlice.actions;
+export const { deleteInfo } = SignupSlice.actions
