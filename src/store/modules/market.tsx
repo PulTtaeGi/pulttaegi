@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { useAppDispatch } from "../hooks/configureStore.hook";
 
-interface MenuType {
+export interface MenuType {
   menuName: string;
   price: string;
 }
@@ -11,7 +11,7 @@ export interface MarketType {
   title: string;
   img: string;
   address: string;
-  menus: Array<MenuType>;
+  menu: Array<MenuType>;
   lat: number;
   lng: number;
   category: string;
