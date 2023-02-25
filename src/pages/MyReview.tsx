@@ -9,7 +9,7 @@ import { useAppSelector } from "../store/hooks/configureStore.hook";
 export default function MyReview() {
     const reviews = useAppSelector((state) => state.review)
     const user = useAppSelector((state) => state.signup)
-    const currentId = user.signupUserInfo.id
+    const currentId = localStorage.getItem("id")
     const myReviews : any[] = []
   
     reviews.map((item) => {

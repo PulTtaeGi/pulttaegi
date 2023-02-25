@@ -19,7 +19,7 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
   const dispatch = useAppDispatch()
   const reviews = useAppSelector((state) => state.review)
   const user = useAppSelector((state) => state.signup)
-  const currentId = user.signupUserInfo.id
+  const currentId = localStorage.getItem("id")
 
   interface ratingProps {
     taste : number,
@@ -81,7 +81,7 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
 
     dispatch(addData(currentReview))
 
-    navigate(`/detail/${title}`)
+    navigate(`/review/total`)
   }
 
   const backPage = () => {
