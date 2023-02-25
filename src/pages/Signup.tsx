@@ -1,13 +1,16 @@
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { firestore} from "../api/firebase";
+import { useNavigate } from "react-router";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
 
+
 const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 
 export default function Signup() {
+  const navigate = useNavigate();
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
   const pwCheckRef = useRef<HTMLInputElement>(null);
@@ -45,7 +48,10 @@ export default function Signup() {
       await addDoc(usersCollectionRef, {
         id: idRef.current?.value,
         pw: pwRef.current?.value,
+        
       });
+      alert("회원가입에 성공했어요");
+      navigate("/login");
     } catch (e) {
       console.error(e);
     }
