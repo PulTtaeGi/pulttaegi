@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BreadCrumb from "../components/common/BreadCrumb";
 import ReviewList from "../components/myReview/ReviewList";
-import TabBar from "../layouts/TabBar";
+import TabBar from "../layouts/tabBar";
 import Wrapper from "../layouts/Wrapper";
 import { useAppSelector } from "../store/hooks/configureStore.hook";
 
