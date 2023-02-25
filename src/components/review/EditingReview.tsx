@@ -102,7 +102,7 @@ const EditingReview = ({ title }: EditingReviewProps ): JSX.Element => {
   }
 
   const backPage = () => {
-    navigate("/")
+    navigate("/review/total")
   }
 
   console.log(currentReview)

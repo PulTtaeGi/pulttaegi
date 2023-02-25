@@ -70,7 +70,6 @@ export default function Detail() {
         {targetReviews && (
           <>
             <HashTagBar reviewList={targetReviews} />
-            {/* <RatingList reviewList={targetReviews} /> */}
           </>
         )}
         {rating && <RatingList ratingList={rating} />}
