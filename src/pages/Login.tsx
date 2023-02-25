@@ -5,12 +5,14 @@ import { firestore } from "../api/firebase";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
+import { useAppDispatch } from "../state/store/hooks/configureStore.hook";
+import { getUserInfo } from "../store/modules/signup";
 import GoogleLoginButton from "../components/common/GoogleButton";
-
 
 const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 
 export default function Login() {
+  const dispatch = useAppDispatch()
   const navigate = useNavigate();
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
@@ -36,6 +38,10 @@ export default function Login() {
         navigate("/");
         return;
       }
+    }
+    
+    if(idRef.current?.value !== undefined && pwRef.current?.value !== undefined) {
+      dispatch(getUserInfo({signupUserInfo: {id: idRef.current?.value, password: pwRef.current?.value }}))
     }
   }, []);
 

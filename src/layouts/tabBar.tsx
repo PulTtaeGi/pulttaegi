@@ -20,7 +20,7 @@ const TabBar = () => {
           </Link>
         </li>
         <li className="flex-1">
-          <Link to="/" className="font-bold text-lg ">
+          <Link to="/review/total" className="font-bold text-lg ">
             <img
               src={reviewIco}
               className="w-7/12 m-auto opacity-30"
@@ -35,7 +35,7 @@ const TabBar = () => {
           </Link>
         </li>
         <li className="flex-1">
-          <Link to="/" className="font-bold text-lg ">
+          <Link to="/total" className="font-bold text-lg ">
             <img
               src={favoritewIco}
               className="w-7/12 m-auto opacity-30"
@@ -45,7 +45,7 @@ const TabBar = () => {
           </Link>
         </li>
         <li className="flex-1">
-          <Link to="/" className="font-bold text-lg ">
+          <Link to="/mypage" className="font-bold text-lg ">
             <img
               src={userIco}
               className="w-7/12 m-auto opacity-30"

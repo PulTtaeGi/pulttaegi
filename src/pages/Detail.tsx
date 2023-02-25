@@ -24,7 +24,6 @@ export interface targetReviewsType {
   }
 
 export default function Detail() {
-
     //URL 내 파라미터값 가져오기
     const param = useParams();
 
@@ -50,6 +49,8 @@ export default function Detail() {
         clean: market ? market.clean : 0,
         calorie: market ?  market.calorie : 0,
     };
+
+    console.log(markets)
 
   return (
     <div className="flex items-center justify-center h-full">
