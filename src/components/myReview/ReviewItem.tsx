@@ -34,7 +34,7 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
     const users = useAppSelector((state) => state.signup)
     const reviews = useAppSelector((state) => state.review)
 
-    const currentId = users.signupUserInfo.id
+    const currentId = localStorage.getItem("id")
     const [target, setTarget] = useState<reviewsProps>()
     const dispatch = useAppDispatch()
 
@@ -68,7 +68,7 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
                     </div>
                     <img src={eggimage} width="20"/>
                 </div>
-                { currentId.length > 0 && 
+                { currentId !== null && 
                     userid === currentId &&
                     <div className="flex gap-3">
                         <Link 

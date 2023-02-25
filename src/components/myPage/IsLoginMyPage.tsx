@@ -4,9 +4,10 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks/configureStore
 import { deleteInfo } from "../../store/modules/signup";
 
 const IsLoginMyPage = (): any => {
-  const user = useAppSelector((state) => state.signup)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+
+  const id = localStorage.getItem("id")
 
   function goToLogout () {
     dispatch(deleteInfo())
@@ -22,7 +23,7 @@ const IsLoginMyPage = (): any => {
       <div className="flex flex-col mt-40 w-4/5 h-4/5 my-0 mx-auto">
         <div className="flex justify-start flex-row border-b-4 pb-2">
           <div>🙎🏻</div>
-          <p className="text-3xl font-bold ml-6">{user.signupUserInfo.id}님</p>
+          <p className="text-3xl font-bold ml-6">{id}님</p>
         </div>
         <div className="mt-4">
           <LinkItem link="/review/my" text="내가 쓴 리뷰" />
