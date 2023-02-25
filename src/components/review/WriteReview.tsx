@@ -27,15 +27,6 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
     welbeing : number,
   }
 
-  interface reviewsProps {
-    content : string,
-    hashtag : string[],
-    img : any,
-    rating : ratingProps,
-    title : string,
-    userid : string,
-  }
-
   useEffect(() => {
     setCurrentReview((prevState : any) => {
       return {...prevState, userid: currentId, title: title, id: reviews.length + 1}
@@ -90,11 +81,11 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
 
     dispatch(addData(currentReview))
 
-    navigate("/detail")
+    navigate(`/detail/${title}`)
   }
 
   const backPage = () => {
-    navigate("/detail")
+    navigate(`/detail/${title}`)
   }
 
   return (
