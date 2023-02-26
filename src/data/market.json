@@ -28,7 +28,7 @@
   {
     "id": 2,
     "title": "샐러드집",
-    "category": "salad",
+    "category": "샐러드",
     "img": "https://images.immediate.co.uk/production/volatile/sites/30/2022/05/Three-bean-salad-with-mozzarella-deb0114.jpg",
     "lat": 37.497928,
     "lng": 127.027583,
@@ -79,8 +79,8 @@
   },
   {
     "id": 4,
-    "title": "일식집",
-    "category": "일식",
+    "title": "브런치카페",
+    "category": "브런치",
     "img": "http://openimage.interpark.com/goods_image_big/2/0/3/7/8852172037_l.jpg",
     "lat": 37.6385,
     "lng": 126.7872,
@@ -105,8 +105,8 @@
   },
   {
     "id": 5,
-    "title": "양식집",
-    "category": "양식",
+    "title": "웰빙뷔페",
+    "category": "뷔페",
     "img": "https://www.tojobcn.com/data/editor/2205/thumb-c14ed464819e436d6383eba411b195c3_1652338259_9186_600x600.jpg",
     "lat": 37.6963,
     "lng": 126.7728398,
