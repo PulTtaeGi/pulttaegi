@@ -16,6 +16,7 @@ export const Category = (coodsMarker: any) => {
     e.preventDefault();
     const eventTarget = e.target as HTMLElement;
     const categoryName = eventTarget.innerText;
+
     filterMarker(categoryName, kakaomaps.map);
     searchfilterMarker(categoryName, kakaomaps.map);
   };
