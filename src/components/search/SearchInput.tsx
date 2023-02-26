@@ -12,6 +12,12 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
 
   const useDispatcher = useDispatch();
 
+  useEffect(() => {
+    console.log(keyword);
+    setKeyword("");
+    useDispatcher(setData({ keyword: "" }));
+  }, []);
+
   const handleKeyword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
   };
