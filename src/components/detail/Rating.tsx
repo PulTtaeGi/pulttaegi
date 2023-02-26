@@ -1,8 +1,8 @@
 const Rating = ({ title, number }: { title: string; number: number }) => {
   if (number % 5 === 0) {
     number = (number % 5) + 1;
+    console.log(title, number);
   }
-  // console.log(title, number);
   return (
     <div className="flex items-center gap-2">
       <span className="block w-[50px] text-center">{title}</span>
@@ -11,7 +11,7 @@ const Rating = ({ title, number }: { title: string; number: number }) => {
         style={{
           width: number * 50 + "px",
         }}
-        className={`h-[24px] bg-green-${number} rounded-r-lg shadow`}
+        className={`h-[24px] rounded-r-lg shadow bg-green-${number}`}
         // className={`h-[24px] w-${number}*10 bg-green-${number} rounded-r-lg shadow`}
       ></div>
     </div>
