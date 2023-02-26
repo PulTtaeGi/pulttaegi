@@ -1,8 +1,8 @@
 const Rating = ({ title, number }: { title: string; number: number }) => {
-  if (number % 5 === 0) {
-    number = (number % 5) + 1;
-    console.log(title, number);
+  if (number > 4) {
+    number = ((number % 4) + 1) * 4;
   }
+  console.log(title, number);
   return (
     <div className="flex items-center gap-2">
       <span className="block w-[50px] text-center">{title}</span>

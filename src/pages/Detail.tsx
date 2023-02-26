@@ -50,7 +50,7 @@ export default function Detail() {
         setRating({
           clean: market.clean,
           taste: market.taste,
-          calorie: (market.calorie % 4) + 1,
+          calorie: (market.calorie % 5) + 1,
         });
         setMenus(market.menu);
       }
