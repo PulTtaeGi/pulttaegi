@@ -24,7 +24,7 @@ export const Category = (coodsMarker: any) => {
   const cateArr = [
     { title: "한식", img: ko },
     { title: "브런치", img: jp },
-    { title: "카페", img: us },
+    { title: "샐러드", img: us },
     { title: "뷔페", img: cn },
   ];
 
