@@ -23,10 +23,6 @@ export interface targetReviewsType {
   hashtag: string[];
 }
 
-// export interface MenuProps{
-
-// }
-
 export default function Detail() {
   //URL 내 파라미터값 가져오기
   const param = useParams();
@@ -57,7 +53,6 @@ export default function Detail() {
           calorie: (market.calorie % 4) + 1,
         });
         setMenus(market.menu);
-        console.log(market.menu);
       }
     });
   }, [markets]);
