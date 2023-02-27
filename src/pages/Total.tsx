@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { firestore } from "../api/firebase";
 import reviewimage from "../assets/icons/1-6.png";
 import BackArrow from "../components/common/BackArrow";
-// import BreadCrumb from "../components/common/BreadCrumb";
+import BreadCrumb from "../components/common/BreadCrumb";
 import FavoriteButton from "../components/common/FavoriteButton";
 
 function Second() {
   const favoritesCollectionRef = collection(firestore, "favorites");
   const [favorites, setFavorites] = useState<any[]>([]);
-
+  const myfavorites : any[] = []
   useEffect(() => {
     async function fetchData() {
       const data = await getDocs(favoritesCollectionRef);
@@ -31,7 +31,10 @@ function Second() {
   return (
     <div>
       <BackArrow />
-      {/* <BreadCrumb /> */}
+      <br></br>
+      <br></br>
+      <br></br>
+      <BreadCrumb count={myfavorites.length}>  즐겨찾기</BreadCrumb>
       {favorites.map((favorite) => {
         return <Component docData={favorite} key={favorite.id} />;
       })}
