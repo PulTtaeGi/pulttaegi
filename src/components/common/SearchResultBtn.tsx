@@ -31,7 +31,7 @@ const SearchResultBtn = () => {
 
   const btn = (
     <button className="btn shadow-lg relative bottom-3">
-      <Link to="/" className="flex items-center">
+      <Link to="/searchResult" className="flex items-center">
         <img
           src={searchRF ? hamberIco : resultMapIco}
           className="w-4 mr-2"
