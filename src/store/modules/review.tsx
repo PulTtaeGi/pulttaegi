@@ -16,9 +16,21 @@ export const reviewSlice = createSlice({
 
         addData : (state, action) => {
             return [...state, action.payload]
+        },
+
+        editData (state, action) {
+            const { content, hashtag, img, rating } = action.payload
+            const id = action.payload.id
+            const targetReview = state.find((item) => item.id === id)
+            if(targetReview) {
+                targetReview.content = content
+                targetReview.hashtag = hashtag
+                targetReview.img = img
+                targetReview.rating = rating
+            }
         }
     }
 })
 
 export default reviewSlice.reducer
-export const { setData, deleteData, addData } = reviewSlice.actions
+export const { setData, deleteData, addData, editData } = reviewSlice.actions
