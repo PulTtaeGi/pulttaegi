@@ -20,7 +20,6 @@ export const Category = (coodsMarker: any) => {
     const categoryName = eventTarget.innerText;
 
     filterMarker(categoryName, kakaomaps.map);
-    console.log(1);
   };
 
   const cateArr = [
