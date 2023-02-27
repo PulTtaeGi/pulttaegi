@@ -15,8 +15,7 @@ interface EditingReviewProps {
 }
 
 const EditingReview = ({ title }: EditingReviewProps ): JSX.Element => {
-  const user = useAppSelector((state) => state.signup)
-  const currentId = user.signupUserInfo.id
+  const currentId = localStorage.getItem("id")
   const [currentReview, setCurrentReview] = useState<reviewsProps>()
   const reviews = useAppSelector((state) => state.review)
   const [target, setTarget] = useState<reviewsProps>()
