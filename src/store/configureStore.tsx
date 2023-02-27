@@ -4,6 +4,7 @@ import { searchSlice } from "./modules/search";
 import { reviewSlice } from "./modules/review";
 import { kakaomapSlice } from "./modules/kakaomap";
 import { SignupSlice } from "./modules/signup";
+import { resultSlice } from "./modules/result";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     search: searchSlice.reducer,
     kakaomap: kakaomapSlice.reducer,
     signup: SignupSlice.reducer,
+    result: resultSlice.reducer,
   },
 
   middleware: (getDefaultMiddleware) =>

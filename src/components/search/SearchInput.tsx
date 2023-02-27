@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setData } from "../../store/modules/search";
+import { useAppDispatch } from "../../store/hooks/configureStore.hook";
+import { MarketType } from "../../store/modules/market";
+import { setResultAction } from "../../store/modules/result";
+import { setDataAction } from "../../store/modules/search";
 import { SEARCH_COOKIE } from "./RecordList";
 
 interface SearchProps {
@@ -10,12 +13,12 @@ interface SearchProps {
 const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
   const [keyword, setKeyword] = useState("");
 
-  const useDispatcher = useDispatch();
+  const useDispatcher = useAppDispatch();
 
   useEffect(() => {
     console.log(keyword);
     setKeyword("");
-    useDispatcher(setData({ keyword: "" }));
+    useDispatcher(setDataAction({ keyword: "" }));
   }, []);
 
   const handleKeyword = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,13 +28,16 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
     console.log(keyword);
     if (keyword === "") return;
     onAddKeyword(keyword);
-    useDispatcher(setData({ keyword }));
+    useDispatcher(setDataAction({ keyword }));
     setKeyword("");
   };
   const onKeyDownSearch = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    // @deprecated
     if (keyword && e.keyCode === 13) {
+      e.preventDefault();
       onAddKeyword(keyword);
-      setKeyword("");
+      console.log("keyword" + keyword);
+      // setKeyword("");
     }
   };
   // const hasKeyword = !!keyword;

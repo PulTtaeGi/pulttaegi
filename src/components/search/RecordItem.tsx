@@ -1,10 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../store/hooks/configureStore.hook";
-import { setData } from "../../store/modules/search";
+import { useAppSelector } from "../../store/hooks/configureStore.hook";
+import { setDataAction } from "../../store/modules/search";
 
 interface RecordItemProp {
   keyword: {
@@ -21,7 +18,7 @@ const RecordItem = ({ keyword, onRemoveKeyword }: RecordItemProp) => {
   const onClickItem = (e: React.MouseEvent<HTMLSpanElement>) => {
     console.log(e.currentTarget.innerText);
     const keyword = e.currentTarget.innerText;
-    useDispatcher(setData({ keyword }));
+    useDispatcher(setDataAction({ keyword }));
     console.log(useKeyword.keyword);
   };
 
