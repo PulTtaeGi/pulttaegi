@@ -3,7 +3,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../store/hooks/configureStore.hook";
-import { setData } from "../../store/modules/search";
+import { setDataAction } from "../../store/modules/search";
 import styles from "../../styles/ActiveClass.module.css";
 import SearchBar from "./SearchBar";
 
@@ -19,7 +19,7 @@ const SearchHeader = (): JSX.Element => {
     e.currentTarget.value === SearchType.region
       ? setIsRegion(true)
       : setIsRegion(false);
-    useDispatcher(setData({ keyword: "" }));
+    useDispatcher(setDataAction({ keyword: "" }));
   }
   return (
     <>
