@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import IsLoginMyPage from "../components/myPage/IsLoginMyPage";
 import IsNotLoginMyPage from "../components/myPage/IsNotLoginMyPage";
+import TabBar from "../layouts/tabBar";
 import { useAppSelector } from "../store/hooks/configureStore.hook";
 
 const MyPage = () => {
@@ -14,20 +15,23 @@ const MyPage = () => {
   }, [isLogin])
 
   return (
-    <div className="text-center text-2xl">
-      {isLogin === true ? (
-        <>
-          <IsLoginMyPage />
-        </>
-      ) : (
-        <>
-          <IsNotLoginMyPage />
-        </>
-      )}
-      <div className="mt-4 text-xs text-gray-400 ">
-        copyright 2023. pulttaegi
+    <>
+      <div className="text-center text-2xl">
+        {isLogin === true ? (
+          <>
+            <IsLoginMyPage />
+          </>
+        ) : (
+          <>
+            <IsNotLoginMyPage />
+          </>
+        )}
+        <div className="mt-4 text-xs text-gray-400 ">
+          copyright 2023. pulttaegi
+        </div>
       </div>
-    </div>
+      <TabBar />
+    </>
   );
 };
 

@@ -7,7 +7,8 @@ import BreadCrumb from "../common/BreadCrumb";
 import { firestore } from "../../api/firebase";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { useAppSelector } from "../../store/hooks/configureStore.hook";
+import { useAppDispatch, useAppSelector } from "../../store/hooks/configureStore.hook";
+import { editData } from "../../store/modules/review";
 
 interface EditingReviewProps {
   title: string | undefined
@@ -16,18 +17,11 @@ interface EditingReviewProps {
 const EditingReview = ({ title }: EditingReviewProps ): JSX.Element => {
   const user = useAppSelector((state) => state.signup)
   const currentId = user.signupUserInfo.id
+  const [currentReview, setCurrentReview] = useState<reviewsProps>()
   const reviews = useAppSelector((state) => state.review)
   const [target, setTarget] = useState<reviewsProps>()
   const navigate = useNavigate()
-
-  useEffect(() => {
-    reviews.map((review) => {
-      if(review.title === title && review.userid === currentId) {
-        setTarget(review)
-        return
-      }
-    })
-  }, [reviews])
+  const dispatch = useAppDispatch()
 
   interface ratingProps {
     taste : number,
@@ -45,7 +39,14 @@ const EditingReview = ({ title }: EditingReviewProps ): JSX.Element => {
     id: number,
   }
 
-  const [currentReview, setCurrentReview] = useState<reviewsProps>()
+  useEffect(() => {
+    reviews.map((review) => {
+      if(review.title === title && review.userid === currentId) {
+        setTarget(review)
+        return
+      }
+    })
+  }, [reviews])
 
   useEffect(() => {
     setCurrentReview((prevState : any) => {
@@ -94,18 +95,16 @@ const EditingReview = ({ title }: EditingReviewProps ): JSX.Element => {
   }
 
   const submitReview = () => {
-    const reviews = firestore.collection("review")
-    const item = currentReview !== undefined ? reviews.doc(`${currentReview.id}`) : null
+    dispatch(editData(currentReview))
+    const review = firestore.collection("review")
+    const item = currentReview !== undefined ? review.doc(`${currentReview.id}`) : null
     currentReview && item ? item.set(currentReview) : null
-
     navigate("/review/total")
   }
 
   const backPage = () => {
     navigate("/review/total")
   }
-
-  console.log(currentReview)
 
   return (
     <Wrapper>
@@ -140,8 +139,14 @@ const EditingReview = ({ title }: EditingReviewProps ): JSX.Element => {
                 category="sanitation"
               />
             </div>
-            <PostUpload getPost={getPost} defaulted={target !== undefined ? target.content : undefined}/>
-            <HashTagUpload getHashTag={getHashTag} defaulted={target !== undefined ? target.hashtag : undefined}/>
+            <PostUpload 
+              getPost={getPost} 
+              defaulted={target !== undefined ? target.content : undefined}
+            />
+            <HashTagUpload 
+              getHashTag={getHashTag} 
+              defaulted={target !== undefined ? target.hashtag : undefined}
+            />
             <div className="flex flex-row justify-around mt-8">
               <button onClick={backPage} className="btn w-20 bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4">
                 취소
