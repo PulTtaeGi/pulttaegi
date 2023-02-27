@@ -21,12 +21,6 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
   const user = useAppSelector((state) => state.signup)
   const currentId = localStorage.getItem("id")
 
-  interface ratingProps {
-    taste : number,
-    sanitation : number,
-    welbeing : number,
-  }
-
   useEffect(() => {
     setCurrentReview((prevState : any) => {
       return {...prevState, userid: currentId, title: title, id: reviews.length + 1}
@@ -75,12 +69,10 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
   // console.log(currentReview)
 
   const submitReview = () => {
+    dispatch(addData(currentReview))
     const reviewCollection = firestore.collection("review")
     const length = reviews.length + 1
     currentReview ? reviewCollection.doc(`${length}`).set(currentReview) : null
-
-    dispatch(addData(currentReview))
-
     navigate(`/review/total`)
   }
 
