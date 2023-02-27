@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import eggimage from "../../assets/icons/pngegg.png"
 import { Link } from "react-router-dom";
 import HashTag from "../myReview/HashTag"
@@ -48,7 +48,7 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
             return
           }
         })
-      }, [reviews])
+    }, [reviews])
 
     function deleteReview () {
         const reviewCollection = firestore.collection("review")
@@ -56,7 +56,6 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
         target ? reviewCollection.doc(`${target.id}`).delete() : null
         
         dispatch(deleteData(target))
-
     }
 
     return (
