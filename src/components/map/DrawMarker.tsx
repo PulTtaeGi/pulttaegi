@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import markerdata from "../../data/markerData";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // filter 시 사용될 배열
@@ -140,7 +139,8 @@ export const filterMarker = (categoryName: string, kakaomaps: object) => {
       const infowindow = new window.kakao.maps.CustomOverlay({
         content: content, // 인포윈도우에 표시할 내용
         removable: true,
-        yAnchor: 1.4,
+        xAnchor: 0.6,
+        yAnchor: 1.6,
         position: markersArr[i].getPosition(),
       });
 

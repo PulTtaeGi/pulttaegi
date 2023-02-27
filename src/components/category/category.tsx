@@ -5,20 +5,22 @@ import cn from "../../assets/icons/food_cn_ico.png";
 import us from "../../assets/icons/food_us_ico.png";
 import jp from "../../assets/icons/food_jp_ico.png";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
-
+import { useLocation } from "react-router";
 // Import Swiper styles
 import "swiper/css";
 import { filterMarker } from "../map/DrawMarker";
-import { searchfilterMarker } from "../search/SearchMap";
 export const Category = (coodsMarker: any) => {
   const kakaomaps = useAppSelector((state) => state.kakaomap);
+  const marketAddress = useAppSelector((state) => state.search.keyword);
+
   const cateFilter = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
+
     const eventTarget = e.target as HTMLElement;
     const categoryName = eventTarget.innerText;
 
     filterMarker(categoryName, kakaomaps.map);
-    searchfilterMarker(categoryName, kakaomaps.map);
+    console.log(1);
   };
 
   const cateArr = [
