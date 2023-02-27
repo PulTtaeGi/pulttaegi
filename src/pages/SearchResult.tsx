@@ -1,10 +1,10 @@
-import ResultBox from "../components/common/ResultBox";
+import ResultHeader from "../components/result/ResultHeader";
 import ResultList from "../components/result/ResultList";
 
 const SearchResult = () => {
   return (
     <div>
-      <ResultBox text="치킨" />
+      <ResultHeader />
       <ResultList />
     </div>
   );

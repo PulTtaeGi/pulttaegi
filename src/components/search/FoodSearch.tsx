@@ -1,5 +1,10 @@
-import { useAppSelector } from "../../store/hooks/configureStore.hook";
+import { useEffect } from "react";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../store/hooks/configureStore.hook";
 import { MarketType } from "../../store/modules/market";
+import { setResultAction } from "../../store/modules/result";
 import FoodResult from "./FoodResult";
 import RecordList, { RecordProps } from "./RecordList";
 
@@ -10,6 +15,7 @@ const FoodSearch = ({
 }: RecordProps) => {
   const foodArray = useAppSelector((state) => state.market);
   const foodKeyword = useAppSelector((state) => state.search);
+  const useDispatcher = useAppDispatch();
   const searchedArray: MarketType[] = [];
 
   Object.values(foodArray).map((food) => {
@@ -20,6 +26,10 @@ const FoodSearch = ({
       searchedArray.push(food);
     }
   });
+  useEffect(() => {
+    useDispatcher(setResultAction(searchedArray));
+  }, [searchedArray]);
+
   return (
     <>
       <div className="flex flex-col mt-36 pl-4 w-screen">
