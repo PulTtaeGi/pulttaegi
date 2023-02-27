@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const FavoriteButton = async () => {
-  const UNSTAR_URL = "../../assets/icons/star.png";
-  const STAR_URL = "../../assets/icons/starActvie.png";
+const FavoriteButton = () => {
+  const UNSTAR_URL = "../../src/assets/icons/star.png";
+  const STAR_URL = "../../src/assets/icons/starActive.png";
 
   const [flag, setFlag] = useState(false);
 
