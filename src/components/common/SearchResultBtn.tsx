@@ -1,38 +1,58 @@
 import { Result } from "postcss";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import hamberIco from "../../assets/icons/hamburger_icon.png";
 import resultMapIco from "../../assets/icons/map_ico.png";
-const FoodResult = () => {
+import search from "../../store/modules/search";
+
+const SearchResultBtn = () => {
+  // 마켓타이틀, 마켓어드레스 이용하여 조건부 렌더링
+  const location = useLocation();
+  const marketTitle = location.state?.marketTitle;
+  const marketAddress = location.state?.marketAddress;
   const [height, setHeight] = useState<number>();
+  const [searchResult, setSearchResult] = useState(false);
+  const [searchRF, setSearchRF] = useState(false);
+
   useEffect(() => {
     const tabBar: HTMLElement | null = document.getElementById("tabBar");
     const bottomheight = tabBar?.clientHeight;
     setHeight(bottomheight);
-    console.log(height);
-  }, [height]);
+    if (marketTitle == undefined && marketAddress == undefined) {
+      setSearchResult(false);
+    } else setSearchResult(true);
 
-  const [searchResult, setSearchResult] = useState(false);
+    if (marketTitle != undefined) {
+      setSearchRF(true);
+    } else {
+      setSearchRF(false);
+    }
+  }, [height, marketTitle]);
 
   const btn = (
     <button className="btn shadow-lg relative bottom-3">
       <Link to="/" className="flex items-center">
         <img
-          src={searchResult ? hamberIco : resultMapIco}
+          src={searchRF ? hamberIco : resultMapIco}
           className="w-4 mr-2"
         ></img>
-        <span>{searchResult ? "목록보기" : "지도보기"}</span>
+        <span>{searchRF ? "목록보기" : "지도보기"}</span>
       </Link>
     </button>
   );
+
   return (
-    <div
-      className="fixed bottom-0 flex z-10 felx justify-center items-center w-screen"
-      style={{ bottom: `${height}` + "px" }}
-    >
-      {btn}
-    </div>
+    <>
+      {searchResult && (
+        <div
+          className="fixed bottom-0 flex z-10 felx justify-center items-center w-screen"
+          style={{ bottom: `${height}` + "px" }}
+        >
+          {btn}
+        </div>
+      )}
+    </>
   );
 };
 
-export default FoodResult;
+export default SearchResultBtn;

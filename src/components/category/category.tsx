@@ -16,15 +16,16 @@ export const Category = (coodsMarker: any) => {
     e.preventDefault();
     const eventTarget = e.target as HTMLElement;
     const categoryName = eventTarget.innerText;
+
     filterMarker(categoryName, kakaomaps.map);
     searchfilterMarker(categoryName, kakaomaps.map);
   };
 
   const cateArr = [
     { title: "한식", img: ko },
-    { title: "일식", img: jp },
-    { title: "양식", img: us },
-    { title: "중식", img: cn },
+    { title: "브런치", img: jp },
+    { title: "샐러드", img: us },
+    { title: "뷔페", img: cn },
   ];
 
   return (

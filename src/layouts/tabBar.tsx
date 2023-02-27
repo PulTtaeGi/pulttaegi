@@ -4,6 +4,7 @@ import reviewIco from "../assets/icons/review_ico.png";
 import homeIco from "../assets/icons/home_ico.png";
 import favoritewIco from "../assets/icons/favorite_ico.png";
 import userIco from "../assets/icons/user_ico.png";
+import homeIcoR from "../assets/icons/main_logo_r.png";
 
 const TabBar = () => {
   return (
@@ -31,7 +32,7 @@ const TabBar = () => {
         </li>
         <li className="flex-1 items-center">
           <Link to="/" className="font-bold text-lg ">
-            <img src={homeIco} className="w-7/12 m-auto " alt=""></img>
+            <img src={homeIcoR} className="w-7/12 m-auto " alt=""></img>
           </Link>
         </li>
         <li className="flex-1">

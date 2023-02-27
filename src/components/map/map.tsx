@@ -12,6 +12,8 @@ import { useDispatch } from "react-redux";
 import CurrentMarker from "./CurrentMarker";
 import SearchMap from "../search/SearchMap";
 import { useLocation } from "react-router-dom";
+import FoodResult from "../common/SearchResultBtn";
+import SearchResultBtn from "../common/SearchResultBtn";
 
 declare global {
   interface Window {
@@ -65,6 +67,7 @@ const Map = () => {
       <div id="map" className="w-screen h-screen" />
       {/* 현재위치 이동 버튼 */}
       <MoveCurrent></MoveCurrent>
+      <SearchResultBtn></SearchResultBtn>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../state/store/hooks/configureStore.hook";
+import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import ResultItem from "./ResultItem";
 
 const ResultList = () => {
