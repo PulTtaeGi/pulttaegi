@@ -98,6 +98,8 @@ export const DrawMarker = () => {
 export const addMarker = (kakaomaps: any) => {
   for (let i = 0; i < markersArr.length; i++) {
     markersArr[i].setMap(kakaomaps);
+
+    // 인포 표시
     const content =
       `<div class='wrap customoverlay info bg-white p-4 border-0'>` +
       `<a href="/detail/${markerData[i].title}">` +
