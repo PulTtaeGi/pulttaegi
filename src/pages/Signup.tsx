@@ -1,16 +1,16 @@
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
-import { firestore} from "../api/firebase";
+import { firestore } from "../api/firebase";
 import { useNavigate } from "react-router";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
 
-
 const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 
 export default function Signup() {
   const navigate = useNavigate();
+
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
   const pwCheckRef = useRef<HTMLInputElement>(null);
@@ -19,21 +19,23 @@ export default function Signup() {
     const usersCollectionRef = collection(firestore, "login");
     const data = await getDocs(usersCollectionRef);
 
-    if (idRef.current?.value === null) {
+    if (idRef.current?.value === "") {
       alert("아이디를 입력해 주세요");
       return;
     }
 
-    data.docs.map((doc) => {
+    for (const doc of data.docs) {
       if (doc.data().id === idRef.current?.value) {
         alert("중복된 아이디가 있어요");
         return;
       }
-    });
+    }
+
+    alert("중복된 아이디가 없어요");
   }, []);
 
   const handleSignUp = useCallback(async () => {
-    if (pwRef.current?.value === null) {
+    if (pwRef.current?.value === "") {
       alert("비밀번호를 입력해 주세요");
       return;
     }
@@ -48,11 +50,12 @@ export default function Signup() {
       await addDoc(usersCollectionRef, {
         id: idRef.current?.value,
         pw: pwRef.current?.value,
-        
+      }).then(() => {
+        alert("회원가입에 성공했어요");
+        navigate("/login");
       });
-      alert("회원가입에 성공했어요");
-      navigate("/login");
     } catch (e) {
+      alert("회원가입에 실패했어요");
       console.error(e);
     }
   }, []);
