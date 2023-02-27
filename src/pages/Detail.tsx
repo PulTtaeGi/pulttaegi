@@ -27,6 +27,21 @@ export interface targetReviewsType {
 
 // }
 
+// const handleSignUp = useCallback(async () => {
+//   const favoriteRef = collection(firestore, "favorites");
+//   try {
+//     await addDoc(favoriteRef, {
+//       favoriteRef.current?.value,
+//     }).then(() => {
+//       alert("즐겨찾기 등록에 성공했어요");
+//       navigate("/total");
+//     });
+//   } catch (e) {
+//     alert("즐겨찾기에 등록 실패했어요");
+//     console.error(e);
+//   }
+// }, []);
+
 export default function Detail() {
   //URL 내 파라미터값 가져오기
   const param = useParams();
@@ -54,10 +69,9 @@ export default function Detail() {
         setRating({
           clean: market.clean,
           taste: market.taste,
-          calorie: (market.calorie % 4) + 1,
+          calorie: (market.calorie % 5) + 1,
         });
         setMenus(market.menu);
-        console.log(market.menu);
       }
     });
   }, [markets]);

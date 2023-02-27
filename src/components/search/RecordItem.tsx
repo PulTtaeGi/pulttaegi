@@ -22,7 +22,7 @@ const RecordItem = ({ keyword, onRemoveKeyword }: RecordItemProp) => {
     console.log(e.currentTarget.innerText);
     const keyword = e.currentTarget.innerText;
     useDispatcher(setData({ keyword }));
-    console.log(useKeyword);
+    console.log(useKeyword.keyword);
   };
 
   return (
