@@ -26,6 +26,7 @@ export const DrawMarker = () => {
 
       //  마커가 지도 위에 표시
       const makeMarker = () => {
+        console.log(1);
         marketArr.forEach((el) => {
           markerData.push(el);
 
@@ -91,12 +92,49 @@ export const DrawMarker = () => {
       };
       makeMarker();
     }
-  }, [kakaomaps, market]);
+  }, [kakaomaps, marketTitle, marketAddress]);
 };
 
 export const addMarker = (kakaomaps: any) => {
   for (let i = 0; i < markersArr.length; i++) {
     markersArr[i].setMap(kakaomaps);
+
+    // 인포 표시
+    const content =
+      `<div class='wrap customoverlay info bg-white p-4 border-0'>` +
+      `<a href="/detail/${markerData[i].title}">` +
+      `<div class="title text-xl font-bold text-black mb-1">` +
+      `${markerData[i].title}` +
+      `</div>` +
+      `<div class="desc">` +
+      `<div class="h-2 bg-lime-700 mb-1" style="width:${
+        markerData[i].taste * 10
+      }%"></div>` +
+      `<div class="h-2 bg-amber-500 mb-1" style="width:${
+        markerData[i].clean * 10
+      }%"></div>` +
+      `<p>${markerData[i].calorie} kal` +
+      `</p>` +
+      `</a>` +
+      `</div>`;
+    // 마커 클릭 시 인포
+    const infowindow = new window.kakao.maps.CustomOverlay({
+      content: content, // 인포윈도우에 표시할 내용
+      removable: true,
+      xAnchor: 0.6,
+      yAnchor: 1.6,
+      position: markersArr[i].getPosition(),
+    });
+
+    // 마커 클릭 시 보여줄 내용 생성
+    window.kakao.maps.event.addListener(markersArr[i], "click", function () {
+      // 마커 위에 인포윈도우를 표시
+      if (infowindow.getMap()) {
+        infowindow.setMap(null);
+      } else {
+        infowindow.setMap(kakaomaps);
+      }
+    });
   }
 };
 
@@ -108,11 +146,6 @@ export const removeMarker = () => {
 
 export const filterMarker = (categoryName: string, kakaomaps: object) => {
   console.log(categoryName);
-  const removeInfo = document.querySelectorAll(
-    ".customoverlay"
-  ) as NodeListOf<Element>;
-
-  // console.log(removeInfo);
 
   for (let i = 0; i < markersArr.length; i++) {
     markersArr[i].setMap(null);

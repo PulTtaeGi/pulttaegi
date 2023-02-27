@@ -18,25 +18,16 @@ const SearchResultBtn = () => {
     const tabBar: HTMLElement | null = document.getElementById("tabBar");
     const bottomheight = tabBar?.clientHeight;
     setHeight(bottomheight);
-    if (marketTitle == undefined && marketAddress == undefined) {
+    if (marketTitle == undefined) {
       setSearchResult(false);
     } else setSearchResult(true);
-
-    if (marketTitle != undefined) {
-      setSearchRF(true);
-    } else {
-      setSearchRF(false);
-    }
   }, [height, marketTitle]);
 
   const btn = (
     <button className="btn shadow-lg relative bottom-3">
       <Link to="/searchResult" className="flex items-center">
-        <img
-          src={searchRF ? hamberIco : resultMapIco}
-          className="w-4 mr-2"
-        ></img>
-        <span>{searchRF ? "목록보기" : "지도보기"}</span>
+        <img src={hamberIco} className="w-4 mr-2"></img>
+        <span>{"목록보기"}</span>
       </Link>
     </button>
   );
