@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MarketType } from "../../store/modules/market";
+import FavoriteButton from "../common/FavoriteButton";
 
 const MarketDes = ({ market }: { market: MarketType }) => {
   const [like, setLike] = useState<boolean>(false);
@@ -13,13 +14,14 @@ const MarketDes = ({ market }: { market: MarketType }) => {
         <span className="text-2xl font-extrabold tracking-tight text-green-4 whitespace-nowrap">
           {market.title}
         </span>
-        <button type="button" onClick={handleLike}>
+        {/* <button type="button" onClick={handleLike}>
           <img
             src={`../../src/assets/icons/${like ? "starActive" : "star"}.png`}
             alt="backButton"
             className="w-[28px] h-[28px]"
           ></img>
-        </button>
+        </button> */}
+        <FavoriteButton />
       </div>
       <div>
         <img src={market.img} alt={market.title} className="rounded-xl"></img>
