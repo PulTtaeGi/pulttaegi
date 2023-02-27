@@ -40,7 +40,8 @@ const GoogleLoginButton = () => {
 
   return (
     <React.Fragment>
-    <GoogleOAuthProvider clientId='1020846277366-1u2vmslore81tro89olj882rg0mh3ksu.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId='1020846277366-1u2vmslore81tro89olj882rg0mh3ksu.apps.googleusercontent.com'
+                        >
     <GoogleLogin
   onSuccess={credentialResponse => {
     console.log(credentialResponse);
