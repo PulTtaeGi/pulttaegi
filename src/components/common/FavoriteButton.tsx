@@ -15,7 +15,10 @@ const handleSignUp = useCallback(async () => {
   const navigate = useNavigate();
   try {
     await addDoc(favoriteRef, {
-      // favoriteRef.current?.value,
+      //  id: idRef.current?.value,
+      //  title: titleRef.current?.value,
+      //  menus: menusRef.current?.value,
+      //  img: imgRef.current?.value,
     }).then(() => {
       alert("즐겨찾기 등록에 성공했어요");
       setFlag((prev) => !prev);
@@ -40,7 +43,7 @@ const handleSignUp = useCallback(async () => {
     <button onClick={handleSignUp}
              >
       <img
-        className="rounded-full"
+        className="block w-[30px] h-[30px]"
         src={flag ? STAR_URL : UNSTAR_URL}
         width="60"
       />
