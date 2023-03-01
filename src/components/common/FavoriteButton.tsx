@@ -8,7 +8,10 @@ import { useNavigate } from "react-router";
 const FavoriteButton = () => {
   const UNSTAR_URL = "../../src/assets/icons/star.png";
   const STAR_URL = "../../src/assets/icons/starActive.png";
-  
+  // const idRef = useRef<>();
+  // const title = useRef<>();
+  // const menus = useRef<>();
+  // const img = useRef<>();
 
 const handleSignUp = useCallback(async () => {
   const favoriteRef = collection(firestore, "favorites");

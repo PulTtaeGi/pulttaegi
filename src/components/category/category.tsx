@@ -1,9 +1,9 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import ko from "../../assets/icons/food_ko_ico.png";
-import cn from "../../assets/icons/food_cn_ico.png";
-import us from "../../assets/icons/food_us_ico.png";
-import jp from "../../assets/icons/food_jp_ico.png";
+import ko from "../../assets/icons/bibimbap.png";
+import cn from "../../assets/icons/catering.png";
+import us from "../../assets/icons/salad.png";
+import jp from "../../assets/icons/brunch.png";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import { useLocation } from "react-router";
 // Import Swiper styles
@@ -48,7 +48,7 @@ export const Category = (coodsMarker: any) => {
           key={i}
           title={cate.title}
           onClick={cateFilter}
-          style={{ padding: "5px 15px", background: "#fff", display: "flex" }}
+          style={{ padding: "3px 20px", background: "#fff", display: "flex" }}
           className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
         >
           <img src={cate.img} style={{ width: "20px" }}></img>

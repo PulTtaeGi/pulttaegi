@@ -1,9 +1,9 @@
 import { Link, BrowserRouter } from "react-router-dom";
-import mapIco from "../assets/icons/map_ico.png";
-import reviewIco from "../assets/icons/review_ico.png";
+import mapIco from "../assets/icons/tabmap.png";
+import reviewIco from "../assets/icons/tabreview.png";
 import homeIco from "../assets/icons/home_ico.png";
-import favoritewIco from "../assets/icons/favorite_ico.png";
-import userIco from "../assets/icons/user_ico.png";
+import favoritewIco from "../assets/icons/tabstar.png";
+import userIco from "../assets/icons/tabuser.png";
 import homeIcoR from "../assets/icons/main_logo_r.png";
 
 const TabBar = () => {
@@ -16,7 +16,7 @@ const TabBar = () => {
       <ul className="flex w-screen justify-center items-center">
         <li className="flex-1">
           <Link to="/" className="font-bold text-lg ">
-            <img src={mapIco} className="w-7/12 m-auto opacity-30" alt=""></img>
+            <img src={mapIco} className="w-7/12 m-auto " alt=""></img>
             <span>지도</span>
           </Link>
         </li>
@@ -24,7 +24,7 @@ const TabBar = () => {
           <Link to="/review/total" className="font-bold text-lg ">
             <img
               src={reviewIco}
-              className="w-7/12 m-auto opacity-30"
+              className="w-7/12 m-auto "
               alt=""
             ></img>
             <span>리뷰보기</span>
@@ -39,7 +39,7 @@ const TabBar = () => {
           <Link to="/total" className="font-bold text-lg ">
             <img
               src={favoritewIco}
-              className="w-7/12 m-auto opacity-30"
+              className="w-7/12 m-auto "
               alt=""
             ></img>
             <span>즐겨찾기</span>
@@ -49,7 +49,7 @@ const TabBar = () => {
           <Link to="/mypage" className="font-bold text-lg ">
             <img
               src={userIco}
-              className="w-7/12 m-auto opacity-30"
+              className="w-7/12 m-auto "
               alt=""
             ></img>
             <span>My</span>
