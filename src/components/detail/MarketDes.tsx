@@ -21,7 +21,7 @@ const MarketDes = ({ market }: { market: MarketType }) => {
             className="w-[28px] h-[28px]"
           ></img>
         </button> */}
-        <FavoriteButton />
+        <FavoriteButton market={market} />
       </div>
       <div>
         <img src={market.img} alt={market.title} className="rounded-xl"></img>
