@@ -3,16 +3,14 @@ import { useCallback, useRef } from "react";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { firestore } from "../../api/firebase";
 import { useNavigate } from "react-router";
+import { MarketType } from "../../store/modules/market";
 
-
-interface marketData {
-  id: string;
-  title: string;
-  munues: string;
-  img: string;
+interface marketProps{
+  market : MarketType
 }
 
-const FavoriteButton = (market: any) => {
+
+const FavoriteButton = (market:marketProps ) => {
   console.log(market);
   // detail market 정보 있음 -> 이걸 받아아야됨 -> firestore 저장
 
@@ -21,18 +19,19 @@ const FavoriteButton = (market: any) => {
 
   const handleSignUp = useCallback(async () => {
     const favoriteRef = collection(firestore, "favorites");
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     try {
       await addDoc(favoriteRef, {
-        id: market.id,
-        title: market.title,
-        menus: market.menu,
-        img: market.img,
+        id: market.market.id,
+        title: market.market.title,
+        menu: market.market.menu,
+        img: market.market.img,
 
       }).then(() => {
         alert("즐겨찾기 등록에 성공했어요");
+
         setFlag((prev) => !prev);
-        navigate("/total");
+        // navigate("/total");
       });
     } catch (e) {
       alert("즐겨찾기에 등록 실패했어요");
