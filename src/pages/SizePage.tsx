@@ -16,6 +16,9 @@ export const SizePage = () => {
           <p>화면을 줄여주세요.</p>
         </div>
         <Monitor></Monitor>
+        <div className="mt-4 text-xs text-gray-400 text-center">
+          copyright 2023. pulttaegi
+        </div>
       </div>
     </div>
   );
@@ -33,6 +36,7 @@ const ani = keyframes`
 
 const Monitor = styled.div`
   margin-top: 50px;
+  margin-bottom: 30px;
   position: relative;
   transform: translateX(-50%);
   left: 50%;
