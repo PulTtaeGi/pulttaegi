@@ -5,23 +5,17 @@ import { firestore } from "../../api/firebase";
 import { useNavigate } from "react-router";
 
 
-const FavoriteButton = (market:object) => {
+const FavoriteButton = () => {
   const UNSTAR_URL = "../../src/assets/icons/star.png";
   const STAR_URL = "../../src/assets/icons/starActive.png";
-  // const idRef = useRef<>();
-  // const title = useRef<>();
-  // const menus = useRef<>();
-  // const img = useRef<>();
+  
 
 const handleSignUp = useCallback(async () => {
   const favoriteRef = collection(firestore, "favorites");
   const navigate = useNavigate();
   try {
     await addDoc(favoriteRef, {
-      //  id: idRef.current?.value,
-      //  title: titleRef.current?.value,
-      //  menus: menusRef.current?.value,
-      //  img: imgRef.current?.value,
+      
     }).then(() => {
       alert("즐겨찾기 등록에 성공했어요");
       setFlag((prev) => !prev);
