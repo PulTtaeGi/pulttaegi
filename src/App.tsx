@@ -23,12 +23,13 @@ import EditReview from "./pages/EditReview";
 import useMarket from "./hooks/useMarket";
 import SearchResult from "./pages/SearchResult";
 import { getUserInfo } from "./store/modules/signup";
+import { SizePage } from "./pages/SizePage";
 
 function App() {
   const dispatch = useAppDispatch();
-  const [getReviews, setGetReviews] = useState<Array<any>>()
-  const [getUsers, setGetUsers] = useState<Array<any>>()
-  
+  const [getReviews, setGetReviews] = useState<Array<any>>();
+  const [getUsers, setGetUsers] = useState<Array<any>>();
+
   useEffect(() => {
     useMarket(dispatch);
   }, []);
@@ -48,14 +49,24 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getReviews !== undefined 
-        ? dispatch(setData(getReviews)) 
-        : null
-  }, [getReviews])
+    getReviews !== undefined ? dispatch(setData(getReviews)) : null;
+  }, [getReviews]);
 
+  // 해상도 지원 화면 리사이즈 시 숨김
+  window.onresize = function () {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    console.log(width);
+    const reSizePage = document.querySelector("#sizepage") as HTMLDivElement;
+    if (width >= 500) {
+      reSizePage.style.cssText = "z-index : 50; opacity: 1";
+    } else {
+      reSizePage.style.cssText = "z-index : -10; opacity: 0";
+    }
+  };
   // //id: admin password: 12345인 user데이터 임의로 dispatch
   // dispatch(getUserInfo({signupUserInfo: {id: "admin", password: "12345" }}))
-
   return (
     <>
       <BrowserRouter>
@@ -79,6 +90,7 @@ function App() {
           <Route path="/detail/:title" element={<Detail />}></Route>
         </Routes>
       </BrowserRouter>
+      <SizePage />
     </>
   );
 }
