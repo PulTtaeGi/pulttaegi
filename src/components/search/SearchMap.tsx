@@ -3,6 +3,7 @@ import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import SearchResultBtn from "../common/SearchResultBtn";
 
 import { useLocation } from "react-router";
+import { DrawMarker } from "../map/DrawMarker";
 const SearchMap = (kakaomap: any) => {
   const market = useAppSelector((state) => state.market);
   const location = useLocation();
@@ -19,15 +20,11 @@ const SearchMap = (kakaomap: any) => {
     if (marketTitle != undefined) {
       foodSearch();
     }
-  } else {
-    return;
   }
 
   // 지역검색 시
   function reigionSearch() {
-    // removeMarker();
-
-    const marketArr = Object.keys(market).map((item) => market[item]);
+    // const marketArr = Object.keys(market).map((item) => market[item]);
     // // 지역 검색 시 마커 배열
     // marketArr.forEach((el) => {
     //   geocoder.addressSearch(el.address, function (result: any, status: any) {
@@ -84,9 +81,7 @@ const SearchMap = (kakaomap: any) => {
     //           infowindow.setMap(kakaomap);
     //         }
     //       });
-    //       if (marketArr.length > coodsMarker.length) {
-    //         coodsMarker.push(marker);
-    //       }
+    //
     //     }
     //   });
     // });
