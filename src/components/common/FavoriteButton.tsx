@@ -5,7 +5,7 @@ import { firestore } from "../../api/firebase";
 import { useNavigate } from "react-router";
 
 
-const FavoriteButton = () => {
+const FavoriteButton = (market:object) => {
   const UNSTAR_URL = "../../src/assets/icons/star.png";
   const STAR_URL = "../../src/assets/icons/starActive.png";
   // const idRef = useRef<>();
