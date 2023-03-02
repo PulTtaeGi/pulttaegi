@@ -4,7 +4,7 @@ export const SizePage = () => {
   return (
     <div
       id="sizepage"
-      className="fixed z-50 top-0  left-0 bg-slate-100  h-full w-full flex justify-center items-center"
+      className="fixed top-0  left-0 bg-slate-100  h-full w-full flex justify-center items-center opacity-0 -z-10"
     >
       <div>
         <img src={mainLogo} alt="로고 이미지"></img>
