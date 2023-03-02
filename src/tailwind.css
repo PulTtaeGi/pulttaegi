@@ -2,5 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+      font-family:'Noto Sans KR', sans-serif;
 
-
+    }
+  }
