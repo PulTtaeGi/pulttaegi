@@ -68,7 +68,7 @@ const ImgUpload = ({getUrl}: ImgUploadProps): JSX.Element => {
       <div className="mt-4">
         <label
           htmlFor="chooseFile"
-          className="p-3 px-4 text-white text-base font-bold tracking-tight rounded-xl text-center whitespace-nowrap w-[180px] bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4"
+          className="p-3 px-4 text-white text-base font-bold rounded-xl text-center whitespace-nowrap w-[180px] bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4"
         >
           사진 첨부하기
         </label>

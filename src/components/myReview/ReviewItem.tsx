@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import eggimage from "../../assets/icons/pngegg.png"
 import { Link } from "react-router-dom";
 import HashTag from "../myReview/HashTag"
 import { firestore } from "../../api/firebase";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/configureStore.hook";
 import { deleteData } from "../../store/modules/review";
+import tw from "tailwind-styled-components";
+import styled from "styled-components";
 
 interface ReviewItemProps {
     title: string,
@@ -31,15 +32,10 @@ interface reviewsProps {
   }
 
 export default function ReviewItem ({title, img, content, hashtag, userid} : ReviewItemProps) {
-    const users = useAppSelector((state) => state.signup)
     const reviews = useAppSelector((state) => state.review)
-
     const currentId = localStorage.getItem("id")
     const [target, setTarget] = useState<reviewsProps>()
     const dispatch = useAppDispatch()
-
-    console.log(userid)
-    console.log(currentId)
 
     useEffect(() => {
         reviews.map((review) => {
@@ -52,7 +48,6 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
 
     function deleteReview () {
         const reviewCollection = firestore.collection("review")
-        console.log(target)
         target ? reviewCollection.doc(`${target.id}`).delete() : null
         
         dispatch(deleteData(target))
@@ -61,26 +56,19 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
     return (
         <div className="flex flex-col w-full">
             <div className="flex justify-between">
-                <div className="flex text-[23px] text-green-4 font-bold items-center ">
-                    <div className={"w-[200px] tracking-tight whitespace-nowrap text-ellipsis overflow-hidden"}>
+                <div className="flex text-[23px] text-green-4 font-medium items-center">
+                    <div className="w-[200px] whitespace-nowrap text-ellipsis overflow-hidden">
                         {title}
                     </div>
-                    <img src={eggimage} width="20"/>
                 </div>
                 { currentId !== null && 
                     userid === currentId &&
                     <div className="flex gap-3">
-                        <Link 
-                            to={`/review/edit/${title}`}
-                            className={`p-1 px-3 text-white bg-gray-400 text-base font-bold tracking-tight rounded-xl text-center whitespace-nowrap`}
-                        >
-                            수정
+                        <Link to={`/review/edit/${title}`}>
+                            <LinkItemWrap>수정</LinkItemWrap>
                         </Link> 
-                        <button 
-                            onClick={deleteReview}
-                            className={`p-1 px-3 text-white bg-gray-400 text-base font-bold tracking-tight rounded-xl text-center whitespace-nowrap`}
-                        >
-                            삭제
+                        <button onClick={deleteReview}>
+                            <LinkItemWrap>삭제</LinkItemWrap>
                         </button>
                     </div>
                 }
@@ -94,3 +82,18 @@ export default function ReviewItem ({title, img, content, hashtag, userid} : Rev
         </div>
     )
 }
+
+const LinkItem = styled.div`
+    color: white
+`
+
+const LinkItemWrap = tw(LinkItem)`
+    p-1 
+    px-3
+    bg-gray-400
+    text-base
+    tracking-tight
+    rounded-xl
+    text-center
+    whitespace-nowrap
+`

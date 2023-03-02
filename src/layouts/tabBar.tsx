@@ -12,31 +12,31 @@ const TabBar = () => {
     <TabBarWrap id="tabBar">
       <ul className="flex w-screen justify-center items-center">
         <li className="flex-1">
-          <Link to="/" className="font-bold text-lg ">
-            <img src={mapIco} className="w-7/12 m-auto " alt=""></img>
+          <Link to="/" className="font-bold text-lg flex flex-col gap-1 ">
+            <img src={mapIco} className="w-5/12 m-auto " alt=""></img>
             <span>지도</span>
           </Link>
         </li>
         <li className="flex-1">
-          <Link to="/review/total" className="font-bold text-lg ">
-            <img src={reviewIco} className="w-7/12 m-auto " alt=""></img>
+          <Link to="/review/total" className="font-bold text-lg flex flex-col gap-1">
+            <img src={reviewIco} className="w-5/12 m-auto " alt=""></img>
             <span>리뷰보기</span>
           </Link>
         </li>
         <li className="flex-1 items-center">
-          <Link to="/" className="font-bold text-lg ">
+          <Link to="/" className="font-bold text-lg flex flex-col gap-1">
             <img src={homeIcoR} className="w-7/12 m-auto " alt=""></img>
           </Link>
         </li>
         <li className="flex-1">
-          <Link to="/total" className="font-bold text-lg ">
-            <img src={favoritewIco} className="w-7/12 m-auto " alt=""></img>
+          <Link to="/total" className="font-bold text-lg flex flex-col gap-1">
+            <img src={favoritewIco} className="w-5/12 m-auto " alt=""></img>
             <span>즐겨찾기</span>
           </Link>
         </li>
         <li className="flex-1">
-          <Link to="/mypage" className="font-bold text-lg ">
-            <img src={userIco} className="w-7/12 m-auto " alt=""></img>
+          <Link to="/mypage" className="font-bold text-lg flex flex-col gap-1">
+            <img src={userIco} className="w-5/12 m-auto " alt=""></img>
             <span>My</span>
           </Link>
         </li>
