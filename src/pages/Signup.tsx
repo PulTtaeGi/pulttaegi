@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
+import TabBar from "../layouts/tabBar";
 
 const LOGO_URL = "../../src/assets/icons/main_logo.png";
 
@@ -61,74 +62,77 @@ export default function Signup() {
   }, []);
 
   return (
-    <Wrapper>
-      <div className="flex flex-col items-center h-full mt-28">
-        <div className="flex flex-col items-center justify-center relative w-[180px]">
-          <img
-            src={LOGO_URL}
-            alt="logo"
-            className="block w-[160px] h-[160px]"
-          />
-          <p className="block mt-4 text-3xl text-green-4 font-black tracking-tight whitespace-nowrap">
-            회원가입
-          </p>
-        </div>
-        <div className="flex flex-col gap-3 mt-10 mb-16 w-80">
-          <div className="flex flex-col gap-1 mb-3">
-            <div className="flex flex-row gap-3 text-xl">
-              <input
-                ref={idRef}
-                type="text"
-                placeholder="ID"
-                className="w-52 pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
-              />
-              <button
-                onClick={handleIdCheck}
-                className="w-full p-3 text-white bg-green-3 text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap"
-              >
-                중복확인
-              </button>
+    <>
+      <Wrapper>
+        <div className="flex flex-col items-center h-full mt-20">
+          <div className="flex flex-col items-center justify-center relative w-[180px]">
+            <img
+              src={LOGO_URL}
+              alt="logo"
+              className="block w-[160px] h-[160px]"
+            />
+            <p className="block mt-4 text-3xl text-green-4 font-black tracking-tight whitespace-nowrap">
+              회원가입
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 mt-10 mb-10 w-80">
+            <div className="flex flex-col gap-1 mb-3">
+              <div className="flex flex-row gap-3 text-xl">
+                <input
+                  ref={idRef}
+                  type="text"
+                  placeholder="ID"
+                  className="w-52 pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
+                />
+                <button
+                  onClick={handleIdCheck}
+                  className="w-full p-3 text-white bg-green-3 text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap"
+                >
+                  중복확인
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col gap-1">
+              <div className="flex flex-row gap-3 text-xl">
+                <input
+                  ref={pwRef}
+                  className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+              <span className="pl-6 tracking-tighter text-green-4">
+                영어, 숫자를 조합해주세요
+              </span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <div className="flex flex-row gap-3 text-xl">
+                <input
+                  ref={pwCheckRef}
+                  className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
+                  type="password"
+                  placeholder="Password Check"
+                />
+              </div>
+              <span className="pl-6 tracking-tighter text-green-4">
+                비밀번호가 일치하지 않습니다.
+              </span>
             </div>
           </div>
-          <div className="flex flex-col gap-1">
-            <div className="flex flex-row gap-3 text-xl">
-              <input
-                ref={pwRef}
-                className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
-                type="password"
-                placeholder="Password"
-              />
-            </div>
-            <span className="pl-6 tracking-tighter text-green-4">
-              영어, 숫자를 조합해주세요
-            </span>
-          </div>
-          <div className="flex flex-col gap-1">
-            <div className="flex flex-row gap-3 text-xl">
-              <input
-                ref={pwCheckRef}
-                className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
-                type="password"
-                placeholder="Password Check"
-              />
-            </div>
-            <span className="pl-6 tracking-tighter text-green-4">
-              비밀번호가 일치하지 않습니다.
-            </span>
+          <div className="flex flex-row gap-8 text-xl w-80">
+            <PrimaryButton color="green-3" link="/login">
+              취소
+            </PrimaryButton>
+            <button
+              onClick={handleSignUp}
+              className="w-full p-3 text-white bg-green-4 text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap"
+            >
+              가입
+            </button>
           </div>
         </div>
-        <div className="flex flex-row gap-8 text-xl w-80">
-          <PrimaryButton color="green-3" link="/login">
-            취소
-          </PrimaryButton>
-          <button
-            onClick={handleSignUp}
-            className="w-full p-3 text-white bg-green-4 text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap"
-          >
-            가입
-          </button>
-        </div>
-      </div>
-    </Wrapper>
+      </Wrapper>
+      <TabBar></TabBar>
+    </>
   );
 }

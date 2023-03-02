@@ -57,8 +57,10 @@ const Map = () => {
       dispatch(kakaomapSlice.actions.setLatLng({ location }));
     }
   });
-  CurrentMarker();
   DrawMarker();
+
+  CurrentMarker();
+
   SearchMap(map);
 
   return (
