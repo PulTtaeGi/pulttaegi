@@ -5,17 +5,11 @@ import favoritewIco from "../assets/icons/tabstar.png";
 import userIco from "../assets/icons/tabuser.png";
 import homeIcoR from "../assets/icons/main_logo_r.png";
 import tw from "tailwind-styled-components";
+import styled from "styled-components";
 
 const TabBar = () => {
   return (
-    // <BrowserRouter>
-    <TabBarWrap
-      id="tabBar"
-      style={{
-        borderTopRightRadius: "35px",
-        borderTopLeftRadius: "35px",
-      }}
-    >
+    <TabBarWrap id="tabBar">
       <ul className="flex w-screen justify-center items-center">
         <li className="flex-1">
           <Link to="/" className="font-bold text-lg flex flex-col gap-1 ">
@@ -48,11 +42,14 @@ const TabBar = () => {
         </li>
       </ul>
     </TabBarWrap>
-    // </BrowserRouter>
   );
 };
 
-const TabBarWrap = tw.div`
+const TabBarBox = styled.div`
+  border-top-right-radius: 35px;
+  border-top-left-radius: 35px;
+`;
+const TabBarWrap = tw(TabBarBox)`
 h-28 
 shadow-2xl 
 bg-white 
