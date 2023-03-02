@@ -54,7 +54,7 @@ const Component = ({ docData }: { docData: any }) => {
           <div className="flex items-center   gap-4">
             <img className="rounded-full" src={reviewimage} width="80" />
             <div>
-              맛집<div>대표 메뉴: {docData.data.menu}</div>
+              맛집<div>대표 메뉴: {docData.data.menus}</div>
             </div>
           </div>
           <button
