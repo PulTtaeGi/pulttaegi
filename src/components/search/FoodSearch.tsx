@@ -18,6 +18,7 @@ const FoodSearch = ({
   const useDispatcher = useAppDispatch();
   const searchedArray: MarketType[] = [];
 
+  console.log("test");
   Object.values(foodArray).map((food) => {
     if (
       food.category === foodKeyword.keyword ||
