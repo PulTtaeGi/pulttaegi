@@ -32,7 +32,7 @@ const IsLoginMyPage = (): any => {
       </div>
       <button 
         onClick={goToLogout} 
-        className="btn w-32 my-0 mx-auto mt-60 bg-myGreen border-myGreen  hover:bg-myDarkGreen hover:border-myGreen">
+        className="btn w-32 my-0 mx-auto mt-60 bg-green-3 border-green-3">
         로그아웃
       </button>
     </>

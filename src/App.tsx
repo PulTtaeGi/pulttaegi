@@ -53,16 +53,28 @@ function App() {
   }, [getReviews]);
 
   // 해상도 지원 화면 리사이즈 시 숨김
+
+  useEffect(() => {
+    const reSizePage = document.querySelector("#sizepage") as HTMLDivElement;
+
+    const width = window.innerWidth;
+    if (width >= 500) {
+      reSizePage.style.cssText = "z-index : 50; opacity: 1";
+    } else {
+      reSizePage.style.cssText = "z-index : -10; opacity: 0";
+    }
+  }, []);
+
   window.onresize = function () {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
     console.log(width);
-    const reSizePage = document.querySelector("#sizepage") as HTMLDivElement;
+    const reSize = document.querySelector("#sizepage") as HTMLDivElement;
     if (width >= 500) {
-      reSizePage.style.cssText = "z-index : 50; opacity: 1";
+      reSize.style.cssText = "z-index : 50; opacity: 1";
     } else {
-      reSizePage.style.cssText = "z-index : -10; opacity: 0";
+      reSize.style.cssText = "z-index : -10; opacity: 0";
     }
   };
   // //id: admin password: 12345인 user데이터 임의로 dispatch
