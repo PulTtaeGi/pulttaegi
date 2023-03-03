@@ -65,7 +65,6 @@ export default function Login() {
     <>
       <Wrapper>
         <div className="flex flex-col items-center h-full mt-20">
-          <BackArrow />
           <div className="relative w-[180px]">
             <img
               src={mainLogo}
