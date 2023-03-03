@@ -11,7 +11,7 @@ const MarketDes = ({ market }: { market: MarketType }) => {
   return (
     <>
       <div className="flex items-center w-full items-centern justify-between mb-2">
-        <span className="text-2xl font-extrabold tracking-tight text-green-4 whitespace-nowrap">
+        <span className="text-2xl font-bold text-green-4 whitespace-nowrap">
           {market.title}
         </span>
         {/* <button type="button" onClick={handleLike}>
