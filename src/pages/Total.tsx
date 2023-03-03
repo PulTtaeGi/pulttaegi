@@ -46,6 +46,7 @@ function Second() {
 export default Second;
 
 const Component = ({ docData }: { docData: any }) => {
+  console.log (docData)
   return (
     <div className="text-black bg-white flex flex-col h-screen gap-7 justify-center items-center">
       <div className="flex flex-col gap-4">
@@ -54,7 +55,7 @@ const Component = ({ docData }: { docData: any }) => {
           <div className="flex items-center   gap-4">
             <img className="rounded-full" src={reviewimage} width="80" />
             <div>
-              맛집<div>대표 메뉴: {docData.data.menus}</div>
+              맛집<div>대표 메뉴: {}</div>
             </div>
           </div>
           <button
