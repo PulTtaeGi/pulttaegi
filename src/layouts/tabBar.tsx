@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
-import mapIco from "../assets/icons/tabmap.png";
-import reviewIco from "../assets/icons/tabreview.png";
-import favoritewIco from "../assets/icons/tabstar.png";
-import userIco from "../assets/icons/tabuser.png";
 import homeIcoR from "../assets/icons/main_logo_r.png";
 import tw from "tailwind-styled-components";
 import styled from "styled-components";
+import { useState } from "react";
 
 const TabBar = () => {
   return (
@@ -13,13 +10,24 @@ const TabBar = () => {
       <ul className="flex w-screen justify-center items-center">
         <li className="flex-1">
           <Link to="/" className="font-bold text-lg flex flex-col gap-1 ">
-            <img src={mapIco} className="w-5/12 m-auto " alt=""></img>
+            <img
+              src="src/assets/icons/tabmap.png"
+              className="w-5/12 m-auto "
+              alt=""
+            ></img>
             <span>지도</span>
           </Link>
         </li>
         <li className="flex-1">
-          <Link to="/review/total" className="font-bold text-lg flex flex-col gap-1">
-            <img src={reviewIco} className="w-5/12 m-auto " alt=""></img>
+          <Link
+            to="/review/total"
+            className="font-bold text-lg flex flex-col gap-1"
+          >
+            <img
+              src="src/assets/icons/beforetabreview.png"
+              className="w-5/12 m-auto "
+              alt=""
+            ></img>
             <span>리뷰보기</span>
           </Link>
         </li>
@@ -30,13 +38,21 @@ const TabBar = () => {
         </li>
         <li className="flex-1">
           <Link to="/total" className="font-bold text-lg flex flex-col gap-1">
-            <img src={favoritewIco} className="w-5/12 m-auto " alt=""></img>
+            <img
+              src="src/assets/icons/beforetabstar.png"
+              className="w-5/12 m-auto "
+              alt=""
+            ></img>
             <span>즐겨찾기</span>
           </Link>
         </li>
         <li className="flex-1">
           <Link to="/mypage" className="font-bold text-lg flex flex-col gap-1">
-            <img src={userIco} className="w-5/12 m-auto " alt=""></img>
+            <img
+              src="src/assets/icons/beforetabuser.png"
+              className="w-5/12 m-auto "
+              alt=""
+            ></img>
             <span>My</span>
           </Link>
         </li>
