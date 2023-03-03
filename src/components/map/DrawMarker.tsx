@@ -65,20 +65,20 @@ export const addMarker = (kakaomaps: any) => {
 
     // 인포 표시
     const content =
-      `<div class='wrap customoverlay info bg-white rounded-3xl p-4 border-0'>` +
-      `<a href="/detail/${markerData[i].title}">` +
-      `<div class="title text-xl font-bold text-black mb-1">` +
+      `<div class='wrap customoverlay info bg-white rounded-3xl p-4 shadow-lg bg-slate-50  justify-around  border-stone-100 border-2'>` +
+      `<div class="title text-xl font-bold text-black mb-2">` +
       `${markerData[i].title}` +
       `</div>` +
       `<div class="desc">` +
-      `<div class="h-2 bg-lime-700 mb-1" style="width:${
+      `<div class="h-2 bg-green-4 mb-1" style="width:${
         markerData[i].taste * 20
       }%"></div>` +
-      `<div class="h-2 bg-amber-500 mb-1" style="width:${
+      `<div class="h-2 bg-green-3 mb-1" style="width:${
         markerData[i].clean * 20
       }%"></div>` +
-      `<p class=" text-green-4 font-black">${markerData[i].calorie} kal` +
+      `<p class=" text-green-4 font-black mb-1">${markerData[i].calorie} kal` +
       `</p>` +
+      `<a href="/detail/${markerData[i].title}" class="w-full block bg-amber-500 border-0 text-center text-white font-semibold btn flex py-1" style="min-height:2rem; height:2rem">자세히 보기` +
       `</a>` +
       `</div>`;
     // 마커 클릭 시 인포
@@ -116,20 +116,20 @@ export const filterMarker = (categoryName: string, kakaomaps: object) => {
     if (markersArr[i].Gb == categoryName) {
       markersArr[i].setMap(kakaomaps);
       const content =
-        `<div class='wrap customoverlay info bg-white rounded-3xl p-4 border-0'>` +
-        `<a href="/detail/${markerData[i].title}">` +
-        `<div class="title text-xl font-bold text-black mb-1">` +
+        `<div class='wrap customoverlay info bg-white rounded-3xl p-4 shadow-lg bg-slate-50  justify-around  border-stone-100 border-2'>` +
+        `<div class="title text-xl font-bold text-black mb-2">` +
         `${markerData[i].title}` +
         `</div>` +
         `<div class="desc">` +
-        `<div class="h-2 bg-lime-700 mb-1" style="width:${
+        `<div class="h-2 bg-green-4 mb-1" style="width:${
           markerData[i].taste * 20
         }%"></div>` +
-        `<div class="h-2 bg-amber-500 mb-1" style="width:${
+        `<div class="h-2 bg-green-3 mb-1" style="width:${
           markerData[i].clean * 20
         }%"></div>` +
-        `<p class=" text-green-4 font-black">${markerData[i].calorie} kal` +
+        `<p class=" text-green-4 font-black mb-1">${markerData[i].calorie} kal` +
         `</p>` +
+        `<a href="/detail/${markerData[i].title}" class="w-full block bg-amber-500 border-0 text-center text-white font-semibold btn flex py-1" style="min-height:2rem; height:2rem">자세히 보기` +
         `</a>` +
         `</div>`;
       // 마커 클릭 시 인포
