@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
-import TabBar from "../layouts/tabBar";
 
 const LOGO_URL = "../../src/assets/icons/main_logo.png";
 
@@ -132,7 +131,6 @@ export default function Signup() {
           </div>
         </div>
       </Wrapper>
-      <TabBar></TabBar>
     </>
   );
 }

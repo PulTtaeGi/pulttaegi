@@ -14,8 +14,6 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 import { firestore } from "../api/firebase";
 import { useNavigate } from "react-router";
 
-
-
 export interface RatingProps {
   taste: number;
   clean: number;
