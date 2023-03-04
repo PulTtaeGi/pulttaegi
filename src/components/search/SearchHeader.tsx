@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   useAppDispatch,
   useAppSelector,
@@ -13,13 +13,17 @@ const SearchHeader = (): JSX.Element => {
   const kakaomaps = useAppSelector((state) => state.kakaomap);
   console.log(kakaomaps);
   const [isRegion, setIsRegion] = useState<boolean>(true);
-  const useDispatcher = useAppDispatch();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setDataAction({ keyword: "" }));
+  }, []);
 
   function handleCategory(e: React.MouseEvent<HTMLButtonElement>) {
     e.currentTarget.value === SearchType.region
       ? setIsRegion(true)
       : setIsRegion(false);
-    useDispatcher(setDataAction({ keyword: "" }));
+    dispatch(setDataAction({ keyword: "" }));
   }
   return (
     <>
