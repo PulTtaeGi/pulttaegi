@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useAppSelector, useAppDispatch } from "../../store/hooks/configureStore.hook";
 import { addData } from "../../store/modules/review";
+import tw from "tailwind-styled-components";
+import styled from "styled-components";
 
 interface writeReviewProps {
   title: string | undefined
@@ -18,20 +20,15 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const reviews = useAppSelector((state) => state.review)
-  const user = useAppSelector((state) => state.signup)
   const currentId = localStorage.getItem("id")
-
+  const [currentReview, setCurrentReview] = useState<object>()
+  
   useEffect(() => {
     setCurrentReview((prevState : any) => {
       return {...prevState, userid: currentId, title: title, id: reviews.length + 1}
     })
   }, [])
 
-  const [currentReview, setCurrentReview] = useState<object>()
-
-  console.log(reviews)
-  console.log(currentReview)
-  
   const getUrl = (currentUrl : string) =>  {
     setCurrentReview((prevState : any) => {
       return {...prevState, img: currentUrl}
@@ -66,8 +63,6 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
     })
   }
 
-  // console.log(currentReview)
-
   const submitReview = () => {
     dispatch(addData(currentReview))
     const reviewCollection = firestore.collection("review")
@@ -85,12 +80,12 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
       <div className="flex flex-col w-full h-full mx-8 my-12">
         <BreadCrumb count="no">리뷰 작성하기</BreadCrumb>
         <div className="flex flex-col">
-          <span className="mt-8 mb-3 font-bold text-xl text-green-4 tracking-tight">
+          <span className="mt-8 mb-3 font-bold text-2xl text-green-4">
             {title}
           </span>
           {/* <form method="post" encType="multipart/form-data"> */}
             <ImgUpload getUrl={getUrl}/>
-            <div className="flex flex-col w-full justify-start gap-4 mt-8 text-lg font-bold bg-gray-100 rounded-lg py-6">
+            <div className="flex flex-col w-full justify-start gap-4 mt-8 text-lg bg-gray-100 rounded-lg py-6">
               <Rating 
                 defaulted={undefined}
                 getRating={getRating} 
@@ -116,11 +111,11 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
             <PostUpload getPost={getPost} defaulted={undefined}/>
             <HashTagUpload getHashTag={getHashTag} defaulted={undefined}/>
             <div className="flex flex-row justify-around mt-8">
-              <button onClick={backPage} className="btn w-20 bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4">
-                취소
+              <button onClick={backPage}>
+                <Button>취소</Button>
               </button>
-              <button onClick={submitReview} className="btn w-20 bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4">
-                등록
+              <button onClick={submitReview}>
+                <Button>등록</Button>
               </button>
             </div>
           {/* </form> */}
@@ -129,5 +124,19 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
     </Wrapper>
   );
 };
+
+const ButtonItem = styled.div`
+    font-size: 16px;
+    font-bold: 500;
+`
+
+const Button = tw(ButtonItem)`
+  btn
+  w-20
+  bg-green-3
+  border-green-3
+  hover:bg-green-4
+  hover:border-green-4
+`
 
 export default WriteReview;

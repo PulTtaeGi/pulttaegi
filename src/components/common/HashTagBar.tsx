@@ -29,7 +29,7 @@ export default function HashTagBar({ reviewList }: HashTagBarProps) {
             return (
               <li
                 key={index}
-                className="text-base font-medium mb-2 p-[3px] px-3 bg-green-3 text-white rounded-xl shadow-md shadow-gray-300"
+                className="text-base mb-2 p-[3px] px-3 bg-green-3 text-white rounded-xl shadow-md shadow-gray-300"
               >
                 {item}
               </li>

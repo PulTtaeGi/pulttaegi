@@ -53,7 +53,7 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
       ></input>
       <button type="submit" onClick={onClickSearch} onKeyDown={onKeyDownSearch}>
         <img
-          src="../../src/assets/images/search.png"
+          src="../../src/assets/icons/search_icon.png"
           alt="serachButton"
           className="w-[25px] h-[25px]"
         ></img>
