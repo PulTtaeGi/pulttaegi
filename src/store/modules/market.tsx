@@ -1,6 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import { useAppDispatch } from "../hooks/configureStore.hook";
 
 export interface MenuType {
   menuName: string;

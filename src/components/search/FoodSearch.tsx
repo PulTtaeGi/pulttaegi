@@ -15,7 +15,7 @@ const FoodSearch = ({
 }: RecordProps) => {
   const foodArray = useAppSelector((state) => state.market);
   const foodKeyword = useAppSelector((state) => state.search);
-  const useDispatcher = useAppDispatch();
+  const dispatch = useAppDispatch();
   const searchedArray: MarketType[] = [];
 
   console.log("test");
@@ -28,7 +28,7 @@ const FoodSearch = ({
     }
   });
   useEffect(() => {
-    useDispatcher(setResultAction(searchedArray));
+    dispatch(setResultAction(searchedArray));
   }, [searchedArray]);
 
   return (
