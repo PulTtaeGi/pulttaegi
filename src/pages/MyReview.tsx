@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import BackArrow from "../components/common/BackArrow";
 import BreadCrumb from "../components/common/BreadCrumb";
 import ReviewList from "../components/myReview/ReviewList";
 import Wrapper from "../layouts/Wrapper";
@@ -18,7 +19,8 @@ export default function MyReview() {
 
   return (
     <Wrapper>
-      <div className="flex flex-col w-full mx-8 mt-12 mb-40">
+      <div className="flex flex-col w-full mx-8 mt-16 mb-40">
+        <BackArrow />
         <BreadCrumb count={myReviews.length}>내가 쓴 리뷰</BreadCrumb>
         <ReviewList list={myReviews} />
       </div>
