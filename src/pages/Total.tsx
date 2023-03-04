@@ -2,36 +2,22 @@ import TabBar from "../layouts/tabBar";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { firestore } from "../api/firebase";
+import reviewimage from "../assets/icons/1-6.png";
+import BackArrow from "../components/common/BackArrow";
 import BreadCrumb from "../components/common/BreadCrumb";
-import { getFirestore } from "firebase/firestore";
+import FavoriteButton from "../components/common/FavoriteButton";
 
-
-
-
-async function Second() {
+function Second() {
   const favoritesCollectionRef = collection(firestore, "favorites");
-  
-  
   const [favorites, setFavorites] = useState<any[]>([]);
   const myfavorites : any[] = []
-
-    // const storedUserId = 
-    // const currentId = localStorage.getItem("id");
-   
-    
-    // if(storedUserId === currentId)
-    
-     
-  
   useEffect(() => {
-
-   
-
     async function fetchData() {
-      
       const data = await getDocs(favoritesCollectionRef);
+
       setFavorites(
         data.docs.map((doc) => {
+
           return {
             data: doc.data(),
             id: doc.id,
@@ -46,16 +32,16 @@ async function Second() {
 
   return (
     <div>
+      <BackArrow />
       <br></br>
       <br></br>
-      <BreadCrumb count={myfavorites.length}>즐겨찾기</BreadCrumb>
+      <br></br>
+      <BreadCrumb count={myfavorites.length}>  즐겨찾기</BreadCrumb>
       {favorites.map((favorite) => {
         return <Component docData={favorite} key={favorite.id} />;
       })}
-      <TabBar />
-    </div>
-
       
+    </div>
   );
 }
 
@@ -63,10 +49,10 @@ export default Second;
 
 const Component = ({ docData }: { docData: any }) => {
 
-  
-   console.log (docData)
+  const LocalId = localStorage.getItem("id");
 
-  
+
+  console.log (docData)
   return (
     <div className="text-black bg-white flex flex-col h-screen gap-7 justify-center items-center">
       <div className="flex flex-col gap-4">
