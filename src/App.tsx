@@ -24,6 +24,7 @@ import useMarket from "./hooks/useMarket";
 import SearchResult from "./pages/SearchResult";
 import { getUserInfo } from "./store/modules/signup";
 import { SizePage } from "./pages/SizePage";
+import TabBar from "./layouts/tabBar";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -82,6 +83,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <TabBar />
         <Routes>
           <Route path="/*" element={<ErrorPage />}></Route>
           <Route path="/" element={<Main />}></Route>
