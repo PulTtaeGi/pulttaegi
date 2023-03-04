@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../../store/hooks/configureStore.hook";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../store/hooks/configureStore.hook";
+import { setDataAction } from "../../store/modules/search";
 import RecordList, { RecordProps } from "./RecordList";
 import SearchedList from "./SearchedList";
 
@@ -16,7 +20,7 @@ export const RegionSearch = ({
   onRemoveKeyword,
 }: RecordProps) => {
   const [regionArray, setRegionArray] = useState(Array<RegionType>);
-  const tempArray: Array<RegionType> = [];
+  const [tempArray, setTempArray] = useState(Array<RegionType>);
 
   // 키워드 검색이 끝나고 호출될 콜백 함수
   const placesSearchCB = (
@@ -47,6 +51,11 @@ export const RegionSearch = ({
       useMapBounds: true,
     });
   }, [searchKeyword]);
+
+  useEffect(() => {
+    setTempArray([]);
+    setRegionArray([]);
+  }, []);
 
   return (
     <>
