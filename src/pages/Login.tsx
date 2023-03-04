@@ -10,7 +10,6 @@ import { getUserInfo } from "../store/modules/signup";
 import GoogleLoginButton from "../components/common/GoogleButton";
 import BackArrow from "../components/common/BackArrow";
 import mainLogo from "../assets/icons/main_logo.png";
-import TabBar from "../layouts/tabBar";
 
 const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 
@@ -105,7 +104,6 @@ export default function Login() {
           </div>
         </div>
       </Wrapper>
-      <TabBar></TabBar>
     </>
   );
 }

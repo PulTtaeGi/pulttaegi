@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import IsLoginMyPage from "../components/myPage/IsLoginMyPage";
 import IsNotLoginMyPage from "../components/myPage/IsNotLoginMyPage";
-import TabBar from "../layouts/tabBar";
 import { useAppSelector } from "../store/hooks/configureStore.hook";
 
 const MyPage = () => {
   const [isLogin, setisLogin] = useState<any>(false);
-  const user = useAppSelector((state) => state.signup)
-  console.log(user)
+  const user = useAppSelector((state) => state.signup);
+  console.log(user);
 
   useEffect(() => {
-    const active = localStorage.getItem("isLogin")
-    active === "true" ? setisLogin(true) : null
-  }, [isLogin])
+    const active = localStorage.getItem("isLogin");
+    active === "true" ? setisLogin(true) : null;
+  }, [isLogin]);
 
   return (
     <>
@@ -30,7 +29,6 @@ const MyPage = () => {
           copyright 2023. pulttaegi
         </div>
       </div>
-      <TabBar />
     </>
   );
 };

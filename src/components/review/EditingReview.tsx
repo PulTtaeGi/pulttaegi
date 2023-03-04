@@ -12,7 +12,6 @@ import {
   useAppSelector,
 } from "../../store/hooks/configureStore.hook";
 import { editData } from "../../store/modules/review";
-import TabBar from "../../layouts/tabBar";
 interface EditingReviewProps {
   title: string | undefined;
 }
@@ -184,7 +183,6 @@ const EditingReview = ({ title }: EditingReviewProps): JSX.Element => {
           </div>
         </div>
       </Wrapper>
-      <TabBar />
     </>
   );
 };
