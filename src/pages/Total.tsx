@@ -12,11 +12,18 @@ function Second() {
   const [favorites, setFavorites] = useState<any[]>([]);
   const myfavorites : any[] = []
   useEffect(() => {
+
+    const localId = localStorage.getItem("id");
+    
+
     async function fetchData() {
       const data = await getDocs(favoritesCollectionRef);
+      console.log(data.docs.map((dos) => dos.id));
 
       setFavorites(
-        data.docs.map((doc) => {
+        data.docs
+        .filter((doc) => doc.data()?. id === localId)
+        .map((doc) => {
 
           return {
             data: doc.data(),
@@ -49,7 +56,9 @@ export default Second;
 
 const Component = ({ docData }: { docData: any }) => {
 
-  const LocalId = localStorage.getItem("id");
+  
+  
+  // const LocalId = localStorage.getItem("id");
 
 
   console.log (docData)
