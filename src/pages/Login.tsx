@@ -5,11 +5,10 @@ import { firestore } from "../api/firebase";
 import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
-import { useAppDispatch } from "../state/store/hooks/configureStore.hook";
 import { getUserInfo } from "../store/modules/signup";
 import GoogleLoginButton from "../components/common/GoogleButton";
-import BackArrow from "../components/common/BackArrow";
 import mainLogo from "../assets/icons/main_logo.png";
+import { useAppDispatch } from "../store/hooks/configureStore.hook";
 
 const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 
