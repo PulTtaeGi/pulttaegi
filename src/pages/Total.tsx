@@ -14,8 +14,10 @@ function Second() {
   useEffect(() => {
     async function fetchData() {
       const data = await getDocs(favoritesCollectionRef);
+
       setFavorites(
         data.docs.map((doc) => {
+
           return {
             data: doc.data(),
             id: doc.id,
@@ -38,7 +40,7 @@ function Second() {
       {favorites.map((favorite) => {
         return <Component docData={favorite} key={favorite.id} />;
       })}
-      <TabBar />
+      
     </div>
   );
 }
@@ -46,6 +48,10 @@ function Second() {
 export default Second;
 
 const Component = ({ docData }: { docData: any }) => {
+
+  const LocalId = localStorage.getItem("id");
+
+
   console.log (docData)
   return (
     <div className="text-black bg-white flex flex-col h-screen gap-7 justify-center items-center">
@@ -53,9 +59,9 @@ const Component = ({ docData }: { docData: any }) => {
         {docData.data.title}
         <div className="flex justify-between w-80 items-center   ">
           <div className="flex items-center   gap-4">
-            <img className="rounded-full" src={reviewimage} width="80" />
+            <img className="rounded-full" src={docData.data.img} width="80" />
             <div>
-              맛집<div>대표 메뉴: {}</div>
+              맛집<div>대표 메뉴: {docData.data.menu[0].menuName}</div>
             </div>
           </div>
           <button

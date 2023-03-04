@@ -22,7 +22,7 @@ const FavoriteButton = (market:marketProps ) => {
     // const navigate = useNavigate();
     try {
       await addDoc(favoriteRef, {
-        id: market.market.id,
+        id: localStorage.id,
         title: market.market.title,
         menu: market.market.menu,
         img: market.market.img,
