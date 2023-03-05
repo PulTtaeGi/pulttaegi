@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import searchMap from "../search/SearchMap";
 
 interface props {
   address: string;
