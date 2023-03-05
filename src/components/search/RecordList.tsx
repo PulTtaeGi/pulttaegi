@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { RecordProps } from "../../constants/typings/searchType";
 import RecordItem from "./RecordItem";
 
-export const SEARCH_COOKIE = "searchs";
-export interface KeywordType {
-  text: string;
-  id: number;
-}
-export interface RecordProps {
-  keywords: KeywordType[];
-  onRemoveKeyword: (id: number) => void;
-  onClearKeywords: () => void;
-}
 const RecordList = ({
   keywords,
   onRemoveKeyword,

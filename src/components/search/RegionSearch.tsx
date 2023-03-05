@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { RecordProps } from "../../constants/typings/searchType";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
-import RecordList, { RecordProps } from "./RecordList";
+import RecordList from "./RecordList";
 import SearchedList from "./SearchedList";
 
 interface RegionType {

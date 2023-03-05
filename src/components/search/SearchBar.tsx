@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { SEARCH_COOKIE } from "../../constants/searchConstant";
+import { KeywordType } from "../../constants/typings/searchType";
 import FoodSearch from "./FoodSearch";
-import { KeywordType, SEARCH_COOKIE } from "./RecordList";
 import RegionSearch from "./RegionSearch";
 import SearchInput from "./SearchInput";
 

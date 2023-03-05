@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SearchType } from "../../constants/searchConstant";
 import {
   useAppDispatch,
   useAppSelector,
@@ -6,8 +7,6 @@ import {
 import { setDataAction } from "../../store/modules/search";
 import styles from "../../styles/ActiveClass.module.css";
 import SearchBar from "./SearchBar";
-
-export const SearchType = { region: "지역 검색", food: "음식 검색" } as const;
 
 const SearchHeader = (): JSX.Element => {
   const kakaomaps = useAppSelector((state) => state.kakaomap);
