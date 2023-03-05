@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppDispatch } from "../../store/hooks/configureStore.hook";
 import { setDataAction } from "../../store/modules/search";
+import searchIcon from "../../assets/icons/search_icon.png";
 
 interface SearchProps {
   placehoderText: string;
@@ -48,7 +49,7 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
       ></input>
       <button type="submit" onClick={onClickSearch}>
         <img
-          src="../../src/assets/icons/search_icon.png"
+          src={searchIcon}
           alt="serachButton"
           className="w-[25px] h-[25px]"
         ></img>
