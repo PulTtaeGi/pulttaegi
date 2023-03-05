@@ -26,7 +26,7 @@ export const Category = (coodsMarker: any) => {
     { title: "한식", img: ko },
     { title: "브런치", img: jp },
     { title: "샐러드", img: us },
-    { title: "뷔페", img: cn },
+    { title: "호잇", img: cn },
   ];
 
   return (
@@ -41,7 +41,7 @@ export const Category = (coodsMarker: any) => {
       }}
       className=" text-gray-500 font-bold text-lg"
       spaceBetween={30}
-      slidesPerView={2.5}
+      slidesPerView={1}
     >
       {cateArr.map((cate, i) => (
         <SwiperSlide
