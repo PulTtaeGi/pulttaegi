@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../store/hooks/configureStore.hook";
-import { setDataAction } from "../../store/modules/search";
-import RecordList, { RecordProps } from "./RecordList";
+import { RecordProps } from "../../constants/typings/searchType";
+import { useAppSelector } from "../../store/hooks/configureStore.hook";
+import RecordList from "./RecordList";
 import SearchedList from "./SearchedList";
 
 interface RegionType {
@@ -14,13 +11,12 @@ interface RegionType {
   lng: number;
 }
 
-export const RegionSearch = ({
+const RegionSearch = ({
   keywords,
   onClearKeywords,
   onRemoveKeyword,
-}: RecordProps) => {
+}: RecordProps): JSX.Element => {
   const [regionArray, setRegionArray] = useState(Array<RegionType>);
-  const [tempArray, setTempArray] = useState(Array<RegionType>);
 
   // 키워드 검색이 끝나고 호출될 콜백 함수
   const placesSearchCB = (
@@ -30,7 +26,7 @@ export const RegionSearch = ({
   ) => {
     if (status === window.kakao.maps.services.Status.OK) {
       for (let i = 0; i < data.length; i++) {
-        tempArray.push({
+        regionArray.push({
           address_name: data[i].address_name,
           place_name: data[i].place_name,
           lat: data[i].lat,
@@ -38,7 +34,7 @@ export const RegionSearch = ({
         });
       }
     }
-    setRegionArray(tempArray);
+    setRegionArray(regionArray);
   };
 
   const searchKeyword = useAppSelector((state) => state.search.keyword);
@@ -53,7 +49,6 @@ export const RegionSearch = ({
   }, [searchKeyword]);
 
   useEffect(() => {
-    setTempArray([]);
     setRegionArray([]);
   }, []);
 
