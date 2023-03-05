@@ -2,7 +2,7 @@ import { Link, BrowserRouter } from "react-router-dom";
 import SearchIcon from "../../assets/icons/search_icon.png";
 import backIcon from "../../assets/icons/back.png";
 import { useState } from "react";
-import FoodResult from "../common/FoodResult";
+import SearchResultBtn from "../common/SearchResultBtn";
 import { Category } from "../category/category";
 const Search = () => {
   // 검색 전, 후 보여줄 내용을 search라는 state 값 활용(true, false)
@@ -16,7 +16,7 @@ const Search = () => {
 
   const searchBar = (
     <Link
-      to="/"
+      to="/search"
       className="fixed z-10 bg-slate-50 top-5 w-5/6 rounded-xl border-stone-300 border-2 shadow-2xl"
       style={{
         left: "50%",
@@ -33,19 +33,11 @@ const Search = () => {
       </div>
     </Link>
   );
-  const resultBar = (
-    <div className="fixed z-10 bg-slate-50 top-0 w-screen h-20 flex items-center border-stone-300 border-2 shadow-2xl font-bold text-2xl">
-      <button onClick={setTrue}>
-        <img className="w-8 my-auto m-5" src={backIcon}></img>
-      </button>
-      <span>강남역</span>
-    </div>
-  );
 
   return (
     <>
-      {search ? resultBar : searchBar}
-      {search && <FoodResult />}
+      {searchBar}
+      {search && <SearchResultBtn />}
       {!search && <Category />}
     </>
   );

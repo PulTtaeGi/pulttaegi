@@ -1,18 +1,15 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import { useAppDispatch } from "../hooks/configureStore.hook";
 
-interface MenuType {
+export interface MenuType {
   menuName: string;
   price: string;
 }
-
-interface MarketType {
+export interface MarketType {
   id: number;
   title: string;
   img: string;
   address: string;
-  menus: Array<MenuType>;
+  menu: Array<MenuType>;
   lat: number;
   lng: number;
   category: string;
@@ -25,7 +22,7 @@ const initialState: MarketType[] = [];
 
 export const fetchMarkets = createAsyncThunk("markets/allMarkets", async () => {
   try {
-    const response = await fetch("src/data/market.json");
+    const response = await fetch("/src/data/market.json");
     return (await response.json()) || [];
   } catch (err) {
     console.log(err);
@@ -43,7 +40,8 @@ export const marketSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchMarkets.fulfilled, (state, action) => {
-      state.push(action.payload);
+      // state.push(action.payload);
+      return { ...state, ...action.payload };
     });
   },
 });

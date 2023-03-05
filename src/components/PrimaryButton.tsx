@@ -12,11 +12,14 @@ export default function PrimaryButton({ children, color, link }: PrimaryButtonPr
     return (
         link === "no"
             ?
-            <button className={`w-full p-3 text-white bg-${color} text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap`}>
+            <button className={`w-full p-3 text-white bg-${color} text-[20px] font-bold rounded-xl text-center whitespace-nowrap`}>
                 {children}
             </button>
             :
-            <Link to={link} className={`w-full p-3 text-white bg-${color} text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap`}>
+            <Link 
+                to={link} 
+                className={`w-full p-3 text-white bg-${color} text-[20px] font-bold rounded-xl text-center whitespace-nowrap`}
+            >
                     {children}
             </Link>   
     )

@@ -1,63 +1,58 @@
-import { Link, BrowserRouter } from "react-router-dom";
-import mapIco from "../assets/icons/map_ico.png";
-import reviewIco from "../assets/icons/review_ico.png";
-import homeIco from "../assets/icons/home_ico.png";
-import favoritewIco from "../assets/icons/favorite_ico.png";
-import userIco from "../assets/icons/user_ico.png";
+import { Link } from "react-router-dom";
+import tw from "tailwind-styled-components";
+import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { tabMenus } from "../constants/tabItems";
 
 const TabBar = () => {
+  const [tabIndex, setTabIndex] = useState<string>();
+  useEffect(() => {
+    setTabIndex(tabMenus[0].title);
+  }, []);
   return (
-    // <BrowserRouter>
-    <div
-      id="tabBar"
-      className="h-28 shadow-2xl bg-white flex justify-center items-center z-20 fixed w-screen bottom-0 left-0 text-center border-t-2 border-stone-300 text-gray-500"
-    >
+    <TabBarWrap id="tabBar">
       <ul className="flex w-screen justify-center items-center">
-        <li className="flex-1">
-          <Link to="/" className="font-bold text-lg ">
-            <img src={mapIco} className="w-7/12 m-auto opacity-30" alt=""></img>
-            <span>지도</span>
-          </Link>
-        </li>
-        <li className="flex-1">
-          <Link to="/" className="font-bold text-lg ">
-            <img
-              src={reviewIco}
-              className="w-7/12 m-auto opacity-30"
-              alt=""
-            ></img>
-            <span>리뷰보기</span>
-          </Link>
-        </li>
-        <li className="flex-1 items-center">
-          <Link to="/" className="font-bold text-lg ">
-            <img src={homeIco} className="w-7/12 m-auto " alt=""></img>
-          </Link>
-        </li>
-        <li className="flex-1">
-          <Link to="/" className="font-bold text-lg ">
-            <img
-              src={favoritewIco}
-              className="w-7/12 m-auto opacity-30"
-              alt=""
-            ></img>
-            <span>즐겨찾기</span>
-          </Link>
-        </li>
-        <li className="flex-1">
-          <Link to="/" className="font-bold text-lg ">
-            <img
-              src={userIco}
-              className="w-7/12 m-auto opacity-30"
-              alt=""
-            ></img>
-            <span>My</span>
-          </Link>
-        </li>
+        {tabMenus.map((tab) => (
+          <li className="flex-1" key={tab.title}>
+            <Link
+              to={tab.url}
+              className="font-bold text-lg flex flex-col gap-1 "
+              onClick={() => setTabIndex(tab.title)}
+            >
+              <img
+                src={tabIndex === tab.title ? tab.img : tab.beforeImg}
+                className="w-5/12 m-auto "
+                alt="map"
+              ></img>
+              <span>{tab.title}</span>
+            </Link>
+          </li>
+        ))}
       </ul>
-    </div>
-    // </BrowserRouter>
+    </TabBarWrap>
   );
 };
+
+const TabBarBox = styled.div`
+  border-top-right-radius: 35px;
+  border-top-left-radius: 35px;
+`;
+const TabBarWrap = tw(TabBarBox)`
+h-28 
+shadow-2xl 
+bg-white 
+flex 
+justify-center 
+items-center 
+z-20 
+fixed 
+w-screen 
+bottom-0 
+left-0 
+text-center 
+border-t-2 
+border-stone-300 
+text-gray-500
+`;
 
 export default TabBar;

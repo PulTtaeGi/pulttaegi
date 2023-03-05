@@ -28,14 +28,118 @@
   {
     "id": 2,
     "title": "샐러드집",
-    "category": "salad",
+    "category": "샐러드",
     "img": "https://images.immediate.co.uk/production/volatile/sites/30/2022/05/Three-bean-salad-with-mozzarella-deb0114.jpg",
     "lat": 37.497928,
     "lng": 127.027583,
-    "calorie": 236,
-    "taste": 5,
+    "calorie": 498,
+    "taste": 2,
     "clean": 4,
     "address": "서울특별시 강남구 강남대로 지하396",
+    "menu": [
+      {
+        "menuName": "연어볼 샐러드",
+        "price": 13000
+      },
+      {
+        "menuName": "닭가슴살 샐러드",
+        "price": 11000
+      },
+      {
+        "menuName": "요거트볼",
+        "price": 9000
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "밥집",
+    "category": "한식",
+    "img": "https://mp-seoul-image-production-s3.mangoplate.com/148674/1936154_1625612278710_37209?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
+    "lat": 37.6958,
+    "lng": 126.7729,
+    "calorie": 430,
+    "taste": 3,
+    "clean": 3,
+    "address": "경기도 고양시 일산동구 백석동 1329",
+    "menu": [
+      {
+        "menuName": "연어볼 샐러드",
+        "price": 13000
+      },
+      {
+        "menuName": "닭가슴살 샐러드",
+        "price": 11000
+      },
+      {
+        "menuName": "요거트볼",
+        "price": 9000
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "브런치카페",
+    "category": "브런치",
+    "img": "http://openimage.interpark.com/goods_image_big/2/0/3/7/8852172037_l.jpg",
+    "lat": 37.6385,
+    "lng": 126.7872,
+    "calorie": 439,
+    "taste": 3,
+    "clean": 2,
+    "address": "경기도 고양시 일산동구 백석동 1326",
+    "menu": [
+      {
+        "menuName": "연어볼 샐러드",
+        "price": 13000
+      },
+      {
+        "menuName": "닭가슴살 샐러드",
+        "price": 11000
+      },
+      {
+        "menuName": "요거트볼",
+        "price": 9000
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "웰빙뷔페",
+    "category": "뷔페",
+    "img": "https://www.tojobcn.com/data/editor/2205/thumb-c14ed464819e436d6383eba411b195c3_1652338259_9186_600x600.jpg",
+    "lat": 37.639384,
+    "lng": 126.787051,
+    "calorie": 236,
+    "taste": 2,
+    "clean": 4,
+    "address": "경기도 고양시 일산동구 백석동 1321",
+    "menu": [
+      {
+        "menuName": "연어볼 샐러드",
+        "price": 13000
+      },
+      {
+        "menuName": "닭가슴살 샐러드",
+        "price": 11000
+      },
+      {
+        "menuName": "요거트볼",
+        "price": 9000
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "제주집",
+    "category": "한식",
+    "img": "https://mblogthumb-phinf.pstatic.net/MjAxNzA0MjZfMjI0/MDAxNDkzMjAwMjgzNzQx.wTv5d94Ry9ombaE0j-yR01fBTP7062SzH8mwxO6KYYMg.YGe85Erscy_YgjbZsHiD7kynn42oGPT3WNRXTAjmn1Eg.JPEG.wavehihi/IMG_7780.JPG?type=w800",
+    "lat": 33.4496,
+    "lng": 126.5708,
+    "calorie": 232,
+    "taste": 3,
+    "clean": 4,
+    "address": "제주특별자치도 제주시 첨단로 241 디지털융합센터 디지털융합센터 207",
     "menu": [
       {
         "menuName": "연어볼 샐러드",

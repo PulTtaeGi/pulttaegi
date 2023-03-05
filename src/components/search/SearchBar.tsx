@@ -1,18 +1,64 @@
-const SearchBar = (): JSX.Element => {
+import { useEffect, useState } from "react";
+import { SEARCH_COOKIE } from "../../constants/searchConstant";
+import { KeywordType } from "../../constants/typings/searchType";
+import FoodSearch from "./FoodSearch";
+import RegionSearch from "./RegionSearch";
+import SearchInput from "./SearchInput";
+
+const SearchBar = ({ isRegion }: { isRegion: boolean }): JSX.Element => {
+  const [keywords, setKeywords] = useState(
+    JSON.parse(localStorage.getItem(SEARCH_COOKIE) || "[]")
+  );
+
+  useEffect(() => {
+    localStorage.setItem(SEARCH_COOKIE, JSON.stringify(keywords));
+  }, [keywords]);
+
+  const handleAddKeyword = (text: string) => {
+    const newKeyword = {
+      id: Date.now(),
+      text: text,
+    };
+    setKeywords([newKeyword, ...keywords]);
+  };
+  const handleRemoveKeyword = (id: number) => {
+    const nextKeyword = keywords.filter((keyword: KeywordType) => {
+      return keyword.id !== id;
+    });
+    setKeywords(nextKeyword);
+  };
+
+  const hanldeAllClear = () => {
+    setKeywords([]);
+    localStorage.clear();
+  };
   return (
-    <div className="flex justify-between w-full mt-4 p-3 bg-gray-100 rounded-3xl">
-      <input
-        type="text"
-        placeholder="음식명을 입력해주세요"
-        className="bg-gray-100 ml-3 text-[17px] text-black placeholder-gray-600 font-bold outline-0"
-      ></input>
-      <button type="submit">
-        <img
-          src="../../src/assets/images/search.png"
-          alt="serachButton"
-          className="w-[25px] h-[25px]"
-        ></img>
-      </button>
+    <div>
+      {isRegion ? (
+        <>
+          <SearchInput
+            placehoderText="지역명을 입력해주세요."
+            onAddKeyword={handleAddKeyword}
+          />
+          <RegionSearch
+            keywords={keywords}
+            onClearKeywords={hanldeAllClear}
+            onRemoveKeyword={handleRemoveKeyword}
+          />
+        </>
+      ) : (
+        <>
+          <SearchInput
+            placehoderText="음식명을 입력해주세요."
+            onAddKeyword={handleAddKeyword}
+          />
+          <FoodSearch
+            keywords={keywords}
+            onClearKeywords={hanldeAllClear}
+            onRemoveKeyword={handleRemoveKeyword}
+          />
+        </>
+      )}
     </div>
   );
 };
