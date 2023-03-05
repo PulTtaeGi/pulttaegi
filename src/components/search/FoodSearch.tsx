@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { RecordProps } from "../../constants/typings/searchType";
 import {
   useAppDispatch,
   useAppSelector,
@@ -6,7 +7,7 @@ import {
 import { MarketType } from "../../store/modules/market";
 import { setResultAction } from "../../store/modules/result";
 import FoodResult from "./FoodResult";
-import RecordList, { RecordProps } from "./RecordList";
+import RecordList from "./RecordList";
 
 const FoodSearch = ({
   keywords,

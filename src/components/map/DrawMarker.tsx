@@ -16,7 +16,7 @@ export const DrawMarker = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (market == [] || kakaomaps.map == undefined) {
+    if (market === null || kakaomaps.map == undefined) {
       return;
     } else if (
       Object.entries(kakaomaps.map).length !== 0 &&
