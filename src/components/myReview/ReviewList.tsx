@@ -5,6 +5,7 @@ interface ReviewListProps {
 }
 
 function ReviewList({ list }: ReviewListProps) {
+  console.log(list);
   return (
     <>
       <div className="text-black bg-white flex flex-col w-full gap-14 items-center mt-8">
