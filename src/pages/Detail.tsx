@@ -9,10 +9,6 @@ import { MarketType, MenuType } from "../store/modules/market";
 import { useAppSelector } from "../store/hooks/configureStore.hook";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { useCallback, useRef } from "react";
-import { addDoc, collection, getDocs } from "firebase/firestore";
-import { firestore } from "../api/firebase";
-import { useNavigate } from "react-router";
 
 export interface RatingProps {
   taste: number;
@@ -20,32 +16,19 @@ export interface RatingProps {
   calorie: number;
 }
 
+export interface ratingProp {
+  welbeing: number;
+  sanitation: number;
+  taste: number;
+}
+
 export interface targetReviewsType {
   title: string;
   content: string;
   userid: string;
   hashtag: string[];
+  rating: ratingProp;
 }
-
-// export interface MenuProps{
-
-// }
-
-// const handleSignUp = useCallback(async () => {
-//   const favoriteRef = collection(firestore, "favorites");
-//   const navigate = useNavigate();
-//   try {
-//     await addDoc(favoriteRef, {
-//       // favoriteRef.current?.value,
-//     }).then(() => {
-//       alert("즐겨찾기 등록에 성공했어요");
-//       navigate("/total");
-//     });
-//   } catch (e) {
-//     alert("즐겨찾기에 등록 실패했어요");
-//     console.error(e);
-//   }
-// }, []);
 
 export default function Detail() {
   //URL 내 파라미터값 가져오기
