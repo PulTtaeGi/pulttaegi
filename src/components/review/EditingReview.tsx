@@ -12,6 +12,7 @@ import {
   useAppSelector,
 } from "../../store/hooks/configureStore.hook";
 import { editData } from "../../store/modules/review";
+
 interface EditingReviewProps {
   title: string | undefined;
 }
@@ -120,7 +121,7 @@ const EditingReview = ({ title }: EditingReviewProps): JSX.Element => {
   return (
     <>
       <Wrapper>
-        <div className="flex flex-col w-full h-full mx-8 my-12">
+        <div className="flex flex-col w-full h-full mx-8 mt-12 my-32">
           <BreadCrumb count="no">리뷰 수정하기</BreadCrumb>
           <div className="flex flex-col">
             <span className="mt-8 mb-3 font-bold text-xl text-green-4 tracking-tight">

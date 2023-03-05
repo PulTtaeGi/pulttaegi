@@ -10,7 +10,7 @@ const ReviewWrite = ({ title }: ReviewWriteProps) => {
   const isLogin = localStorage.getItem("isLogin");
 
   function handleWrite() {
-    if (!isLogin) {
+    if (!isLogin || isLogin == "false") {
       setIsActive("block");
     }
     return;
@@ -27,7 +27,7 @@ const ReviewWrite = ({ title }: ReviewWriteProps) => {
             리뷰 작성하기
           </div>
         </PrimaryButton>
-        <span className={`${isActive} w-full tracking-tight text-lg`}>
+        <span className={`${isActive} text-align tracking-tight text-lg mx-auto`}>
           리뷰 작성은 로그인 후 이용 가능합니다.
         </span>
       </div>

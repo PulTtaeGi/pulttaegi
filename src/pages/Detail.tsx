@@ -84,7 +84,7 @@ export default function Detail() {
   return (
     <div className="flex items-center justify-center h-full">
       <ResultBox text="맛집 상세보기" />
-      <div className="flex flex-col items-center w-full h-full mx-8 mt-24">
+      <div className="flex flex-col items-center w-full h-full mx-8 mt-24 mb-20">
         {market && <MarketDes market={market} />}
         {targetReviews && (
           <>
