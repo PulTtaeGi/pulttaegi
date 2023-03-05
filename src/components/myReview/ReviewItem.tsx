@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import HashTag from "../myReview/HashTag";
-import { firestore, storageService } from "../../api/firebase";
+import { firestore } from "../../api/firebase";
 import {
   useAppDispatch,
   useAppSelector,
@@ -48,7 +48,8 @@ export default function ReviewItem({
 
   const currentId = localStorage.getItem("id");
   const storage = getStorage(app, "gs://pulttaegi-37599.appspot.com");
-  const currentImgRef = ref(storage, `images/${title}/${currentId}`);
+  const currentImgRef = ref(storage, `images/${title}/${userid}`);
+  console.log(currentImgRef);
 
   useEffect(() => {
     listAll(currentImgRef).then((response) => {
