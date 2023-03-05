@@ -69,7 +69,7 @@ export default function Login() {
               alt="logo"
               className="block w-[180px] h-[180px] mb-10"
             />
-            <span className="absolute bottom-[-4px] left-1/2 translate-x-[-50%] block mt-3 text-3xl text-green-4 font-black tracking-tight  whitespace-nowrap">
+            <span className="absolute bottom-[-4px] left-1/2 translate-x-[-50%] block mt-3 text-3xl font-bold text-green-4 whitespace-nowrap">
               풀때기
             </span>
           </div>
@@ -93,7 +93,7 @@ export default function Login() {
               onClick={handleLogin}
               type="submit"
               value="로그인"
-              className="w-80 p-3 text-white bg-green-4 text-[20px] font-extrabold tracking-tighter bg-gray-100 rounded-xl"
+              className="w-80 p-3 text-white bg-green-4 text-[20px] font-bold tracking-tighter bg-gray-100 rounded-xl"
             >
               로그인
             </button>

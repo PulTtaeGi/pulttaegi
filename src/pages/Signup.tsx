@@ -70,7 +70,7 @@ export default function Signup() {
               alt="logo"
               className="block w-[160px] h-[160px]"
             />
-            <p className="block mt-4 text-3xl text-green-4 font-black tracking-tight whitespace-nowrap">
+            <p className="block mt-4 text-3xl font-bold text-green-4 whitespace-nowrap">
               회원가입
             </p>
           </div>
@@ -81,11 +81,11 @@ export default function Signup() {
                   ref={idRef}
                   type="text"
                   placeholder="ID"
-                  className="w-52 pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
+                  className="w-52 pl-8 p-3 text-xl text-green-4 font-bold bg-gray-100 placeholder-primary rounded-xl outline-0"
                 />
                 <button
                   onClick={handleIdCheck}
-                  className="w-full p-3 text-white bg-green-3 text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap"
+                  className="w-full p-3 text-white bg-green-3 text-[20px] font-bold rounded-xl text-center whitespace-nowrap"
                 >
                   중복확인
                 </button>
@@ -95,7 +95,7 @@ export default function Signup() {
               <div className="flex flex-row gap-3 text-xl">
                 <input
                   ref={pwRef}
-                  className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
+                  className="w-full pl-8 p-3 text-xl text-green-4 font-bold bg-gray-100 placeholder-primary rounded-xl outline-0"
                   type="password"
                   placeholder="Password"
                 />
@@ -124,7 +124,7 @@ export default function Signup() {
             </PrimaryButton>
             <button
               onClick={handleSignUp}
-              className="w-full p-3 text-white bg-green-4 text-[20px] font-extrabold tracking-tight rounded-xl text-center whitespace-nowrap"
+              className="w-full p-3 text-white bg-green-4 text-[20px] font-bold tracking-tight rounded-xl text-center whitespace-nowrap"
             >
               가입
             </button>
