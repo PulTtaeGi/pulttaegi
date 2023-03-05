@@ -49,7 +49,6 @@ export default function ReviewItem({
   const currentId = localStorage.getItem("id");
   const storage = getStorage(app, "gs://pulttaegi-37599.appspot.com");
   const currentImgRef = ref(storage, `images/${title}/${userid}`);
-  console.log(currentImgRef);
 
   useEffect(() => {
     listAll(currentImgRef).then((response) => {
