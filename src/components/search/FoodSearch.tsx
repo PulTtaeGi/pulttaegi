@@ -12,28 +12,25 @@ const FoodSearch = ({
   keywords,
   onClearKeywords,
   onRemoveKeyword,
-}: RecordProps) => {
+}: RecordProps): JSX.Element => {
   const foodArray = useAppSelector((state) => state.market);
   const foodKeyword = useAppSelector((state) => state.search);
   const dispatch = useAppDispatch();
-  const searchedArray: MarketType[] = [];
+  let searchedArray: MarketType[] = [];
 
-  console.log("test");
-  Object.values(foodArray).map((food) => {
-    if (
-      food.category === foodKeyword.keyword ||
-      food.title === foodKeyword.keyword
-    ) {
-      searchedArray.push(food);
-    }
-  });
+  searchedArray = Object.values(foodArray).filter(
+    (food) =>
+      foodKeyword.keyword !== "" &&
+      (food.category.includes(foodKeyword.keyword) ||
+        food.title.includes(foodKeyword.keyword))
+  );
   useEffect(() => {
     dispatch(setResultAction(searchedArray));
   }, [searchedArray]);
 
   return (
     <>
-      <div className="flex flex-col mt-36 pl-4 w-screen">
+      <div className="flex flex-col mt-36 pl-4 w-screen mb-28">
         <ul className="flex flex-col ">
           {searchedArray.length > 0 ? (
             searchedArray.map((food, i) => <FoodResult key={i} market={food} />)
