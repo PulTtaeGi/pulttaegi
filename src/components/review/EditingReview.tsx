@@ -128,7 +128,7 @@ const EditingReview = ({ title }: EditingReviewProps): JSX.Element => {
               {title}
             </span>
             {/* <form method="post" encType="multipart/form-data"> */}
-            <ImgUpload getUrl={getUrl} />
+            <ImgUpload getUrl={getUrl} title={title} prevUrl={target?.img} />
             <div className="flex flex-col w-full justify-start gap-4 mt-8 text-lg font-bold bg-gray-100 rounded-lg py-6">
               <Rating
                 defaulted={
