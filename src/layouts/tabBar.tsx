@@ -14,18 +14,26 @@ const TabBar = () => {
       <ul className="flex w-screen justify-center items-center">
         {tabMenus.map((tab) => (
           <li className="flex-1" key={tab.title}>
-            <Link
-              to={tab.url}
-              className="font-bold text-lg flex flex-col gap-1 "
-              onClick={() => setTabIndex(tab.title)}
-            >
+            {tab.url ? (
+              <Link
+                to={tab.url}
+                className="font-bold text-lg flex flex-col gap-1 "
+                onClick={() => setTabIndex(tab.title)}
+              >
+                <img
+                  src={tabIndex === tab.title ? tab.img : tab.beforeImg}
+                  className="w-5/12 m-auto "
+                  alt="map"
+                ></img>
+                <span>{tab.title}</span>
+              </Link>
+            ) : (
               <img
                 src={tabIndex === tab.title ? tab.img : tab.beforeImg}
-                className="w-5/12 m-auto "
+                className="w-7/12 m-auto "
                 alt="map"
               ></img>
-              <span>{tab.title}</span>
-            </Link>
+            )}
           </li>
         ))}
       </ul>
