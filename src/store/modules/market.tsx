@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+const DATA_LINK = "/market.json";
+
 export interface MenuType {
   menuName: string;
   price: string;
@@ -22,7 +24,7 @@ const initialState: MarketType[] = [];
 
 export const fetchMarkets = createAsyncThunk("markets/allMarkets", async () => {
   try {
-    const response = await fetch("/src/data/market.json");
+    const response = await fetch(DATA_LINK);
     return (await response.json()) || [];
   } catch (err) {
     console.log(err);
