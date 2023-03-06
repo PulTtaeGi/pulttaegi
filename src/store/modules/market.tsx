@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+// 경로 재설정
 const DATA_LINK = "src/data/market.json";
 
 export interface MenuType {
@@ -24,7 +25,11 @@ const initialState: MarketType[] = [];
 
 export const fetchMarkets = createAsyncThunk("markets/allMarkets", async () => {
   try {
-    const response = await fetch(DATA_LINK);
+    const response = await fetch(DATA_LINK, {
+      headers: {
+        Accept: "application / json",
+      },
+    });
     console.log(response);
     return (await response.json()) || [];
   } catch (err) {
