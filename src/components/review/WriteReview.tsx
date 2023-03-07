@@ -77,7 +77,7 @@ const WriteReview = ({ title }: writeReviewProps ): JSX.Element => {
 
   return (
     <Wrapper>
-      <div className="flex flex-col w-full h-full mx-8 my-12">
+      <div className="flex flex-col w-full h-full mx-8 mt-12 mb-32">
         <BreadCrumb count="no">리뷰 작성하기</BreadCrumb>
         <div className="flex flex-col">
           <span className="mt-8 mb-3 font-bold text-2xl text-green-4">

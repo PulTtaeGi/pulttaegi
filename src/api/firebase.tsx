@@ -15,6 +15,8 @@ const firebaseConfig = {
 // firebaseConfig 정보로 firebase 시작
 firebase.initializeApp(firebaseConfig);
 
+const flag = document.getElementById("flag");
+
 // firebase의 firestore 인스턴스를 변수에 저장
 const firestore = firebase.firestore();
 

@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+  import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
 import { firestore } from "../api/firebase";
@@ -34,7 +34,9 @@ export default function Login() {
     if (
       idRef.current?.value !== undefined &&
       pwRef.current?.value !== undefined
-    ) {
+    ) 
+      
+    {
       dispatch(
         getUserInfo({
           signupUserInfo: {
@@ -49,6 +51,12 @@ export default function Login() {
     }
 
     for (const doc of data.docs) {
+      if(doc.data().id !== idRef.current?.value ||
+         doc.data().pw !== pwRef.current?.value){
+          alert("아이디와 비밀번호가 일치하지 않습니다.")
+          return;
+         }
+
       if (
         doc.data().id === idRef.current?.value &&
         doc.data().pw === pwRef.current?.value
@@ -59,6 +67,16 @@ export default function Login() {
     }
   }, []);
 
+  
+  
+  
+  
+  const handleOnKeyPress = (e: { key: string; }) => {
+    if (e.key === 'Enter') {
+      handleLogin(); // Enter 입력이 되면 클릭 이벤트 실행
+    }
+  };
+  
   return (
     <>
       <Wrapper>
@@ -69,7 +87,7 @@ export default function Login() {
               alt="logo"
               className="block w-[180px] h-[180px] mb-10"
             />
-            <span className="absolute bottom-[-4px] left-1/2 translate-x-[-50%] block mt-3 text-3xl text-green-4 font-black tracking-tight  whitespace-nowrap">
+            <span className="absolute bottom-[-4px] left-1/2 translate-x-[-50%] block mt-3 text-3xl font-bold text-green-4 whitespace-nowrap">
               풀때기
             </span>
           </div>
@@ -85,6 +103,7 @@ export default function Login() {
               ref={pwRef}
               type="password"
               placeholder="PW"
+              onKeyDown={handleOnKeyPress}
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -93,7 +112,8 @@ export default function Login() {
               onClick={handleLogin}
               type="submit"
               value="로그인"
-              className="w-80 p-3 text-white bg-green-4 text-[20px] font-extrabold tracking-tighter bg-gray-100 rounded-xl"
+              
+              className="w-80 p-3 text-white bg-green-4 text-[20px] font-bold tracking-tighter bg-gray-100 rounded-xl"
             >
               로그인
             </button>

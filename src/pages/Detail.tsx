@@ -27,25 +27,7 @@ export interface targetReviewsType {
   hashtag: string[];
 }
 
-// export interface MenuProps{
 
-// }
-
-// const handleSignUp = useCallback(async () => {
-//   const favoriteRef = collection(firestore, "favorites");
-//   const navigate = useNavigate();
-//   try {
-//     await addDoc(favoriteRef, {
-//       // favoriteRef.current?.value,
-//     }).then(() => {
-//       alert("즐겨찾기 등록에 성공했어요");
-//       navigate("/total");
-//     });
-//   } catch (e) {
-//     alert("즐겨찾기에 등록 실패했어요");
-//     console.error(e);
-//   }
-// }, []);
 
 export default function Detail() {
   //URL 내 파라미터값 가져오기
@@ -84,7 +66,7 @@ export default function Detail() {
   return (
     <div className="flex items-center justify-center h-full">
       <ResultBox text="맛집 상세보기" />
-      <div className="flex flex-col items-center w-full h-full mx-8 mt-24">
+      <div className="flex flex-col items-center w-full h-full mx-8 mt-24 mb-20">
         {market && <MarketDes market={market} />}
         {targetReviews && (
           <>

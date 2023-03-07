@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { SearchType } from "../../constants/searchConstant";
 import {
   useAppDispatch,
   useAppSelector,
@@ -7,19 +8,21 @@ import { setDataAction } from "../../store/modules/search";
 import styles from "../../styles/ActiveClass.module.css";
 import SearchBar from "./SearchBar";
 
-export const SearchType = { region: "지역 검색", food: "음식 검색" } as const;
-
 const SearchHeader = (): JSX.Element => {
   const kakaomaps = useAppSelector((state) => state.kakaomap);
   console.log(kakaomaps);
   const [isRegion, setIsRegion] = useState<boolean>(true);
-  const useDispatcher = useAppDispatch();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setDataAction({ keyword: "" }));
+  }, []);
 
   function handleCategory(e: React.MouseEvent<HTMLButtonElement>) {
     e.currentTarget.value === SearchType.region
       ? setIsRegion(true)
       : setIsRegion(false);
-    useDispatcher(setDataAction({ keyword: "" }));
+    dispatch(setDataAction({ keyword: "" }));
   }
   return (
     <>
