@@ -60,6 +60,16 @@ export default function Signup() {
     }
   }, []);
 
+  
+  
+  
+  const handleOnKeyPress = (e: { key: string; }) => {
+    if (e.key === 'Enter') {
+      handleSignUp(); // Enter 입력이 되면 클릭 이벤트 실행
+    }
+  };
+  // 인풋에 적용할 Enter 키 입력 함수
+
   return (
     <>
       <Wrapper>
@@ -111,6 +121,8 @@ export default function Signup() {
                   className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
                   type="password"
                   placeholder="Password Check"
+                  onKeyDown={handleOnKeyPress}
+                  
                 />
               </div>
               <span className="pl-6 tracking-tighter text-green-4">
@@ -124,6 +136,7 @@ export default function Signup() {
             </PrimaryButton>
             <button
               onClick={handleSignUp}
+              
               className="w-full p-3 text-white bg-green-4 text-[20px] font-bold tracking-tight rounded-xl text-center whitespace-nowrap"
             >
               가입

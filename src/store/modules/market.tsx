@@ -17,6 +17,7 @@ export interface MarketType {
   clean: number;
   taste: number;
   calorie: number;
+  isfavorite: boolean;
 }
 
 const initialState: MarketType[] = [];
@@ -44,6 +45,10 @@ export const marketSlice = createSlice({
     setData: (state, action: PayloadAction<MarketType>) => {
       return { ...state, ...action.payload };
     },
+
+    deleteData : (state, action) => {
+      return state.filter((item) => item.id !== action.payload.id)
+  },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchMarkets.fulfilled, (state, action) => {
@@ -54,4 +59,4 @@ export const marketSlice = createSlice({
 });
 
 export default marketSlice.reducer;
-export const { setData } = marketSlice.actions;
+export const { setData , deleteData} = marketSlice.actions;
