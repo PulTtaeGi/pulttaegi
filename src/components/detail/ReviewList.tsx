@@ -1,4 +1,5 @@
 import React from "react";
+import icon from "../../../src/assets/icons/star-3.png";
 import { targetReviewsType } from "../../pages/Detail";
 
 interface reviewListProps {
@@ -12,7 +13,7 @@ const ReviewList = ({ reviewList }: reviewListProps) => {
       result.push(
         <img
           key={i}
-          src={`../../src/assets/icons/star-${color}.png`}
+          src={icon}
           alt="score"
           style={{ width: "16px", height: "16px" }}
         ></img>

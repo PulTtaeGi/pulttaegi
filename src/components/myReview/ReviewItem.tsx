@@ -91,7 +91,7 @@ export default function ReviewItem({
         className="w-fullscreen overflow-hidden flex justify-center items-center"
         style={{ maxHeight: "520px" }}
       >
-        <img src={img} className="w-fullscreen h-[300px] mt-4 " />v
+        <img src={img} className="w-fullscreen h-[300px] mt-4 " />
       </div>
       <p className="mt-3 text-lg text-bold">{content}</p>
       {hashtag !== undefined && <HashTag list={hashtag}></HashTag>}
