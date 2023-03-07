@@ -46,7 +46,6 @@ const TabBarBox = styled.div`
   border-top-left-radius: 35px;
 `;
 const TabBarWrap = tw(TabBarBox)`
-h-28 
 shadow-2xl 
 bg-white 
 flex 
@@ -61,6 +60,7 @@ text-center
 border-t-2 
 border-stone-300 
 text-gray-500
+py-5
 `;
 
 export default TabBar;

@@ -6,6 +6,7 @@ interface ReviewListProps {
 
 function ReviewList({ list }: ReviewListProps) {
   console.log(list);
+
   return (
     <>
       <div className="text-black bg-white flex flex-col w-full gap-14 items-center mt-8">
@@ -18,6 +19,8 @@ function ReviewList({ list }: ReviewListProps) {
                 content={review.content}
                 hashtag={review.hashtag}
                 userid={review.userid}
+                taste={review.rating.taste}
+                sanitation={review.rating.sanitation}
               />
             );
           })}

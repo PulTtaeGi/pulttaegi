@@ -23,7 +23,13 @@ const initialState: MarketType[] = [];
 
 export const fetchMarkets = createAsyncThunk("markets/allMarkets", async () => {
   try {
-    const response = await fetch(DATA_LINK);
+    const response = await fetch(DATA_LINK, {
+      headers: {
+        Accept: "application / json",
+      },
+    });
+
+    console.log(response);
     return (await response.json()) || [];
   } catch (err) {
     console.log(err);
