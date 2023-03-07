@@ -31,13 +31,13 @@ const ReviewList = ({ reviewList }: reviewListProps) => {
               return (
                 <div
                   key={index}
-                  className="flex w-full h-[120px] bg-white rounded-md shadow-sm"
+                  className="flex w-full h-[132px] bg-white rounded-md shadow-sm"
                 >
                   <div className="flex flex-col justify-between my-2 mt-3 mx-4">
-                    <div className="block w-[280px] font-semibold text-gray-500 text-ellipsis overflow-hidden whitespace-nowrap">
+                    <div className="block w-[280px] text-lg font-semibold text-gray-500 text-ellipsis whitespace-nowrap">
                       {item.content}
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between pt-3">
                       <div className="flex flex-col w-3/4">
                         <div className="flex gap-3 items-center text-base">
                           웰빙

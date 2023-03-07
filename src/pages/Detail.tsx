@@ -23,6 +23,7 @@ export interface ratingProp {
 }
 
 export interface targetReviewsType {
+  id: number;
   title: string;
   content: string;
   userid: string;
@@ -37,7 +38,6 @@ export default function Detail() {
   //마켓 데이터 관련 변수
   const markets = useAppSelector((state) => state.market);
   const [market, setMarket] = useState<MarketType>();
-  const [rating, setRating] = useState<RatingProps>();
   const [menus, setMenus] = useState<MenuType[]>();
 
   //리뷰 데이터 관련 변수
@@ -54,11 +54,6 @@ export default function Detail() {
     Object.values(markets).filter((market) => {
       if (market.title === param.title) {
         setMarket(market);
-        setRating({
-          clean: market.clean,
-          taste: market.taste,
-          calorie: (market.calorie % 5) + 1,
-        });
         setMenus(market.menu);
       }
     });
@@ -72,9 +67,9 @@ export default function Detail() {
         {targetReviews && (
           <>
             <HashTagBar reviewList={targetReviews} />
+            <RatingList reviewList={targetReviews} />
           </>
         )}
-        {rating && <RatingList ratingList={rating} />}
         {menus && <MenuList menuList={menus} />}
         {targetReviews && <ReviewList reviewList={targetReviews} />}
         {param.title && <ReviewWrite title={param.title} />}
