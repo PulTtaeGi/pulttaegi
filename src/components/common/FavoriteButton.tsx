@@ -5,8 +5,10 @@ import { firestore } from "../../api/firebase";
 import { useNavigate } from "react-router";
 import { MarketType } from "../../store/modules/market";
 import { Link } from "react-router-dom";
-import UNSTAR_URL from "../../src/assets/icons/star.png"
-import STAR_URL from "../../src/assets/icons/starActive.png"
+import UNSTAR_URL from "../../assets/icons/star.png"
+import STAR_URL from "../../assets/icons/starActive.png"
+
+
 interface marketProps{
   market : MarketType
 }
