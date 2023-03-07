@@ -7,6 +7,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import app from "../../api/firebase";
+import { useAppSelector } from "../../store/hooks/configureStore.hook";
 
 interface ImgUploadProps {
   getUrl: (currentUrl: string) => void;
@@ -18,7 +19,6 @@ const ImgUpload = ({ getUrl, title, prevUrl }: ImgUploadProps): JSX.Element => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [imageFile, setImageFile] = useState<any>();
   const [preloadUrl, setPreloadUrl] = useState<string>();
-  const [existedImg, setExistedImg] = useState<any>();
   const storage = getStorage(app);
   const currentId = localStorage.getItem("id");
 
@@ -60,32 +60,21 @@ const ImgUpload = ({ getUrl, title, prevUrl }: ImgUploadProps): JSX.Element => {
     } else return;
   }, [preloadUrl]);
 
-  useEffect(() => {
-    const storage = getStorage(app, "gs://pulttaegi-37599.appspot.com");
-    const currentImgRef = ref(storage, `images/${title}/${currentId}`);
-
-    listAll(currentImgRef).then((response) => {
-      getDownloadURL(response.items[0]).then((url) => {
-        setExistedImg(url);
-      });
-    });
-  }, []);
-
   return (
     <div className="flex flex-col">
       {showImage}
       <div className="">
-        {existedImg && (
+        {prevUrl && !preloadUrl && (
           <img
-            src={existedImg}
+            src={prevUrl}
             className="w-80 h-56 mx-auto my-2"
             onClick={handleClickFileInput}
           />
         )}
-        {!existedImg && (
+        {!prevUrl && (
           <label
             htmlFor="chooseFile"
-            className="p-3 px-4 text-white text-base font-bold rounded-xl text-center whitespace-nowrap w-[180px] bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4"
+            className="mt-3 p-3 px-4 text-white text-base font-bold rounded-xl text-center whitespace-nowrap w-[180px] bg-green-3 border-green-3 hover:bg-green-4 hover:border-green-4"
           >
             사진 첨부하기
           </label>

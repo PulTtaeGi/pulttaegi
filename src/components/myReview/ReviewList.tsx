@@ -5,13 +5,16 @@ interface ReviewListProps {
 }
 
 function ReviewList({ list }: ReviewListProps) {
-  console.log(list);
+  const copyList = [];
+  for (let i = list.length - 1; i >= 0; i--) {
+    copyList.push(list[i]);
+  }
 
   return (
     <>
       <div className="text-black bg-white flex flex-col w-full gap-14 items-center mt-8">
-        {list !== undefined &&
-          list.map((review, index) => {
+        {copyList !== undefined &&
+          copyList.map((review, index) => {
             return (
               <ReviewItem
                 key={index}
@@ -19,6 +22,8 @@ function ReviewList({ list }: ReviewListProps) {
                 content={review.content}
                 hashtag={review.hashtag}
                 userid={review.userid}
+                id={review.id}
+                img={review.img}
                 taste={review.rating.taste}
                 sanitation={review.rating.sanitation}
               />

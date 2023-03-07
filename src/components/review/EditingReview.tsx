@@ -52,7 +52,12 @@ const EditingReview = ({ title }: EditingReviewProps): JSX.Element => {
 
   useEffect(() => {
     setCurrentReview((prevState: any) => {
-      return { ...prevState, userid: currentId, title: title };
+      return {
+        ...prevState,
+        userid: currentId,
+        title: title,
+        img: target?.img,
+      };
     });
   }, []);
 
@@ -117,6 +122,8 @@ const EditingReview = ({ title }: EditingReviewProps): JSX.Element => {
   const backPage = () => {
     navigate("/review/total");
   };
+
+  console.log(currentReview);
 
   return (
     <>
