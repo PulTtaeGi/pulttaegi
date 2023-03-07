@@ -17,6 +17,8 @@ interface ReviewItemProps {
   content: string;
   hashtag: string[];
   userid: string;
+  taste: number;
+  sanitation: number;
 }
 
 interface ratingProps {
@@ -39,6 +41,8 @@ export default function ReviewItem({
   content,
   hashtag,
   userid,
+  taste,
+  sanitation,
 }: ReviewItemProps) {
   const [target, setTarget] = useState<reviewsProps>();
   const [imgUrl, setImgUrl] = useState<string>();
@@ -49,8 +53,6 @@ export default function ReviewItem({
   const currentId = localStorage.getItem("id");
   const storage = getStorage(app, "gs://pulttaegi-37599.appspot.com");
   const currentImgRef = ref(storage, `images/${title}/${userid}`);
-  console.log(currentImgRef);
-
   useEffect(() => {
     listAll(currentImgRef).then((response) => {
       getDownloadURL(response.items[0]).then((url) => {
@@ -65,15 +67,18 @@ export default function ReviewItem({
         setTarget(review);
         return;
       }
+      const rate = review.rating;
+      console.log(rate);
+
+      return rate;
     });
   }, [reviews]);
-
   function deleteReview() {
     const reviewCollection = firestore.collection("review");
     target ? reviewCollection.doc(`${target.id}`).delete() : null;
     dispatch(deleteData(target));
   }
-
+  const tastewidth = (taste * 10) / 2;
   return (
     <div className="flex flex-col w-full">
       <div className="flex justify-between">
@@ -96,6 +101,27 @@ export default function ReviewItem({
       <img src={imgUrl} className="w-[350px] h-[260px] mt-4 " />
       <p className="mt-3 text-lg text-bold">{content}</p>
       {hashtag !== undefined && <HashTag list={hashtag}></HashTag>}
+      <div className="bg-slate-100 py-5 px-5 mt-5 rounded-xl text-center ">
+        <div className="flex justify-center items-center  ">
+          <p style={{ width: "20%" }}>맛</p>
+          <div style={{ width: "80%" }}>
+            <div
+              className="h-4 bg-green-4"
+              style={{ width: `${taste * 20}%` }}
+            ></div>
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center">
+          <p style={{ width: "20%" }}>위생</p>
+          <div style={{ width: "80%" }}>
+            <div
+              className="h-4 bg-green-3 "
+              style={{ width: `${sanitation * 20}%` }}
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
