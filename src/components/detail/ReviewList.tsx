@@ -41,7 +41,7 @@ const ReviewList = ({ reviewList }: reviewListProps) => {
                     <div className="flex justify-between pt-3">
                       <div className="flex flex-col w-3/4">
                         <div className="flex gap-3 items-center text-base">
-                          웰빙
+                          칼로리
                           <div className="flex gap-[2px]">
                             {showStar(item.rating.welbeing, 1)}
                           </div>

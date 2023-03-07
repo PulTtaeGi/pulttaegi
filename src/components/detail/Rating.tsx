@@ -9,7 +9,7 @@ const Rating = ({
 }) => {
   return (
     <div className="flex items-center gap-2">
-      <span className="block w-[50px] text-center">{title}</span>
+      <span className="block w-[60px] text-center">{title}</span>
       <div
         style={{
           width: number * 50 + "px",
