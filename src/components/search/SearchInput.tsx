@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppDispatch } from "../../store/hooks/configureStore.hook";
 import { setDataAction } from "../../store/modules/search";
+import searchIcon from "../../assets/icons/search_icon.png";
 
 interface SearchProps {
   placehoderText: string;
@@ -14,7 +15,7 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
   useEffect(() => {
     const debounce = setTimeout(() => {
       return setKeyword(tmpKeyword);
-    }, 300);
+    }, 200);
     return () => clearTimeout(debounce);
   }, [tmpKeyword]);
 
@@ -26,6 +27,7 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
     onAddKeyword(keyword);
     dispatch(setDataAction({ keyword }));
     setKeyword("");
+    setTmpKeyword("");
   };
   const onKeyDownSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (keyword && e.keyCode === 13) {
@@ -33,6 +35,7 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
       onAddKeyword(keyword);
       dispatch(setDataAction({ keyword }));
       setKeyword("");
+      setTmpKeyword("");
     }
   };
 
@@ -45,10 +48,11 @@ const SearchInput = ({ placehoderText, onAddKeyword }: SearchProps) => {
         className="bg-gray-100 ml-3 text-[17px] text-black placeholder-gray-600 font-bold outline-0"
         onChange={handleKeyword}
         onKeyDown={onKeyDownSearch}
+        autoFocus
       ></input>
       <button type="submit" onClick={onClickSearch}>
         <img
-          src="../../src/assets/icons/search_icon.png"
+          src={searchIcon}
           alt="serachButton"
           className="w-[25px] h-[25px]"
         ></img>

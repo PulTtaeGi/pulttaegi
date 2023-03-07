@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import markerIcon from "../../assets/icons/marker_ico.png";
 // filter 시 사용될 배열
 const markersArr: any = [];
 const markerData: any = [];
@@ -31,8 +32,7 @@ export const DrawMarker = () => {
           markerData.push(el);
 
           // 이미지 변경
-          const imageSrc =
-              "http://localhost:5173/src/assets/icons/marker_ico.png", // 마커이미지의 주소
+          const imageSrc = markerIcon, // 마커이미지의 주소
             imageSize = new window.kakao.maps.Size(32, 55), // 마커이미지의 크기
             imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 

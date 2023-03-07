@@ -6,7 +6,7 @@ import PrimaryButton from "../components/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
 
-const LOGO_URL = "../../src/assets/icons/main_logo.png";
+import LOGO_URL from "../../src/assets/icons/main_logo.png";
 
 export default function Signup() {
   const navigate = useNavigate();

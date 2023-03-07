@@ -23,14 +23,14 @@ export const Category = (coodsMarker: any) => {
   };
 
   const cateArr = [
-    { title: "한식", img: ko },
-    { title: "브런치", img: jp },
-    { title: "샐러드", img: us },
-    { title: "뷔페", img: cn },
+    { title: "한식", img: ko, id: 1 },
+    { title: "브런치", img: jp, id: 2 },
+    { title: "샐러드", img: us, id: 3 },
+    { title: "뷔페", img: cn, id: 4 },
   ];
 
   return (
-    <Swiper
+    <div
       style={{
         top: "100px",
         position: "fixed",
@@ -39,22 +39,25 @@ export const Category = (coodsMarker: any) => {
         padding: "20px",
         right: "0",
       }}
-      className=" text-gray-500 font-bold text-lg"
-      spaceBetween={30}
-      slidesPerView={2.5}
     >
-      {cateArr.map((cate, i) => (
-        <SwiperSlide
-          key={i}
-          title={cate.title}
-          onClick={cateFilter}
-          style={{ padding: "3px 20px", background: "#fff", display: "flex" }}
-          className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 flex-auto flex"
-        >
-          <img src={cate.img} style={{ width: "20px" }}></img>
-          <span>{cate.title}</span>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+      <Swiper
+        className=" text-gray-500 font-bold text-lg"
+        spaceBetween={30}
+        slidesPerView={2.5}
+      >
+        {cateArr.map((cate, i) => (
+          <SwiperSlide
+            key={cate.id}
+            title={cate.title}
+            onClick={cateFilter}
+            style={{ padding: "3px 20px", background: "#fff", display: "flex" }}
+            className="rounded-xl shadow-lg bg-slate-50  justify-around  border-stone-300 border-2 "
+          >
+            <img src={cate.img} style={{ width: "20px" }}></img>
+            <span>{cate.title}</span>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };

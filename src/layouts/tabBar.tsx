@@ -14,18 +14,26 @@ const TabBar = () => {
       <ul className="flex w-screen justify-center items-center">
         {tabMenus.map((tab) => (
           <li className="flex-1" key={tab.title}>
-            <Link
-              to={tab.url}
-              className="font-bold text-lg flex flex-col gap-1 "
-              onClick={() => setTabIndex(tab.title)}
-            >
+            {tab.url ? (
+              <Link
+                to={tab.url}
+                className="font-bold text-lg flex flex-col gap-1 "
+                onClick={() => setTabIndex(tab.title)}
+              >
+                <img
+                  src={tabIndex === tab.title ? tab.img : tab.beforeImg}
+                  className="w-5/12 m-auto "
+                  alt="map"
+                ></img>
+                <span>{tab.title}</span>
+              </Link>
+            ) : (
               <img
                 src={tabIndex === tab.title ? tab.img : tab.beforeImg}
-                className="w-5/12 m-auto "
+                className="w-7/12 m-auto "
                 alt="map"
               ></img>
-              <span>{tab.title}</span>
-            </Link>
+            )}
           </li>
         ))}
       </ul>
@@ -38,7 +46,6 @@ const TabBarBox = styled.div`
   border-top-left-radius: 35px;
 `;
 const TabBarWrap = tw(TabBarBox)`
-h-28 
 shadow-2xl 
 bg-white 
 flex 
@@ -53,6 +60,7 @@ text-center
 border-t-2 
 border-stone-300 
 text-gray-500
+py-5
 `;
 
 export default TabBar;

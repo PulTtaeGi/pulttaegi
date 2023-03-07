@@ -53,33 +53,37 @@ function App() {
     getReviews !== undefined ? dispatch(setData(getReviews)) : null;
   }, [getReviews]);
 
-  // 해상도 지원 화면 리사이즈 시 숨김
+  // 첫 화면 진입 시
 
   useEffect(() => {
-    const reSizePage = document.querySelector("#sizepage") as HTMLDivElement;
-
-    const width = window.innerWidth;
-    if (width >= 500) {
-      reSizePage.style.cssText = "z-index : 50; opacity: 1";
-    } else {
-      reSizePage.style.cssText = "z-index : -10; opacity: 0";
-    }
+    reSizePage();
   }, []);
 
-  window.onresize = function () {
+  //화면 조정 시 실행 될 함수
+  const reSizePage = () => {
     const width = window.innerWidth;
-    const height = window.innerHeight;
 
-    console.log(width);
     const reSize = document.querySelector("#sizepage") as HTMLDivElement;
-    if (width >= 500) {
+    if (width >= 800) {
       reSize.style.cssText = "z-index : 50; opacity: 1";
     } else {
       reSize.style.cssText = "z-index : -10; opacity: 0";
     }
   };
-  // //id: admin password: 12345인 user데이터 임의로 dispatch
-  // dispatch(getUserInfo({signupUserInfo: {id: "admin", password: "12345" }}))
+
+  // throttled를 통한 이벤트 제어
+  const delay = 500;
+  let throttled = false;
+  window.addEventListener("resize", function () {
+    if (!throttled) {
+      reSizePage();
+      throttled = true;
+      setTimeout(function () {
+        throttled = false;
+      }, delay);
+    }
+  });
+
   return (
     <>
       <BrowserRouter>
