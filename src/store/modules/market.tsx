@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-
 const DATA_LINK = "/market.json";
 
 export interface MenuType {
