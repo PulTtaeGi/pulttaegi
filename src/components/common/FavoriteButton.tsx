@@ -5,8 +5,8 @@ import { firestore } from "../../api/firebase";
 import { useNavigate } from "react-router";
 import { MarketType } from "../../store/modules/market";
 import { Link } from "react-router-dom";
-
-
+import UNSTAR_URL from "../../src/assets/icons/star.png"
+import STAR_URL from "../../src/assets/icons/starActive.png"
 interface marketProps{
   market : MarketType
 }
@@ -15,8 +15,8 @@ const FavoriteButton = (market:marketProps ) => {
   console.log(market);
   // detail market 정보 있음 -> 이걸 받아아야됨 -> firestore 저장
   const navigate = useNavigate();
-  const UNSTAR_URL = "../../src/assets/icons/star.png";
-  const STAR_URL = "../../src/assets/icons/starActive.png";
+  // const UNSTAR_URL = "../../src/assets/icons/star.png";
+  // const STAR_URL = "../../src/assets/icons/starActive.png";
 
   const handleSignUp = useCallback(async () => {
     const favoriteRef = collection(firestore, "favorites");
