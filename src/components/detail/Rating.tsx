@@ -16,7 +16,7 @@ const Rating = ({
         }}
         className={`h-[24px] rounded-r-lg shadow bg-green-${color}`}
       ></div>
-      <span className="text-lg tracking-tight whitespace-nowrap font-medium text-gray-400">
+      <span className="text-lg tracking-tight font-medium text-gray-400">
         {number}
       </span>
     </div>
