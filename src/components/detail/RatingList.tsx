@@ -7,7 +7,7 @@ interface RatingListProps {
 }
 
 const RatingList = ({ reviewList }: RatingListProps) => {
-  const TITLE_LIST = ["칼로리", "맛", "위생"];
+  const TITLE_LIST = ["웰빙", "맛", "위생"];
   const COLOR_VARIABLE = [3, 2, 4];
   const [rating, setRating] = useState<number[]>();
 
