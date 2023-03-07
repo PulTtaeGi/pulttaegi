@@ -35,13 +35,13 @@ const ReviewList = ({ reviewList }: reviewListProps) => {
                 >
                   <div className="flex flex-col justify-between my-2 mt-3 mx-4">
                     <div className="block w-[280px] font-semibold text-gray-500 text-ellipsis overflow-hidden whitespace-nowrap">
-                      {item.content}너무너무너무너 맛있고 친절해요
+                      {item.content}
                     </div>
                     <div className="flex justify-between">
                       <div className="flex flex-col w-3/4">
                         <div className="flex gap-3 items-center text-base">
                           웰빙
-                          <div className="flex gap-1">
+                          <div className="flex gap-[2px]">
                             {showStar(item.rating.welbeing, 1)}
                           </div>
                           <span className="block text-[14px] text-gray-500">
@@ -50,7 +50,7 @@ const ReviewList = ({ reviewList }: reviewListProps) => {
                         </div>
                         <div className="flex gap-3 items-center text-base">
                           맛
-                          <div className="flex gap-1">
+                          <div className="flex gap-[2px]">
                             {showStar(item.rating.taste, 2)}
                           </div>
                           <span className="block text-[14px] text-gray-500">
@@ -59,7 +59,7 @@ const ReviewList = ({ reviewList }: reviewListProps) => {
                         </div>
                         <div className="flex gap-3 items-center text-base">
                           위생
-                          <div className="flex gap-1">
+                          <div className="flex gap-[2px]">
                             {showStar(item.rating.sanitation, 3)}
                           </div>
                           <span className="block text-[14px] text-gray-500">
@@ -67,7 +67,7 @@ const ReviewList = ({ reviewList }: reviewListProps) => {
                           </span>
                         </div>
                       </div>
-                      <div className="flex mb-2 items-end whitespace-nowrap text-gray-400 text-sm">
+                      <div className="flex mb-1 items-end whitespace-nowrap text-gray-400 text-sm">
                         {item.userid}님
                       </div>
                     </div>
