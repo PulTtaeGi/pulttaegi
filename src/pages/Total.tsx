@@ -4,7 +4,7 @@ import { firestore } from "../api/firebase";
 import BreadCrumb from "../components/common/BreadCrumb";
 import { useAppDispatch, useAppSelector } from "../store/hooks/configureStore.hook";
 import { deleteData } from "../store/modules/market";
-
+import trashimg from "../assets/icons/trash.png"
 function Second() {
   const favoritesCollectionRef = collection(firestore, "favorites");
   const [favorites, setFavorites] = useState<any[]>([]);
@@ -70,7 +70,7 @@ const Component = ({ docData }: { docData: any }) => {
           </div>
           <button
             onClick={onDeleteClick } >
-           <img src="../src/assets/icons/trash.png"
+           <img src={trashimg}
            alt="backButton"
            className="w-[22px] h-[22px]" />
             
