@@ -27,7 +27,7 @@ function Second() {
   console.log(favorites);
 
   return (
-    <div className="flex flex-col w-full mx-5 mt-12 mb-40">
+    <div className="flex flex-col w-full mt-12 mb-40">
       <BreadCrumb count={favorites.length}>즐겨찾기</BreadCrumb>
       
       {favorites.map((favorite) => {
@@ -58,14 +58,14 @@ const Component = ({ docData }: { docData: any }) => {
 
   console.log (docData)
   return (
-    <div className="text-black bg-white flex flex-col  mt-5">
+    <div className="text-black bg-white flex flex-col mx-5 mt-8">
       <div className="flex flex-col gap-4">
-        {docData.data.title}
+        
         <div className="flex justify-between w-80 items-center   ">
-          <div className="flex items-center   gap-4">
-            <img className="rounded-full" src={docData.data.img} width="80" />
+          <div className="flex items-center   gap-8">
+            <img className="rounded-full" src={docData.data.img} width="84" />
             <div>
-              맛집<div>대표 메뉴: {docData.data.menu[0].menuName}</div>
+               {docData.data.title}<div>대표 메뉴: {docData.data.menu[0].menuName}</div>
             </div>
           </div>
           <button
