@@ -24,6 +24,8 @@ function ReviewList({ list }: ReviewListProps) {
                 userid={review.userid}
                 id={review.id}
                 img={review.img}
+                taste={review.rating.taste}
+                sanitation={review.rating.sanitation}
               />
             );
           })}

@@ -19,6 +19,8 @@ interface ReviewItemProps {
   userid: string;
   id: number;
   img: string;
+  taste: number;
+  sanitation: number;
 }
 
 interface ratingProps {
@@ -43,6 +45,8 @@ export default function ReviewItem({
   userid,
   id,
   img,
+  taste,
+  sanitation,
 }: ReviewItemProps) {
   console.log(img);
   const [target, setTarget] = useState<reviewsProps>();
@@ -69,15 +73,18 @@ export default function ReviewItem({
         setTarget(review);
         return;
       }
+      const rate = review.rating;
+      console.log(rate);
+
+      return rate;
     });
   }, [reviews]);
-
   function deleteReview() {
     const reviewCollection = firestore.collection("review");
     target ? reviewCollection.doc(`${target.id}`).delete() : null;
     dispatch(deleteData(target));
   }
-
+  const tastewidth = (taste * 10) / 2;
   return (
     <div className="flex flex-col w-full">
       <div className="flex justify-between">
@@ -97,9 +104,35 @@ export default function ReviewItem({
           </div>
         )}
       </div>
-      <img src={img} className="w-[350px] h-[260px] mt-4 " />
+      <div
+        className="w-fullscreen overflow-hidden flex justify-center items-center"
+        style={{ maxHeight: "520px" }}
+      >
+        <img src={imgUrl} className="w-fullscreen h-auto mt-4 " />v
+      </div>
       <p className="mt-3 text-lg text-bold">{content}</p>
       {hashtag !== undefined && <HashTag list={hashtag}></HashTag>}
+      <div className="bg-slate-100 py-5 px-5 mt-5 rounded-xl text-center ">
+        <div className="flex justify-center items-center  ">
+          <p style={{ width: "20%" }}>맛</p>
+          <div style={{ width: "80%" }}>
+            <div
+              className="h-4 bg-green-4"
+              style={{ width: `${taste * 20}%` }}
+            ></div>
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center">
+          <p style={{ width: "20%" }}>위생</p>
+          <div style={{ width: "80%" }}>
+            <div
+              className="h-4 bg-green-3 "
+              style={{ width: `${sanitation * 20}%` }}
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
