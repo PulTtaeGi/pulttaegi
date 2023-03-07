@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-// 경로 재설정
-const DATA_LINK = "src/data/marketData.json";
+const DATA_LINK = "/market.json";
 
 export interface MenuType {
   menuName: string;
