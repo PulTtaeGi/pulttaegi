@@ -17,6 +17,8 @@ interface ReviewItemProps {
   content: string;
   hashtag: string[];
   userid: string;
+  id: number;
+  img: string;
 }
 
 interface ratingProps {
@@ -39,24 +41,27 @@ export default function ReviewItem({
   content,
   hashtag,
   userid,
+  id,
+  img,
 }: ReviewItemProps) {
+  console.log(img);
   const [target, setTarget] = useState<reviewsProps>();
-  const [imgUrl, setImgUrl] = useState<string>();
+  // const [imgUrl, setImgUrl] = useState<string>();
 
   const reviews = useAppSelector((state) => state.review);
   const dispatch = useAppDispatch();
 
   const currentId = localStorage.getItem("id");
   const storage = getStorage(app, "gs://pulttaegi-37599.appspot.com");
-  const currentImgRef = ref(storage, `images/${title}/${userid}`);
+  // const currentImgRef = ref(storage, `images/${title}/${userid}`);
 
-  useEffect(() => {
-    listAll(currentImgRef).then((response) => {
-      getDownloadURL(response.items[0]).then((url) => {
-        setImgUrl(url);
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   listAll(currentImgRef).then((response) => {
+  //     getDownloadURL(response.items[id - 1]).then((url) => {
+  //       setImgUrl(url);
+  //     });
+  //   });
+  // }, []);
 
   useEffect(() => {
     reviews.map((review) => {
@@ -92,7 +97,7 @@ export default function ReviewItem({
           </div>
         )}
       </div>
-      <img src={imgUrl} className="w-[350px] h-[260px] mt-4 " />
+      <img src={img} className="w-[350px] h-[260px] mt-4 " />
       <p className="mt-3 text-lg text-bold">{content}</p>
       {hashtag !== undefined && <HashTag list={hashtag}></HashTag>}
     </div>

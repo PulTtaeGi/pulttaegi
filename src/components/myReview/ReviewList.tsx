@@ -22,6 +22,8 @@ function ReviewList({ list }: ReviewListProps) {
                 content={review.content}
                 hashtag={review.hashtag}
                 userid={review.userid}
+                id={review.id}
+                img={review.img}
               />
             );
           })}
