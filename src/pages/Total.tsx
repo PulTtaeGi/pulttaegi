@@ -58,14 +58,14 @@ const Component = ({ docData }: { docData: any }) => {
 
   console.log (docData)
   return (
-    <div className="text-black bg-white flex flex-col mx-5 mt-8">
-      <div className="flex flex-col gap-4">
+    <div className="text-black bg-slate-100 py-5 px-5 mt-5  rounded-xl ">
+      <div className="flex flex-col gap-10">
         
         <div className="flex justify-between w-80 items-center   ">
-          <div className="flex items-center   gap-8">
-            <img className="rounded-full" src={docData.data.img} width="83" />
-            <div>
-               {docData.data.title}<div>대표 메뉴: {docData.data.menu[0].menuName}</div>
+          <div className="flex items-center   gap-2">
+            <img className="rounded-full  w-[80px] h-[80px]"  src={docData.data.img}   />
+            <div className="font-bold text-green-4">
+               {docData.data.title}<div className="font-sans text-black">대표 메뉴: {docData.data.menu[0].menuName}</div>
             </div>
           </div>
           <button

@@ -19,22 +19,10 @@ const RegionSearch = ({
   const [regionArray, setRegionArray] = useState(Array<RegionType>);
 
   // 키워드 검색이 끝나고 호출될 콜백 함수
-  const placesSearchCB = (
-    data: Array<RegionType>,
-    status: any,
-    pagination: any
-  ) => {
+  const placesSearchCB = (data: Array<RegionType>, status: any) => {
     if (status === window.kakao.maps.services.Status.OK) {
-      for (let i = 0; i < data.length; i++) {
-        regionArray.push({
-          address_name: data[i].address_name,
-          place_name: data[i].place_name,
-          lat: data[i].lat,
-          lng: data[i].lng,
-        });
-      }
+      setRegionArray([...data]);
     }
-    setRegionArray(regionArray);
   };
 
   const searchKeyword = useAppSelector((state) => state.search.keyword);
