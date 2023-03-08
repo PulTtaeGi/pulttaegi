@@ -19,12 +19,13 @@ interface ReviewItemProps {
   img: string;
   taste: number;
   sanitation: number;
+  wellbeing: number;
 }
 
 interface ratingProps {
   taste: number;
   sanitation: number;
-  welbeing: number;
+  wellbeing: number;
 }
 
 interface reviewsProps {
@@ -34,6 +35,7 @@ interface reviewsProps {
   title: string;
   userid: string;
   id: number;
+  wellbeing: number;
 }
 
 export default function ReviewItem({
@@ -96,11 +98,20 @@ export default function ReviewItem({
       <p className="mt-3 text-lg text-bold">{content}</p>
       {hashtag !== undefined && <HashTag list={hashtag}></HashTag>}
       <div className="bg-slate-100 py-5 px-5 mt-5 rounded-xl text-center ">
+        <div className="flex justify-center items-center">
+          <p style={{ width: "20%" }}>웰빙</p>
+          <div style={{ width: "80%" }}>
+            <div
+              className="h-4 bg-green-3 "
+              style={{ width: `${sanitation * 20}%` }}
+            ></div>
+          </div>
+        </div>
         <div className="flex justify-center items-center  ">
           <p style={{ width: "20%" }}>맛</p>
           <div style={{ width: "80%" }}>
             <div
-              className="h-4 bg-green-4"
+              className="h-4 bg-green-2"
               style={{ width: `${taste * 20}%` }}
             ></div>
           </div>
@@ -110,7 +121,7 @@ export default function ReviewItem({
           <p style={{ width: "20%" }}>위생</p>
           <div style={{ width: "80%" }}>
             <div
-              className="h-4 bg-green-3 "
+              className="h-4 bg-green-4"
               style={{ width: `${sanitation * 20}%` }}
             ></div>
           </div>
