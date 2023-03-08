@@ -8,18 +8,12 @@ interface reviewListProps {
 
 const ReviewList = ({ reviewList }: reviewListProps) => {
   const showStar = (num: number, color: number) => {
-    const result = [];
-    for (let i = 0; i < num; i++) {
-      result.push(
-        <img
-          key={i}
-          src={icon}
-          alt="score"
-          style={{ width: "16px", height: "16px" }}
-        ></img>
-      );
-    }
-    return result;
+    return (
+      <div
+        className={`bg-green-${color + 1} rounded-tr-md rounded-br-md`}
+        style={{ width: `${num * 16}px`, height: "16px" }}
+      ></div>
+    );
   };
 
   return (
