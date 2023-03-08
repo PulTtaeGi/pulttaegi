@@ -70,14 +70,15 @@ export const addMarker = (kakaomaps: any) => {
       `${markerData[i].title}` +
       `</div>` +
       `<div class="desc">` +
-      `<div class="h-2 bg-green-4 mb-1" style="width:${
+      `<div class="h-2 bg-green-3 mb-1" style="width:${
+        markerData[i].wellbeing * 20
+      }%"></div>` +
+      `<div class="h-2 bg-green-2 mb-1" style="width:${
         markerData[i].taste * 20
       }%"></div>` +
-      `<div class="h-2 bg-green-3 mb-1" style="width:${
+      `<div class="h-2 bg-green-4 mb-1" style="width:${
         markerData[i].clean * 20
       }%"></div>` +
-      `<p class=" text-green-4 font-black mb-1">${markerData[i].calorie} kal` +
-      `</p>` +
       `<a href="/detail/${markerData[i].title}" class="w-full block bg-amber-500 border-0 text-center text-white font-semibold btn flex py-1" style="min-height:2rem; height:2rem">자세히 보기` +
       `</a>` +
       `</div>`;
@@ -121,14 +122,15 @@ export const filterMarker = (categoryName: string, kakaomaps: object) => {
         `${markerData[i].title}` +
         `</div>` +
         `<div class="desc">` +
-        `<div class="h-2 bg-green-4 mb-1" style="width:${
+        `<div class="h-2 bg-green-3 mb-1" style="width:${
+          markerData[i].wellbeing * 20
+        }%"></div>` +
+        `<div class="h-2 bg-green-2 mb-1" style="width:${
           markerData[i].taste * 20
         }%"></div>` +
-        `<div class="h-2 bg-green-3 mb-1" style="width:${
+        `<div class="h-2 bg-green-4 mb-1" style="width:${
           markerData[i].clean * 20
         }%"></div>` +
-        `<p class=" text-green-4 font-black mb-1">${markerData[i].calorie} kal` +
-        `</p>` +
         `<a href="/detail/${markerData[i].title}" class="w-full block bg-amber-500 border-0 text-center text-white font-semibold btn flex py-1" style="min-height:2rem; height:2rem">자세히 보기` +
         `</a>` +
         `</div>`;
