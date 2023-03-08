@@ -111,7 +111,7 @@ export default function Signup() {
                 />
               </div>
               <span className="pl-6 tracking-tighter text-green-4">
-                영어, 숫자를 조합해주세요
+                
               </span>
             </div>
             <div className="flex flex-col gap-1">
@@ -126,7 +126,7 @@ export default function Signup() {
                 />
               </div>
               <span className="pl-6 tracking-tighter text-green-4">
-                비밀번호가 일치하지 않습니다.
+                
               </span>
             </div>
           </div>

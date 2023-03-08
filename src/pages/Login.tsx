@@ -36,19 +36,7 @@ export default function Login() {
       pwRef.current?.value !== undefined
     ) 
       
-    {
-      dispatch(
-        getUserInfo({
-          signupUserInfo: {
-            id: idRef.current?.value,
-            password: pwRef.current?.value,
-          },
-        })
-      );
-      localStorage.setItem("id", idRef.current?.value);
-      localStorage.setItem("password", pwRef.current?.value);
-      localStorage.setItem("isLogin", "true");
-    }
+    
 
     for (const doc of data.docs) {
       if(doc.data().id !== idRef.current?.value ||
@@ -61,6 +49,19 @@ export default function Login() {
         doc.data().id === idRef.current?.value &&
         doc.data().pw === pwRef.current?.value
       ) {
+        {
+          dispatch(
+            getUserInfo({
+              signupUserInfo: {
+                id: idRef.current?.value,
+                password: pwRef.current?.value,
+              },
+            })
+          );
+          localStorage.setItem("id", idRef.current?.value);
+          localStorage.setItem("password", pwRef.current?.value);
+          localStorage.setItem("isLogin", "true");
+        }
         navigate("/");
         return;
       }

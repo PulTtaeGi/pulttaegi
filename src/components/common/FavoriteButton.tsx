@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCallback, useRef } from "react";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { firestore } from "../../api/firebase";
@@ -15,14 +15,26 @@ interface marketProps{
 
 const FavoriteButton = (market:marketProps ) => {
   console.log(market);
-  // detail market 정보 있음 -> 이걸 받아아야됨 -> firestore 저장
   const navigate = useNavigate();
-  // const UNSTAR_URL = "../../src/assets/icons/star.png";
-  // const STAR_URL = "../../src/assets/icons/starActive.png";
 
+  useEffect(()=>{
+    const setflags = (async () => {
+      const favoriteRef = collection(firestore, "favorites");
+      const data = await getDocs(favoriteRef);
+  
+      for(const doc of data.docs){
+        if(doc.data().id === localStorage.id &&
+           doc.data().title === market.market.title ){
+             setFlag(true);
+           }
+      }
+    
+      }); 
+      setflags();
+  },[]);
+  
   const handleSignUp = useCallback(async () => {
     const favoriteRef = collection(firestore, "favorites");
-    
     const data = await getDocs(favoriteRef);
 
     
@@ -30,9 +42,13 @@ const FavoriteButton = (market:marketProps ) => {
       
       if(doc.data().id === localStorage.id &&
          doc.data().title === market.market.title )
-    {    setFlag((prev) => !prev);
-      // const [flag, setFlag] = useState(true)
-      alert("이미 등록된 즐겨찾기 입니다.")
+    {   
+      const ok = window.confirm("이미 등록된 즐겨찾기 입니다. 해제 하시겠습니까?");
+      if(ok) {
+        await firestore.doc(`favorites/${doc.id}`).delete();
+        setFlag(false);
+      }
+  
       
       return;
     }
@@ -67,6 +83,7 @@ const FavoriteButton = (market:marketProps ) => {
   
   return (
     
+
     <button onClick={handleSignUp}>
       <img
         className="block w-[30px] h-[30px]"
