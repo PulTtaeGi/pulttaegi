@@ -2,7 +2,7 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { firestore } from "../api/firebase";
 import { useNavigate } from "react-router";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/common/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
 
@@ -60,11 +60,8 @@ export default function Signup() {
     }
   }, []);
 
-  
-  
-  
-  const handleOnKeyPress = (e: { key: string; }) => {
-    if (e.key === 'Enter') {
+  const handleOnKeyPress = (e: { key: string }) => {
+    if (e.key === "Enter") {
       handleSignUp(); // Enter 입력이 되면 클릭 이벤트 실행
     }
   };
@@ -110,9 +107,7 @@ export default function Signup() {
                   placeholder="Password"
                 />
               </div>
-              <span className="pl-6 tracking-tighter text-green-4">
-                
-              </span>
+              <span className="pl-6 tracking-tighter text-green-4"></span>
             </div>
             <div className="flex flex-col gap-1">
               <div className="flex flex-row gap-3 text-xl">
@@ -122,12 +117,9 @@ export default function Signup() {
                   type="password"
                   placeholder="Password Check"
                   onKeyDown={handleOnKeyPress}
-                  
                 />
               </div>
-              <span className="pl-6 tracking-tighter text-green-4">
-                
-              </span>
+              <span className="pl-6 tracking-tighter text-green-4"></span>
             </div>
           </div>
           <div className="flex flex-row gap-8 text-xl w-80">
@@ -136,7 +128,6 @@ export default function Signup() {
             </PrimaryButton>
             <button
               onClick={handleSignUp}
-              
               className="w-full p-3 text-white bg-green-4 text-[20px] font-bold tracking-tight rounded-xl text-center whitespace-nowrap"
             >
               가입

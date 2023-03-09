@@ -59,7 +59,6 @@ export default function ReviewItem({
         return;
       }
       const rate = review.rating;
-      console.log(rate);
 
       return rate;
     });
@@ -97,8 +96,8 @@ export default function ReviewItem({
       </div>
       <p className="mt-3 text-lg text-bold">{content}</p>
       {hashtag !== undefined && <HashTag list={hashtag}></HashTag>}
-      <div className="bg-slate-100 py-5 px-5 mt-5 rounded-xl text-center ">
-        <div className="flex justify-center items-center">
+      <div className="bg-slate-100 py-5 px-5 mt-5 rounded-xl text-center font-black">
+        <div className="flex justify-center items-center rounded-t-2xl">
           <p style={{ width: "20%" }}>웰빙</p>
           <div style={{ width: "80%" }}>
             <div
@@ -107,7 +106,7 @@ export default function ReviewItem({
             ></div>
           </div>
         </div>
-        <div className="flex justify-center items-center  ">
+        <div className="flex justify-center items-center  rounded-t-2xl">
           <p style={{ width: "20%" }}>맛</p>
           <div style={{ width: "80%" }}>
             <div
@@ -117,7 +116,7 @@ export default function ReviewItem({
           </div>
         </div>
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center rounded-t-2xl">
           <p style={{ width: "20%" }}>위생</p>
           <div style={{ width: "80%" }}>
             <div

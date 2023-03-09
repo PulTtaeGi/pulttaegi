@@ -5,7 +5,7 @@ import MenuList from "../components/detail/MenuList";
 import MarketDes from "../components/detail/MarketDes";
 import RatingList from "../components/detail/RatingList";
 import ResultBox from "../components/common/ResultBox";
-import { MarketType, MenuType } from "../store/modules/market";
+import { MarketType, MenuType } from "../typings/marketType";
 import { useAppSelector } from "../store/hooks/configureStore.hook";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";

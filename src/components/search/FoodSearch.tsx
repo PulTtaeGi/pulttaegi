@@ -4,7 +4,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../store/hooks/configureStore.hook";
-import { MarketType } from "../../store/modules/market";
+import { MarketType } from "../../typings/marketType";
 import { setResultAction } from "../../store/modules/result";
 import FoodResult from "./FoodResult";
 import RecordList from "./RecordList";

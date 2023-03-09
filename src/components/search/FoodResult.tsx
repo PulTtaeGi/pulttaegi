@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MarketType } from "../../store/modules/market";
+import { MarketType } from "../../typings/marketType";
 
 const FoodResult = ({ market }: { market: MarketType }) => {
   return (
