@@ -1,6 +1,6 @@
 
-# Pulttaegi
- ![로고]()
+# Pulttaegi   <img src="https://user-images.githubusercontent.com/70708829/224061297-2a5341f3-1049-47f2-ad41-f401d2a666c0.png" alt="logo" width=20px/>
+
 <br />
 
 
@@ -20,11 +20,11 @@ https://pulttaegi.vercel.app/
 <p align="center">
   <img src="https://img.shields.io/badge/react-v18.2.0-9cf?logo=react" alt="react" />
   <img src="https://img.shields.io/badge/typescript-v4.9.3-blue?logo=typescript" alt="typescript"/>
-  <img src="https://img.shields.io/badge/React_Router-v6.8.0-CA4245?style=flat&logo=react-router&logoColor=CA4245" />
-  <img src="https://img.shields.io/badge/Redux_Toolkit-v8.0.5-764ABC?style=flat&logo=redux&logoColor=764ABC" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-v3.2.4-06B6D4?style=flat&logo=tailwind-css&logoColor=06B6D4" />
-  <img src="https://img.shields.io/badge/Vite-v4.1.0-646CFF?style=flat&logo=Vite&logoColor=646CFF" />
-  <img src="https://img.shields.io/badge/firebase-v9.17.1-FFCC33?style=flat&logo=firebase&logoColor=FFCC33" />
+  <img src="https://img.shields.io/badge/React_Router-v6.8.0-CA4245?style=flat&logo=react-router&logoColor=CA4245" alt="React_Router" />
+  <img src="https://img.shields.io/badge/Redux_Toolkit-v8.0.5-764ABC?style=flat&logo=redux&logoColor=764ABC" alt="Redux_Toolkit" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-v3.2.4-06B6D4?style=flat&logo=tailwind-css&logoColor=06B6D4" alt="Tailwind_CSS"/>
+  <img src="https://img.shields.io/badge/Vite-v4.1.0-646CFF?style=flat&logo=Vite&logoColor=646CFF" alt="Vite"/>
+  <img src="https://img.shields.io/badge/firebase-v9.17.1-FFCC33?style=flat&logo=firebase&logoColor=FFCC33" alt="firebase"/>
 </p>
 
 
@@ -61,24 +61,24 @@ https://pulttaegi.vercel.app/
 
 |                   메인화면                |                   검색화면 (지역검색)                   |                         검색화면 (음식검색)                          |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|  <img width="1339" alt="홈" src="https://user-images.githubusercontent.com/70708829/215030256-2190edee-ad34-4a0f-8d26-3777907aaad9.png"> | <img width="1339" alt="장르별" src="https://user-images.githubusercontent.com/70708829/215030382-4b249820-9734-4e0c-bce8-8cf136549760.png"> | <img width="1383" alt="플랫폼별" src="https://user-images.githubusercontent.com/70708829/216779624-e8843672-53b9-42d4-8325-9792133bb857.png">
+|  <img  alt="홈" src=""> | <img  alt="장르별" src="https://user-images.githubusercontent.com/70708829/224062563-a4a6fadc-6d73-4d66-a636-c2312e133b65.png"> | <img alt="플랫폼별" src="https://user-images.githubusercontent.com/70708829/224062678-42a27690-774b-4fb5-bbaa-2a4f18a0f806.png">
 
 
 |               검색 되었을 때 화면 (지역검색)                |                     검색 되었을 때 화면 (음식검색)                      |                       검색 목록 보기                     |   
 | :----------------------------------------------------------: | :----------------------------------------------------------: |  :----------------------------------------------------------: |
-| <img width="1383" alt="로그인 화면" src="https://user-images.githubusercontent.com/70708829/215031962-b4c7b4f7-4aea-4d89-b85d-a95bbab05325.png"> | <img width="1383" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/215032069-6d69c443-c1f8-4a4e-b4ec-f46550d9cc48.png">  | <img width="1383" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/215032069-6d69c443-c1f8-4a4e-b4ec-f46550d9cc48.png">  |
+| <img  alt="로그인 화면" src=""> | <img alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224062238-3f80ee01-3c08-4e14-a38c-fc634022ba6f.png">  | <img alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224062850-642afab0-ffbd-456f-ba4c-3d9ed3542c75.png">  |
 
 |                       맛집 상세보기                      |                       리뷰 작성하기                   |                       리뷰 수정하기                   |     
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img width="1377" alt="게시판" src="https://user-images.githubusercontent.com/70708829/215030835-71469d06-0ac9-42a8-bbd0-78734d99bac4.png"> |  <img width="1377" alt="게시글 상세" src="https://user-images.githubusercontent.com/70708829/215031117-dc5e81a1-6f7d-447d-974a-f95550575396.png">   | <img width="1383" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/215032069-6d69c443-c1f8-4a4e-b4ec-f46550d9cc48.png">  |
+| <img  alt="게시판" src="https://user-images.githubusercontent.com/70708829/224063128-2c8e3c24-4bbf-43f7-b8d5-96b568400dd4.png"> <img  alt="게시판" src="https://user-images.githubusercontent.com/70708829/224063350-8f178f57-c387-4ef8-8721-2cf87dcc4511.png">  |  <img  alt="게시글 상세" src="https://user-images.githubusercontent.com/70708829/215031117-dc5e81a1-6f7d-447d-974a-f95550575396.png">   | <img  alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/215032069-6d69c443-c1f8-4a4e-b4ec-f46550d9cc48.png">  |
 
 |                       마이 페이지 (비로그인)                 |             마이 페이지 (로그인)                    |                       내가 쓴 리뷰                   |        
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img width="1383" alt="게시글 작성" src="https://user-images.githubusercontent.com/70708829/215031553-b8af8657-d306-4951-aa00-3ab89ca4f6af.png">  |  <img width="1383" alt="게시글 수정" src="https://user-images.githubusercontent.com/70708829/215031582-92954815-5e84-45f7-be08-46ae46c48872.png">  | <img width="1383" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/215032069-6d69c443-c1f8-4a4e-b4ec-f46550d9cc48.png">  |
+| <img  alt="게시글 작성" src="">  |  <img  alt="게시글 수정" src="">  | <img  alt="회원가입 화면" src="">  |
 
 |                       회원가입 화면                 |             로그인 화면                   |              
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img width="1383" alt="게시글 작성" src="https://user-images.githubusercontent.com/70708829/215031553-b8af8657-d306-4951-aa00-3ab89ca4f6af.png">  |  <img width="1383" alt="게시글 수정" src="https://user-images.githubusercontent.com/70708829/215031582-92954815-5e84-45f7-be08-46ae46c48872.png">  | 
+| <img  alt="게시글 작성" src="">  |  <img alt="게시글 수정" src="">  | 
 </br>
 </br>
 
