@@ -8,7 +8,7 @@
 
 https://pulttaegi.vercel.app/
 
-**모바일 환경()에서 사용해주세요.**
+**모바일 환경(800px 이하)에서 사용해주세요.**
 
 
 ---
@@ -61,27 +61,27 @@ https://pulttaegi.vercel.app/
 
 |                   메인화면                |                   검색화면 (지역검색)                   |                         검색화면 (음식검색)                          |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|  <img  alt="홈" src=""> | <img  alt="장르별" src="https://user-images.githubusercontent.com/70708829/224062563-a4a6fadc-6d73-4d66-a636-c2312e133b65.png"> | <img alt="플랫폼별" src="https://user-images.githubusercontent.com/70708829/224062678-42a27690-774b-4fb5-bbaa-2a4f18a0f806.png">
+|  <img width="206"  alt="홈" src="https://user-images.githubusercontent.com/70708829/224070011-c5ab6388-5197-476d-871e-d4302d3792a5.png"> | <img width="206"  alt="장르별" src="https://user-images.githubusercontent.com/70708829/224062563-a4a6fadc-6d73-4d66-a636-c2312e133b65.png"> | <img width="206" alt="플랫폼별" src="https://user-images.githubusercontent.com/70708829/224062678-42a27690-774b-4fb5-bbaa-2a4f18a0f806.png">
 
 
 |               검색 되었을 때 화면 (지역검색)                |                     검색 되었을 때 화면 (음식검색)                      |                       검색 목록 보기                     |   
 | :----------------------------------------------------------: | :----------------------------------------------------------: |  :----------------------------------------------------------: |
-| <img  alt="로그인 화면" src=""> | <img alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224062238-3f80ee01-3c08-4e14-a38c-fc634022ba6f.png">  | <img alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224062850-642afab0-ffbd-456f-ba4c-3d9ed3542c75.png">  |
+| <img width="206" alt="로그인 화면" src="https://user-images.githubusercontent.com/70708829/224070378-cb640c68-c62d-4e74-adee-04607dde9fb5.png"> | <img width="206" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224062238-3f80ee01-3c08-4e14-a38c-fc634022ba6f.png">  | <img width="206" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224062850-642afab0-ffbd-456f-ba4c-3d9ed3542c75.png">  |
 
-|                       맛집 상세보기                      |                       리뷰 작성하기                   |                       리뷰 수정하기                   |     
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img  alt="게시판" src="https://user-images.githubusercontent.com/70708829/224063128-2c8e3c24-4bbf-43f7-b8d5-96b568400dd4.png"> <img  alt="게시판" src="https://user-images.githubusercontent.com/70708829/224063350-8f178f57-c387-4ef8-8721-2cf87dcc4511.png">  |  <img  alt="게시글 상세" src="https://user-images.githubusercontent.com/70708829/215031117-dc5e81a1-6f7d-447d-974a-f95550575396.png">   | <img  alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/215032069-6d69c443-c1f8-4a4e-b4ec-f46550d9cc48.png">  |
-
-|                       마이 페이지 (비로그인)                 |             마이 페이지 (로그인)                    |                       내가 쓴 리뷰                   |        
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img  alt="게시글 작성" src="">  |  <img  alt="게시글 수정" src="">  | <img  alt="회원가입 화면" src="">  |
-
-|                       회원가입 화면                 |             로그인 화면                   |              
+|                       맛집 상세보기                      |         |                
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img  alt="게시글 작성" src="">  |  <img alt="게시글 수정" src="">  | 
-</br>
-</br>
+| <img width="206" alt="게시판" src="https://user-images.githubusercontent.com/70708829/224063128-2c8e3c24-4bbf-43f7-b8d5-96b568400dd4.png"> |   <img  width="206" alt="게시판" src="https://user-images.githubusercontent.com/70708829/224063350-8f178f57-c387-4ef8-8721-2cf87dcc4511.png">  |  
 
+|                                     리뷰 작성하기                   |                       리뷰 수정하기                   |  내가 쓴 리뷰                   |          
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| <img width="206" alt="게시판" src="https://user-images.githubusercontent.com/70708829/224066128-103b2329-c199-4783-8c55-54bc5c749ce2.png">   |  <img   width="206" alt="게시글 상세" src="https://user-images.githubusercontent.com/70708829/224066036-5589ae15-add8-4cc4-96f4-74514b3a8925.png">   | <img width="206" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224065939-3d2bd1e7-913a-4e8e-952c-523c70a650eb.png">  |
+
+|                       마이 페이지 (비로그인)                 |             마이 페이지 (로그인)                    |                     회원가입 화면                 |             로그인 화면                   |  
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |:----------------------------------------------------------: |
+| <img width="206" alt="게시글 작성" src="https://user-images.githubusercontent.com/70708829/224066470-4ad2ba9a-3d47-47ba-83ad-458126ee6e5e.png">  |  <img width="206" alt="게시글 수정" src="https://user-images.githubusercontent.com/70708829/224066811-d18b66f4-84b9-4dbd-abec-633c7a79d49c.png">  | <img width="206" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224066695-c8183ae4-220c-449b-b739-13a8cbf3f13a.png">  | <img width="206" alt="게시글 수정" src="https://user-images.githubusercontent.com/70708829/224066616-ecb312f1-f6e6-4779-9f19-eb9a7a9d476a.png">  | 
+
+</br>
+</br>
 
 
 ## 📜 개요
