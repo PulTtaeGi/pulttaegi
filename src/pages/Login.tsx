@@ -15,8 +15,8 @@ const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 export default function Login() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const idRef = useRef<HTMLInputElement>(null);
-  const pwRef = useRef<HTMLInputElement>(null);
+  const idRef : any = useRef<HTMLInputElement>(null);
+  const pwRef : any = useRef<HTMLInputElement>(null);
 
   const handleLogin = useCallback(async () => {
     const usersCollectionRef = collection(firestore, "login");
