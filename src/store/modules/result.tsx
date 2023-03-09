@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MarketType } from "./market";
+import { MarketType } from "../../typings/marketType";
 
 const initialState: Array<MarketType> = [];
 

@@ -9,6 +9,20 @@ const TabBar = () => {
   useEffect(() => {
     setTabIndex(tabMenus[0].title);
   }, []);
+  const link = document.location.href;
+
+  useEffect(() => {
+    console.log(link);
+    if (link.includes("review")) {
+      console.log("두번째 링크 활성화");
+    } else if (link.includes("total")) {
+      console.log("세번째링크활성화");
+    } else if (link.includes("mypage")) {
+      console.log("네번째");
+    } else {
+      console.log("not exist Hello");
+    }
+  }, [link]);
   return (
     <TabBarWrap id="tabBar">
       <ul className="flex w-screen justify-center items-center">
@@ -18,7 +32,9 @@ const TabBar = () => {
               <Link
                 to={tab.url}
                 className="font-bold text-lg flex flex-col gap-1 "
-                onClick={() => setTabIndex(tab.title)}
+                onClick={() => {
+                  setTabIndex(tab.title);
+                }}
               >
                 <img
                   src={tabIndex === tab.title ? tab.img : tab.beforeImg}

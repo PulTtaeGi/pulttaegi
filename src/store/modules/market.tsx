@@ -1,24 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { MarketType } from "../../typings/marketType";
 const DATA_LINK = "/market.json";
-
-export interface MenuType {
-  menuName: string;
-  price: string;
-}
-export interface MarketType {
-  id: number;
-  title: string;
-  img: string;
-  address: string;
-  menu: Array<MenuType>;
-  lat: number;
-  lng: number;
-  category: string;
-  clean: number;
-  taste: number;
-  calorie: number;
-  isfavorite: boolean;
-}
 
 const initialState: MarketType[] = [];
 
@@ -46,9 +28,9 @@ export const marketSlice = createSlice({
       return { ...state, ...action.payload };
     },
 
-    deleteData : (state, action) => {
-      return state.filter((item) => item.id !== action.payload.id)
-  },
+    deleteData: (state, action) => {
+      return state.filter((item) => item.id !== action.payload.id);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchMarkets.fulfilled, (state, action) => {
@@ -59,4 +41,4 @@ export const marketSlice = createSlice({
 });
 
 export default marketSlice.reducer;
-export const { setData , deleteData} = marketSlice.actions;
+export const { setData, deleteData } = marketSlice.actions;
