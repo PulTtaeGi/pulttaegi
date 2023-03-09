@@ -1,4 +1,4 @@
-  import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
 import { firestore } from "../api/firebase";
@@ -31,41 +31,58 @@ export default function Login() {
       return;
     }
 
-    if (
-      idRef.current?.value !== undefined &&
-      pwRef.current?.value !== undefined
-    ) 
-      
+    //   if (
+    //   idRef.current?.value !== undefined &&
+    //   pwRef.current?.value !== undefined
+    // )   
     
+    const matchingUser = data.docs
+    .map((doc) => doc.data())
+    .filter((user) => user.id === idRef.current?.value && user.pw === pwRef.current?.value)[0];
 
-    for (const doc of data.docs) {
-      if(doc.data().id !== idRef.current?.value ||
-         doc.data().pw !== pwRef.current?.value){
-          alert("아이디와 비밀번호가 일치하지 않습니다.")
-          return;
-         }
-
-      if (
-        doc.data().id === idRef.current?.value &&
-        doc.data().pw === pwRef.current?.value
-      ) {
-        {
-          dispatch(
-            getUserInfo({
-              signupUserInfo: {
-                id: idRef.current?.value,
-                password: pwRef.current?.value,
-              },
-            })
-          );
-          localStorage.setItem("id", idRef.current?.value);
-          localStorage.setItem("password", pwRef.current?.value);
-          localStorage.setItem("isLogin", "true");
-        }
-        navigate("/");
-        return;
-      }
-    }
+  if (matchingUser) {
+    dispatch(
+      getUserInfo({
+        signupUserInfo: {
+          id: idRef.current?.value,
+          password: pwRef.current?.value,
+        },
+      })
+    );
+    localStorage.setItem("id", idRef.current?.value);
+    localStorage.setItem("password", pwRef.current?.value);
+    localStorage.setItem("isLogin", "true");
+    navigate("/");
+  } else {
+    alert("아이디와 비밀번호가 일치하지 않습니다.");
+  }
+    // for (const doc of data.docs) {
+    //   if(doc.data().id !== idRef.current?.value ||
+    //      doc.data().pw !== pwRef.current?.value){
+    //       alert("아이디와 비밀번호가 일치하지 않습니다.")
+    //       return;
+    //      }
+    //   if (
+    //     doc.data().id === idRef.current?.value &&
+    //     doc.data().pw === pwRef.current?.value
+    //   ) {
+    //     {
+    //       dispatch(
+    //         getUserInfo({
+    //           signupUserInfo: {
+    //             id: idRef.current?.value,
+    //             password: pwRef.current?.value,
+    //           },
+    //         })
+    //       );
+    //       localStorage.setItem("id", idRef.current?.value);
+    //       localStorage.setItem("password", pwRef.current?.value);
+    //       localStorage.setItem("isLogin", "true");
+    //     }
+    //     navigate("/");
+    //     return;
+    //   }
+    // }
   }, []);
 
   
