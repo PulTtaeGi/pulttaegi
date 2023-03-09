@@ -26,6 +26,7 @@ function ReviewList({ list }: ReviewListProps) {
                 img={review.img}
                 taste={review.rating.taste}
                 sanitation={review.rating.sanitation}
+                wellbeing={review.rating.wellbeing}
               />
             );
           })}

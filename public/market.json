@@ -7,6 +7,7 @@
     "lat": 37.555167,
     "lng": 126.970833,
     "calorie": 636,
+    "wellbeing": 5,
     "taste": 4,
     "clean": 3,
     "address": "서울특별시 용산구 한강대로 405",
@@ -35,6 +36,7 @@
     "calorie": 498,
     "taste": 2,
     "clean": 4,
+    "wellbeing": 4,
     "address": "서울특별시 강남구 강남대로 지하396",
     "menu": [
       {
@@ -61,6 +63,7 @@
     "calorie": 430,
     "taste": 3,
     "clean": 3,
+    "wellbeing": 3,
     "address": "경기도 고양시 일산동구 백석동 1329",
     "menu": [
       {
@@ -87,6 +90,7 @@
     "calorie": 439,
     "taste": 3,
     "clean": 2,
+    "wellbeing": 4,
     "address": "경기도 고양시 일산동구 백석동 1326",
     "menu": [
       {
@@ -113,6 +117,7 @@
     "calorie": 236,
     "taste": 2,
     "clean": 4,
+    "wellbeing": 2,
     "address": "경기도 고양시 일산동구 백석동 1321",
     "menu": [
       {
@@ -139,6 +144,7 @@
     "calorie": 232,
     "taste": 3,
     "clean": 4,
+    "wellbeing": 5,
     "address": "제주특별자치도 제주시 첨단로 241 디지털융합센터 디지털융합센터 207",
     "menu": [
       {
