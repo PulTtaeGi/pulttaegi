@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MarketType } from "../../store/modules/market";
+import { MarketType } from "../../typings/marketType";
 import FavoriteButton from "../common/FavoriteButton";
 
 const MarketDes = ({ market }: { market: MarketType }) => {

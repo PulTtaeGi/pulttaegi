@@ -21,15 +21,16 @@ declare global {
   }
 } // kakao 전역객체
 const Map = () => {
-  const adrlocation = useLocation();
-  const marketTitle = adrlocation.state?.marketTitle;
-  const marketAddress = adrlocation.state?.marketAddress;
+  const adrLocation = useLocation();
+  const marketTitle = adrLocation.state?.marketTitle;
+  const marketAddress = adrLocation.state?.marketAddress;
   const kakaomaps = useAppSelector((state) => state.kakaomap);
 
   const dispatch = useDispatch();
 
-  const location: any = Location();
-  const [map, setMap] = useState<any>({});
+  const location: object | any = Location();
+  const [map, setMap] = useState<object>({});
+  console.log(typeof location.latitude);
   useEffect(() => {
     if (!location) {
       return;

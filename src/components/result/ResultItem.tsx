@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { MarketType } from "../../store/modules/market";
+import { MarketType } from "../../typings/marketType";
 
 const ResultItem = ({ market }: { market: MarketType }) => {
   const [star, setStar] = useState(false);

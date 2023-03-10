@@ -5,8 +5,8 @@ interface mapObj {
 
 interface mapLat {
   location: {
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
   };
 }
 const initialState: any = {};
