@@ -1,4 +1,46 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import tw from "tailwind-styled-components";
+// import styled from "styled-components";
+// import { useEffect, useState } from "react";
+// import { tabMenus } from "../constants/tabItems";
+
+// const TabBar = () => {
+//   const [tabIndex, setTabIndex] = useState<string>();
+//   useEffect(() => {
+//     setTabIndex(tabMenus[0].title);
+//   }, []);
+//   return (
+//     <TabBarWrap id="tabBar">
+//       <ul className="flex w-screen justify-center items-center">
+//         {tabMenus.map((tab) => (//안에 변수 
+//           <li className="flex-1" key={tab.title}>
+//             {tab.url ? (
+//               <Link
+//                 to={tab.url}
+//                 className="font-bold text-lg flex flex-col gap-1 "
+//                 onClick={() => setTabIndex(tab.title)}
+//               >
+//                 <img
+//                   src={tabIndex === tab.title ? tab.img : tab.beforeImg}// 불들어오게 하는 코드
+//                   className="w-5/12 m-auto "
+//                   alt="map"
+//                 ></img>
+//                 <span>{tab.title}</span>
+//               </Link>
+//             ) : (
+//               <img
+//                 src={tabIndex === tab.title ? tab.img : tab.beforeImg}
+//                 className="w-7/12 m-auto "
+//                 alt="map"
+//               ></img>
+//             )}
+//           </li>
+//         ))}
+//       </ul>
+//     </TabBarWrap>
+//   );
+// };
+import { Link, useLocation } from "react-router-dom";
 import tw from "tailwind-styled-components";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
@@ -6,23 +48,17 @@ import { tabMenus } from "../constants/tabItems";
 
 const TabBar = () => {
   const [tabIndex, setTabIndex] = useState<string>();
-  useEffect(() => {
-    setTabIndex(tabMenus[0].title);
-  }, []);
-  const link = document.location.href;
+  const location = useLocation();
 
   useEffect(() => {
-    console.log(link);
-    if (link.includes("review")) {
-      console.log("두번째 링크 활성화");
-    } else if (link.includes("total")) {
-      console.log("세번째링크활성화");
-    } else if (link.includes("mypage")) {
-      console.log("네번째");
+    const currentTab = tabMenus.find((tab) => tab.url === location.pathname);
+    if (currentTab) {
+      setTabIndex(currentTab.title);
     } else {
-      console.log("not exist Hello");
+      setTabIndex(tabMenus[0].title);
     }
-  }, [link]);
+  }, [location.pathname]);
+
   return (
     <TabBarWrap id="tabBar">
       <ul className="flex w-screen justify-center items-center">
@@ -31,24 +67,22 @@ const TabBar = () => {
             {tab.url ? (
               <Link
                 to={tab.url}
-                className="font-bold text-lg flex flex-col gap-1 "
-                onClick={() => {
-                  setTabIndex(tab.title);
-                }}
+                className="font-bold text-lg flex flex-col gap-1"
+                onClick={() => setTabIndex(tab.title)}
               >
                 <img
                   src={tabIndex === tab.title ? tab.img : tab.beforeImg}
-                  className="w-5/12 m-auto "
+                  className="w-5/12 m-auto"
                   alt="map"
-                ></img>
+                />
                 <span>{tab.title}</span>
               </Link>
             ) : (
               <img
                 src={tabIndex === tab.title ? tab.img : tab.beforeImg}
-                className="w-7/12 m-auto "
+                className="w-7/12 m-auto"
                 alt="map"
-              ></img>
+              />
             )}
           </li>
         ))}

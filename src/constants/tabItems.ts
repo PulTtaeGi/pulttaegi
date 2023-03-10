@@ -24,7 +24,7 @@ export const tabMenus: ItabItem[] = [
   },
   {
     title: "리뷰보기",
-    url: "/review/total",
+    url: "/review/total", 
     img: reviewIcon,
     beforeImg: beforeReviewIcon,
   },
