@@ -1,4 +1,4 @@
-import PrimaryButton from "../PrimaryButton";
+import PrimaryButton from "../common/PrimaryButton";
 import { useState } from "react";
 
 interface ReviewWriteProps {
@@ -27,7 +27,9 @@ const ReviewWrite = ({ title }: ReviewWriteProps) => {
             리뷰 작성하기
           </div>
         </PrimaryButton>
-        <span className={`${isActive} text-align tracking-tight text-lg mx-auto`}>
+        <span
+          className={`${isActive} text-align tracking-tight text-lg mx-auto`}
+        >
           리뷰 작성은 로그인 후 이용 가능합니다.
         </span>
       </div>

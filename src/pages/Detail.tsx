@@ -5,14 +5,10 @@ import MenuList from "../components/detail/MenuList";
 import MarketDes from "../components/detail/MarketDes";
 import RatingList from "../components/detail/RatingList";
 import ResultBox from "../components/common/ResultBox";
-import { MarketType, MenuType } from "../store/modules/market";
+import { MarketType, MenuType } from "../typings/marketType";
 import { useAppSelector } from "../store/hooks/configureStore.hook";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { useCallback, useRef } from "react";
-import { addDoc, collection, getDocs } from "firebase/firestore";
-import { firestore } from "../api/firebase";
-import { useNavigate } from "react-router";
 
 export interface RatingProps {
   taste: number;
@@ -20,32 +16,20 @@ export interface RatingProps {
   calorie: number;
 }
 
+export interface ratingProp {
+  welbeing: number;
+  sanitation: number;
+  taste: number;
+}
+
 export interface targetReviewsType {
+  id: number;
   title: string;
   content: string;
   userid: string;
   hashtag: string[];
+  rating: ratingProp;
 }
-
-// export interface MenuProps{
-
-// }
-
-// const handleSignUp = useCallback(async () => {
-//   const favoriteRef = collection(firestore, "favorites");
-//   const navigate = useNavigate();
-//   try {
-//     await addDoc(favoriteRef, {
-//       // favoriteRef.current?.value,
-//     }).then(() => {
-//       alert("즐겨찾기 등록에 성공했어요");
-//       navigate("/total");
-//     });
-//   } catch (e) {
-//     alert("즐겨찾기에 등록 실패했어요");
-//     console.error(e);
-//   }
-// }, []);
 
 export default function Detail() {
   //URL 내 파라미터값 가져오기
@@ -54,7 +38,6 @@ export default function Detail() {
   //마켓 데이터 관련 변수
   const markets = useAppSelector((state) => state.market);
   const [market, setMarket] = useState<MarketType>();
-  const [rating, setRating] = useState<RatingProps>();
   const [menus, setMenus] = useState<MenuType[]>();
 
   //리뷰 데이터 관련 변수
@@ -71,11 +54,6 @@ export default function Detail() {
     Object.values(markets).filter((market) => {
       if (market.title === param.title) {
         setMarket(market);
-        setRating({
-          clean: market.clean,
-          taste: market.taste,
-          calorie: (market.calorie % 5) + 1,
-        });
         setMenus(market.menu);
       }
     });
@@ -89,9 +67,9 @@ export default function Detail() {
         {targetReviews && (
           <>
             <HashTagBar reviewList={targetReviews} />
+            <RatingList reviewList={targetReviews} />
           </>
         )}
-        {rating && <RatingList ratingList={rating} />}
         {menus && <MenuList menuList={menus} />}
         {targetReviews && <ReviewList reviewList={targetReviews} />}
         {param.title && <ReviewWrite title={param.title} />}

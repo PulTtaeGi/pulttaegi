@@ -1,32 +1,38 @@
 import ReviewItem from "./ReviewItem";
-import { useAppSelector } from "../../store/hooks/configureStore.hook";
 
 interface ReviewListProps {
-  list: any[]
+  list: any[];
 }
 
-function ReviewList({list} : ReviewListProps) {
+function ReviewList({ list }: ReviewListProps) {
+  const copyList = [];
+  for (let i = list.length - 1; i >= 0; i--) {
+    copyList.push(list[i]);
+  }
+
   return (
     <>
       <div className="text-black bg-white flex flex-col w-full gap-14 items-center mt-8">
-        {list !== undefined &&
-          list.map((review, index) => {
+        {copyList !== undefined &&
+          copyList.map((review, index) => {
             return (
-              <ReviewItem 
+              <ReviewItem
                 key={index}
                 title={review.title}
-                img={review.img}
                 content={review.content}
                 hashtag={review.hashtag}
                 userid={review.userid}
+                id={review.id}
+                img={review.img}
+                taste={review.rating.taste}
+                sanitation={review.rating.sanitation}
+                wellbeing={review.rating.wellbeing}
               />
-            )
-          })
-        }
+            );
+          })}
       </div>
     </>
   );
 }
 
 export default ReviewList;
-

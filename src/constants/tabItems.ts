@@ -8,7 +8,14 @@ import mapIcon from "../assets/icons/tabmap.png";
 import reviewIcon from "../assets/icons/tabreview.png";
 import starIcon from "../assets/icons/tabstar.png";
 
-export const tabMenus = [
+interface ItabItem {
+  title?: string;
+  url?: string;
+  img: string;
+  beforeImg: string;
+}
+
+export const tabMenus: ItabItem[] = [
   {
     title: "지도",
     url: "/",
@@ -22,8 +29,6 @@ export const tabMenus = [
     beforeImg: beforeReviewIcon,
   },
   {
-    title: "로고",
-    url: "",
     img: homeIcoR,
     beforeImg: homeIcoR,
   },

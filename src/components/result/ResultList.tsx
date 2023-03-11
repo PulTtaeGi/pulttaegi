@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
-import { MarketType } from "../../store/modules/market";
+import { MarketType } from "../../typings/marketType";
 import ResultItem from "./ResultItem";
 
 const ResultList = (): JSX.Element => {

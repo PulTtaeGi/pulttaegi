@@ -2,7 +2,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router";
 import { firestore } from "../api/firebase";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/common/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
 import { getUserInfo } from "../store/modules/signup";
@@ -15,8 +15,8 @@ const LOGO_URL = "../../src/assets/icons/logo-icon.png";
 export default function Login() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const idRef = useRef<HTMLInputElement>(null);
-  const pwRef = useRef<HTMLInputElement>(null);
+  const idRef : any = useRef<HTMLInputElement>(null);
+  const pwRef : any = useRef<HTMLInputElement>(null);
 
   const handleLogin = useCallback(async () => {
     const usersCollectionRef = collection(firestore, "login");
@@ -31,34 +31,70 @@ export default function Login() {
       return;
     }
 
-    if (
-      idRef.current?.value !== undefined &&
-      pwRef.current?.value !== undefined
-    ) {
-      dispatch(
-        getUserInfo({
-          signupUserInfo: {
-            id: idRef.current?.value,
-            password: pwRef.current?.value,
-          },
-        })
-      );
-      localStorage.setItem("id", idRef.current?.value);
-      localStorage.setItem("password", pwRef.current?.value);
-      localStorage.setItem("isLogin", "true");
-    }
+    //   if (
+    //   idRef.current?.value !== undefined &&
+    //   pwRef.current?.value !== undefined
+    // )   
+    
+    const matchingUser = data.docs
+    .map((doc) => doc.data())
+    .filter((user) => user.id === idRef.current?.value && user.pw === pwRef.current?.value)[0];
 
-    for (const doc of data.docs) {
-      if (
-        doc.data().id === idRef.current?.value &&
-        doc.data().pw === pwRef.current?.value
-      ) {
-        navigate("/");
-        return;
-      }
-    }
+  if (matchingUser) {
+    dispatch(
+      getUserInfo({
+        signupUserInfo: {
+          id: idRef.current?.value,
+          password: pwRef.current?.value,
+        },
+      })
+    );
+    localStorage.setItem("id", idRef.current?.value);
+    localStorage.setItem("password", pwRef.current?.value);
+    localStorage.setItem("isLogin", "true");
+    navigate("/");
+  } else {
+    alert("아이디와 비밀번호가 일치하지 않습니다.");
+  }
+    // for (const doc of data.docs) {
+    //   if(doc.data().id !== idRef.current?.value ||
+    //      doc.data().pw !== pwRef.current?.value){
+    //       alert("아이디와 비밀번호가 일치하지 않습니다.")
+    //       return;
+    //      }
+    //   if (
+    //     doc.data().id === idRef.current?.value &&
+    //     doc.data().pw === pwRef.current?.value
+    //   ) {
+    //     {
+    //       dispatch(
+    //         getUserInfo({
+    //           signupUserInfo: {
+    //             id: idRef.current?.value,
+    //             password: pwRef.current?.value,
+    //           },
+    //         })
+    //       );
+    //       localStorage.setItem("id", idRef.current?.value);
+    //       localStorage.setItem("password", pwRef.current?.value);
+    //       localStorage.setItem("isLogin", "true");
+    //     }
+    //     navigate("/");
+    //     return;
+    //   }
+    // }
   }, []);
 
+  
+  
+  
+  
+  const handleOnKeyPress = (e: { key: string; }) => {
+    if (e.key === 'Enter') {
+      handleLogin(); // Enter 입력이 되면 클릭 이벤트 실행
+    }
+  };
+  
   return (
     <>
       <Wrapper>
@@ -85,6 +121,7 @@ export default function Login() {
               ref={pwRef}
               type="password"
               placeholder="PW"
+              onKeyDown={handleOnKeyPress}
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -93,6 +130,7 @@ export default function Login() {
               onClick={handleLogin}
               type="submit"
               value="로그인"
+              
               className="w-80 p-3 text-white bg-green-4 text-[20px] font-bold tracking-tighter bg-gray-100 rounded-xl"
             >
               로그인

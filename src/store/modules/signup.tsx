@@ -3,6 +3,7 @@ import { SignupUserInfo } from "../../data/reduxTypes";
 
 interface SignupInterface {
   signupUserInfo: SignupUserInfo;
+  
 }
 
 const initialState: SignupInterface = {

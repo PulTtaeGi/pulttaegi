@@ -2,11 +2,11 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useCallback, useRef } from "react";
 import { firestore } from "../api/firebase";
 import { useNavigate } from "react-router";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/common/PrimaryButton";
 import Wrapper from "../layouts/Wrapper";
 import "../tailwind.css";
 
-const LOGO_URL = "../../src/assets/icons/main_logo.png";
+import LOGO_URL from "../../src/assets/icons/main_logo.png";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -60,6 +60,13 @@ export default function Signup() {
     }
   }, []);
 
+  const handleOnKeyPress = (e: { key: string }) => {
+    if (e.key === "Enter") {
+      handleSignUp(); // Enter 입력이 되면 클릭 이벤트 실행
+    }
+  };
+  // 인풋에 적용할 Enter 키 입력 함수
+
   return (
     <>
       <Wrapper>
@@ -100,9 +107,7 @@ export default function Signup() {
                   placeholder="Password"
                 />
               </div>
-              <span className="pl-6 tracking-tighter text-green-4">
-                영어, 숫자를 조합해주세요
-              </span>
+              <span className="pl-6 tracking-tighter text-green-4"></span>
             </div>
             <div className="flex flex-col gap-1">
               <div className="flex flex-row gap-3 text-xl">
@@ -111,11 +116,10 @@ export default function Signup() {
                   className="w-full pl-8 p-3 text-xl text-green-4 font-bold tracking-tighter bg-gray-100 placeholder-primary rounded-xl outline-0"
                   type="password"
                   placeholder="Password Check"
+                  onKeyDown={handleOnKeyPress}
                 />
               </div>
-              <span className="pl-6 tracking-tighter text-green-4">
-                비밀번호가 일치하지 않습니다.
-              </span>
+              <span className="pl-6 tracking-tighter text-green-4"></span>
             </div>
           </div>
           <div className="flex flex-row gap-8 text-xl w-80">

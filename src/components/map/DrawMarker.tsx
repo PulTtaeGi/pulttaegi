@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAppSelector } from "../../store/hooks/configureStore.hook";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import markerIcon from "../../assets/icons/marker_ico.png";
 // filter 시 사용될 배열
 const markersArr: any = [];
 const markerData: any = [];
@@ -31,8 +32,7 @@ export const DrawMarker = () => {
           markerData.push(el);
 
           // 이미지 변경
-          const imageSrc =
-              "http://localhost:5173/src/assets/icons/marker_ico.png", // 마커이미지의 주소
+          const imageSrc = markerIcon, // 마커이미지의 주소
             imageSize = new window.kakao.maps.Size(32, 55), // 마커이미지의 크기
             imageOption = { offset: new window.kakao.maps.Point(27, 69) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
@@ -70,14 +70,15 @@ export const addMarker = (kakaomaps: any) => {
       `${markerData[i].title}` +
       `</div>` +
       `<div class="desc">` +
-      `<div class="h-2 bg-green-4 mb-1" style="width:${
+      `<div class="h-2 bg-green-3 mb-1" style="width:${
+        markerData[i].wellbeing * 20
+      }%"></div>` +
+      `<div class="h-2 bg-green-2 mb-1" style="width:${
         markerData[i].taste * 20
       }%"></div>` +
-      `<div class="h-2 bg-green-3 mb-1" style="width:${
+      `<div class="h-2 bg-green-4 mb-1" style="width:${
         markerData[i].clean * 20
       }%"></div>` +
-      `<p class=" text-green-4 font-black mb-1">${markerData[i].calorie} kal` +
-      `</p>` +
       `<a href="/detail/${markerData[i].title}" class="w-full block bg-amber-500 border-0 text-center text-white font-semibold btn flex py-1" style="min-height:2rem; height:2rem">자세히 보기` +
       `</a>` +
       `</div>`;
@@ -121,14 +122,15 @@ export const filterMarker = (categoryName: string, kakaomaps: object) => {
         `${markerData[i].title}` +
         `</div>` +
         `<div class="desc">` +
-        `<div class="h-2 bg-green-4 mb-1" style="width:${
+        `<div class="h-2 bg-green-3 mb-1" style="width:${
+          markerData[i].wellbeing * 20
+        }%"></div>` +
+        `<div class="h-2 bg-green-2 mb-1" style="width:${
           markerData[i].taste * 20
         }%"></div>` +
-        `<div class="h-2 bg-green-3 mb-1" style="width:${
+        `<div class="h-2 bg-green-4 mb-1" style="width:${
           markerData[i].clean * 20
         }%"></div>` +
-        `<p class=" text-green-4 font-black mb-1">${markerData[i].calorie} kal` +
-        `</p>` +
         `<a href="/detail/${markerData[i].title}" class="w-full block bg-amber-500 border-0 text-center text-white font-semibold btn flex py-1" style="min-height:2rem; height:2rem">자세히 보기` +
         `</a>` +
         `</div>`;
