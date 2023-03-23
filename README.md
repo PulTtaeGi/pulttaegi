@@ -149,7 +149,7 @@ https://pulttaegi.vercel.app/
     <td>Name</td>
     <td>김규리</td>
     <td>김진원</td>
-    <td>박성준</td>
+    <td>배성준</td>
     <td>서유림</td>
   </tr>
   <tr>
@@ -197,7 +197,7 @@ https://pulttaegi.vercel.app/
 
 -
 
-#### 박성준
+#### 배성준
 - 로그인, 회원가입 기능
 
 - 즐겨찾기 기능
@@ -256,7 +256,7 @@ https://pulttaegi.vercel.app/
 <ul>
 <li><a href="" target="_blank">김규리</a></li>
 <li><a href="" target="_blank">서유림</a></li>
-<li><a href="" target="_blank">박성준</a></li>
+<li><a href="" target="_blank">배성준</a></li>
 <li><a href="" target="_blank">서유림</a></li>
 </ul>
 
