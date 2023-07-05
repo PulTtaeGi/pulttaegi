@@ -33,23 +33,23 @@ https://pulttaegi.vercel.app/
 ### ❓ 도입 이유
 
 - React18
-  - 뷰, 앵귤러 대비 리액트가 참고할 수 있는 레퍼런스가 많다. 
+  - 뷰, 앵귤러 대비 리액트가 참고할 수 있는 레퍼런스가 많아요. 
 - TypeScript 
   - 에러를 사전에 방지할 수 있어요.
   - 개발 생산성이 향상되어요.
 - Vite
   - 빠른 Vite를 선택하였어요. 
 - React-router-dom
-  - 새로추가된 loader, action 등 기능을 활용해 컴포넌트 구현부의 코드를 clean하게 만들기 위해 도입하였다.
+  - 새로추가된 loader, action 등 기능을 활용해 컴포넌트 구현부의 코드를 clean하게 만들기 위해 도입하였어요.
 - Redux-toolkit
-  - React 자체 라이브러리로 상태 저장소가 외부에서 처리되지 않는다.
-  - Redux 보다 가볍고 사용하기 쉽다. (비동기 처리를 위한 추가적인 라이브러리 설치가 필요없다.)
+  - React 자체 라이브러리로 상태 저장소가 외부에서 처리되지 않아요.
+  - Redux 보다 가볍고 사용하기 쉬워요. (비동기 처리를 위한 추가적인 라이브러리 설치가 필요 x)
   - Redux-Toolkit을 사용하여 효율적인 상태 관리가 가능해요.
 - Tailwind
   - 일관성 있는 디자인 시스템을 적용할 수 있어요.
 - Firebase
   - Front-end 개발자로만 이루어진 프로젝트이기 때문에 낮은 러닝커브로 서버 대체 가능하다는 장점이 있어요.
-  - Authentication, FireStore DB 제공한다.
+  - Authentication, FireStore DB 제공해요.
 
 ---
 
@@ -109,10 +109,10 @@ https://pulttaegi.vercel.app/
 
 ### 🎯 프로젝트 목표
 
-- React18, React-router-dom v6.4, Recoil, Emotion 등 프론트엔드 최신 라이브러리 사용 능력 향상
-- TypeScript 를 사용하여 코드의 가독성을 높이고 디버깅을 하기 편한 코드를 작성한다.
-- Firebase를 이용한 Serverless 프로젝트 경험 (OAuth, realtime database)
-- 협업 프로젝트를 통한 gitflow 이해
+- React18, React-router-dom v6.4, Recoil, Emotion 등 프론트엔드 최신 라이브러리 사용 능력을 향상시키자
+- TypeScript 를 사용하여 가독성이 높은 코드를 작성해보자
+- Firebase를 이용한 Serverless 프로젝트를 경험해보자
+- 협업 프로젝트를 통한 gitflow 이해하자
 
 
 
