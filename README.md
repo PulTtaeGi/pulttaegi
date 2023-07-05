@@ -154,7 +154,7 @@ https://pulttaegi.vercel.app/
   </tr>
   <tr>
     <td >e-mail</td>
-    <td ><a href="mailto:">Gmail</a></td>
+    <td ><a href="mailto:aliyah521@naver.com">Naver</a></td>
     <td ><a href="mailto:">Gmail</a></td>
     <td ><a href="mailto:">Gmail</a></td>
     <td ><a href="mailto:z_o__o@naver.com">Naver</a></td>
@@ -165,13 +165,6 @@ https://pulttaegi.vercel.app/
     <td><a href="https://github.com/rlawlsdnjs" target="_blank">rlawlsdnjs</a></td>
     <td><a href="https://github.com/seongjun3880" target="_blank">seongjun3880</a></td>
     <td><a href="https://github.com/ulimsss" target="_blank">ulimsss</a></td>
-  </tr>
-  <tr>
-    <td>Blog</td>
-    <td><a href="" target="_blank">@</a></td>
-    <td><a href="" target="_blank">@</a></td>
-    <td><a href="" target="_blank">@</a></td>
-    <td><a href="" target="_blank">@</a></td>
   </tr>
 </tbody>
 </table>
@@ -188,9 +181,9 @@ https://pulttaegi.vercel.app/
 - 공통 컴포넌트 구현
 
 #### 김규리
-- 리뷰 기능 
+- 리뷰 등록, 삭제, 수정 기능 
 
-- 음식 상세 페이지 ( 리뷰 )
+- 음식 상세 페이지 
 
 #### 김진원
 - 지도 현재위치 표시
@@ -205,7 +198,7 @@ https://pulttaegi.vercel.app/
 #### 서유림
 - 검색 기능
 
-- 음식 상세 페이지 ( 음식점 데이터 연결 )
+- 음식 상세 페이지
 
 ---
 
@@ -246,19 +239,6 @@ https://pulttaegi.vercel.app/
 
 <br />
 
-
-
-## 🍵 회고
-
-<br />
-
-<p>개인별 회고는 아래를 참고해주세요</p>
-<ul>
-<li><a href="" target="_blank">김규리</a></li>
-<li><a href="" target="_blank">서유림</a></li>
-<li><a href="" target="_blank">배성준</a></li>
-<li><a href="" target="_blank">서유림</a></li>
-</ul>
 
 
 
