@@ -10,11 +10,9 @@ https://pulttaegi.vercel.app/
 
 **모바일 환경(800px 이하)에서 사용해주세요.**
 
-
----
 <br />
 
-### 🔨 기술스택
+### 1. 기술스택 🔨
 <p align="center">
 </p>
 <p align="center">
@@ -27,10 +25,7 @@ https://pulttaegi.vercel.app/
   <img src="https://img.shields.io/badge/firebase-v9.17.1-FFCC33?style=flat&logo=firebase&logoColor=FFCC33" alt="firebase"/>
 </p>
 
-
-
-
-### ❓ 도입 이유
+### 2. 도입 이유 ❓
 
 - React18
   - 뷰, 앵귤러 대비 리액트가 참고할 수 있는 레퍼런스가 많아요. 
@@ -51,13 +46,15 @@ https://pulttaegi.vercel.app/
   - Front-end 개발자로만 이루어진 프로젝트이기 때문에 낮은 러닝커브로 서버 대체 가능하다는 장점이 있어요.
   - Authentication, FireStore DB 제공해요.
 
----
+<br />
+
+----
 
 <br />
 
+## 🚀 프로젝트 UI
 
-## 🚀 Demo
-
+<br />
 
 |                   메인화면                |                   검색화면 (지역검색)                   |                         검색화면 (음식검색)                          |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -80,19 +77,22 @@ https://pulttaegi.vercel.app/
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |:----------------------------------------------------------: |
 | <img width="206" alt="게시글 작성" src="https://user-images.githubusercontent.com/70708829/224066470-4ad2ba9a-3d47-47ba-83ad-458126ee6e5e.png">  |  <img width="206" alt="게시글 수정" src="https://user-images.githubusercontent.com/70708829/224066811-d18b66f4-84b9-4dbd-abec-633c7a79d49c.png">  | <img width="206" alt="회원가입 화면" src="https://user-images.githubusercontent.com/70708829/224066695-c8183ae4-220c-449b-b739-13a8cbf3f13a.png">  | <img width="206" alt="게시글 수정" src="https://user-images.githubusercontent.com/70708829/224066616-ecb312f1-f6e6-4779-9f19-eb9a7a9d476a.png">  | 
 
-</br>
-</br>
+<br />
+
+----
+
+<br />
 
 
 ## 📜 개요
 
-### 🌱 프로젝트 소개
+### 1. 프로젝트 소개 🌱
 
 현재 위치, 입력된 지역에 맞추어 웰빙 음식점을 추천 해드립니다.
 
 <br />
 
-### 🎞 기획 배경
+### 2. 기획 배경 🎞
 
 - 최근 들어 건강을 고려한 음식을 선호하는 트렌드가 소비자들 사이에서 일어나고 있다. 이에 따라 ‘건강 우선 고려’란 트렌드를 반영한 다양한 음식상품, 음식점이 늘어나는 추세이다.
 - ‘잘 먹고 잘 살기’를 지향하는 웰빙(well-being)이 하나의 문화코드로 자리잡고 있음에도 불구하고, 웰빙지향식을 판매하는 웰빙 음식점들에 대한 다양한 정보를 쉽게 찾기 힘들다.
@@ -100,7 +100,7 @@ https://pulttaegi.vercel.app/
 
 <br />
 
-### 🎯 프로젝트 목표
+### 3. 프로젝트 목표 🎯
 
 - React18, React-router-dom v6.4, Recoil, Emotion 등 프론트엔드 최신 라이브러리 사용 능력을 향상시키자
 - TypeScript 를 사용하여 가독성이 높은 코드를 작성해보자
@@ -110,23 +110,25 @@ https://pulttaegi.vercel.app/
 
 <br />
 
-### 💡 노션 링크
+### 4. 노션 링크 💡
 - <a href="https://www.notion.so/758fb5ce245c4fc3992062de48afcc87" target="_blank" text-decoration="none">📒Notion</a>
 
 
 <br />
 
+---
+
 <br />
 
 ## 📌 주요 기능
 
-### 🌊 프로세스 플로우
+### 1. 프로세스 플로우 🌊
 
 ![flow.png](https://user-images.githubusercontent.com/70708829/224048142-d699ae4c-d2e9-45c5-bed3-92c9de65fbca.png)
 
 <br />
 
-### ✨ 기능 소개
+### 2. 기능 소개 ✨
 
 | 기능명        | 내용                                                                                                                                                       |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -136,42 +138,8 @@ https://pulttaegi.vercel.app/
 | 즐겨찾기 기능   | 사용자는 음식점을 즐겨찾기에 추가, 삭제 할 수 있다.   
 | 로그인        | Firebase Authentication을 활용하여 회원가입, 로그인 기능을 제공한다.                                                                      |
 
----
 
-
-<br />
-
-### 📞 팀원 소개
-
-<table class="tg">
-<tbody>
-  <tr>
-    <td>Name</td>
-    <td>김규리</td>
-    <td>김진원</td>
-    <td>배성준</td>
-    <td>서유림</td>
-  </tr>
-  <tr>
-    <td >e-mail</td>
-    <td ><a href="mailto:aliyah521@naver.com">Naver</a></td>
-    <td ><a href="mailto:">Gmail</a></td>
-    <td ><a href="mailto:">Gmail</a></td>
-    <td ><a href="mailto:z_o__o@naver.com">Naver</a></td>
-  </tr>
-  <tr>
-    <td>Github</td>
-    <td><a href="https://github.com/rangggu" target="_blank">rangggu</a></td>
-    <td><a href="https://github.com/rlawlsdnjs" target="_blank">rlawlsdnjs</a></td>
-    <td><a href="https://github.com/seongjun3880" target="_blank">seongjun3880</a></td>
-    <td><a href="https://github.com/ulimsss" target="_blank">ulimsss</a></td>
-  </tr>
-</tbody>
-</table>
-
-<br />
-
-### 🛠️ 역할 분담
+### 3. 역할 분담 🛠️
 
 #### 공통
 
@@ -183,7 +151,9 @@ https://pulttaegi.vercel.app/
 #### 김규리
 - 리뷰 등록, 삭제, 수정 기능 
 
-- 음식 상세 페이지 
+- 음식 상세 페이지
+
+- 마이 페이지
 
 #### 김진원
 - 지도 현재위치 표시
@@ -200,11 +170,15 @@ https://pulttaegi.vercel.app/
 
 - 음식 상세 페이지
 
+<br />
+
 ---
+
+<br />
 
 ## 🏛️ 아키텍처
 
-### 📂 폴더구조
+### 폴더구조 📂
 
 ```
 📦 src
@@ -238,6 +212,38 @@ https://pulttaegi.vercel.app/
 ```
 
 <br />
+
+---
+
+<br />
+
+## 📞 팀원 소개
+
+<table class="tg">
+<tbody>
+  <tr>
+    <td>Name</td>
+    <td>김규리</td>
+    <td>김진원</td>
+    <td>배성준</td>
+    <td>서유림</td>
+  </tr>
+  <tr>
+    <td >e-mail</td>
+    <td ><a href="mailto:aliyah521@naver.com">Naver</a></td>
+    <td ><a href="mailto:">Gmail</a></td>
+    <td ><a href="mailto:">Gmail</a></td>
+    <td ><a href="mailto:z_o__o@naver.com">Naver</a></td>
+  </tr>
+  <tr>
+    <td>Github</td>
+    <td><a href="https://github.com/rangggu" target="_blank">rangggu</a></td>
+    <td><a href="https://github.com/rlawlsdnjs" target="_blank">rlawlsdnjs</a></td>
+    <td><a href="https://github.com/seongjun3880" target="_blank">seongjun3880</a></td>
+    <td><a href="https://github.com/ulimsss" target="_blank">ulimsss</a></td>
+  </tr>
+</tbody>
+</table>
 
 
 
