@@ -100,13 +100,6 @@ https://pulttaegi.vercel.app/
 
 <br />
 
-### 💡 프로젝트 기획
-
--  <a href="https://www.notion.so/758fb5ce245c4fc3992062de48afcc87" target="_blank">노션</a>
-
-
-<br />
-
 ### 🎯 프로젝트 목표
 
 - React18, React-router-dom v6.4, Recoil, Emotion 등 프론트엔드 최신 라이브러리 사용 능력을 향상시키자
@@ -115,6 +108,13 @@ https://pulttaegi.vercel.app/
 - 협업 프로젝트를 통한 gitflow 이해하자
 
 
+<br />
+
+### 💡 노션 링크
+- <a href="https://www.notion.so/758fb5ce245c4fc3992062de48afcc87" target="_blank" text-decoration="none">📒Notion</a>
+
+
+<br />
 
 <br />
 
