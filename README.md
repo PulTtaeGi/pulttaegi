@@ -4,13 +4,7 @@
 <br />
 
 
-## 📬 배포 주소
-
-https://pulttaegi.vercel.app/
-
-**모바일 환경(800px 이하)에서 사용해주세요.**
-
-<br />
+## 주요 기술 내용
 
 ### 1. 기술스택 🔨
 <p align="center">
@@ -113,6 +107,14 @@ https://pulttaegi.vercel.app/
 ### 4. 노션 링크 💡
 - <a href="https://www.notion.so/758fb5ce245c4fc3992062de48afcc87" target="_blank" text-decoration="none">📒Notion</a>
 
+
+<br />
+
+### 5. 배포주소 📬
+
+https://pulttaegi.vercel.app/
+
+**모바일 환경(800px 이하)에서 사용해주세요.**
 
 <br />
 
