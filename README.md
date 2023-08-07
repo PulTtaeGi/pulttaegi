@@ -16,7 +16,7 @@
 
 ### 3. 프로젝트 목표 🎯
 
-- React18, React-router-dom v6.4, Recoil, Emotion 등 프론트엔드 최신 라이브러리 사용 능력을 향상시키자
+- React18, React-router-dom, Redux 등 프론트엔드 최신 라이브러리 사용 능력을 향상시키자
 - TypeScript 를 사용하여 가독성이 높은 코드를 작성해보자
 - Firebase를 이용한 Serverless 프로젝트를 경험해보자
 - 협업 프로젝트를 통한 gitflow 이해하자
@@ -24,13 +24,7 @@
 
 <br />
 
-### 4. 노션 링크 💡
-- <a href="https://www.notion.so/758fb5ce245c4fc3992062de48afcc87" target="_blank" text-decoration="none">📒Notion</a>
-
-
-<br />
-
-### 5. 배포주소 📬
+### 4. 배포주소 📬
 
 https://pulttaegi.vercel.app/
 
@@ -92,11 +86,13 @@ https://pulttaegi.vercel.app/
 - 공통 컴포넌트 구현
 
 #### 김규리
-- 리뷰 등록, 삭제, 수정 기능 
+- 리뷰 등록, 삭제, 수정 페이지 및 기능 
 
 - 음식 상세 페이지
 
 - 마이 페이지
+
+- 내가 쓴 리뷰 페이지
 
 #### 김진원
 - 지도 현재위치 표시
@@ -142,7 +138,7 @@ https://pulttaegi.vercel.app/
 - Vite
   - 빠른 Vite를 선택하였어요. 
 - React-router-dom
-  - 새로추가된 loader, action 등 기능을 활용해 컴포넌트 구현부의 코드를 clean하게 만들기 위해 도입하였어요.
+  - 컴포넌트 구현부의 코드를 clean하게 만들기 위해 도입하였어요.
 - Redux-toolkit
   - React 자체 라이브러리로 상태 저장소가 외부에서 처리되지 않아요.
   - Redux 보다 가볍고 사용하기 쉬워요. (비동기 처리를 위한 추가적인 라이브러리 설치가 필요 x)
@@ -151,7 +147,7 @@ https://pulttaegi.vercel.app/
   - 일관성 있는 디자인 시스템을 적용할 수 있어요.
 - Firebase
   - Front-end 개발자로만 이루어진 프로젝트이기 때문에 낮은 러닝커브로 서버 대체 가능하다는 장점이 있어요.
-  - Authentication, FireStore DB 제공해요.
+  - Authentication, FireStore DB, Storage를 제공해요.
 
 <br />
 
