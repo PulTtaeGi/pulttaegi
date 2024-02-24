@@ -31,27 +31,25 @@
 //         </div>
 //     )
 // }
-
-import React, { useEffect } from "react";
-import { GoogleLogin} from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Fragment } from "react";
 
 const GoogleLoginButton = () => {
-
   return (
-    <React.Fragment>
-    <GoogleOAuthProvider clientId='1020846277366-1u2vmslore81tro89olj882rg0mh3ksu.apps.googleusercontent.com'
-                        >
-    <GoogleLogin
-  onSuccess={credentialResponse => {
-    console.log(credentialResponse);
-  }}
-  onError={() => {
-    console.log('Login Failed');
-  }}
-/>
-    </GoogleOAuthProvider>
-     </React.Fragment>
+    <Fragment>
+      <GoogleOAuthProvider
+        clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID} >
+        <GoogleLogin
+          onSuccess={(credentialResponse) => {
+            console.log(credentialResponse);
+          }}
+          onError={() => {
+            console.error("Failed Login..");
+          }}
+        />
+      </ GoogleOAuthProvider>
+    </Fragment >
   );
 };
 
